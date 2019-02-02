@@ -50,3 +50,9 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# FMOD
+Unity\ Project/Assets/FMODStudioCache.asset
+Unity\ Project/Assets/StreamingAssets/*.bank
+Unity\ Project/fmod.log
+Unity\ Project/fmod_editor.log
+
