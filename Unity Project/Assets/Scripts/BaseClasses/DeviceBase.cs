@@ -46,7 +46,13 @@ public class DeviceBase : MonoBehaviour
         var powered = !batteryNotRequired && this.battery && this.battery.Consume(delta, powerConsumptionPerSecond * delta);
         var piped = !pipesNotRequired && cradleNetwork.isConnected() && cradleNetwork.ApplyHeat(heatOutputPerSecond * delta);
         return powered && piped;
-    } 
+    }
+
+    public void DeactivateDevice()
+    {
+        if (this.DeviceActivated == null) return;
+        this.DeviceActivated(this, null);
+    }
 
     public void AttachBattery(EnergyItemBase aBattery)
     {
@@ -54,7 +60,7 @@ public class DeviceBase : MonoBehaviour
         if (this.CanCycle())
         {
             this.isActive = true;
-            this.DeviceActivated(this, null);
+            DeactivateDevice();
         }
     }
 
@@ -62,7 +68,7 @@ public class DeviceBase : MonoBehaviour
     {
         this.battery = null;
         this.isActive = false;
-        this.DeviceDeactivated(this, null);
+        DeactivateDevice();
     }
 
     public bool CanCycle()
@@ -80,7 +86,7 @@ public class DeviceBase : MonoBehaviour
         {
             if (!this.isActive)
             {
-                this.DeviceActivated(this, null);
+                DeactivateDevice();
             }
             timeActiveInSeconds += delta;
         }
@@ -88,7 +94,7 @@ public class DeviceBase : MonoBehaviour
         {
             if (this.isActive)
             {
-                this.DeviceDeactivated(this, null);
+                DeactivateDevice();
             }
         }
 
