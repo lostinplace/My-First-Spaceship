@@ -6,32 +6,26 @@ using UnityEngine;
 public partial class Pipe : Lockable, Handleable.HandleableItem
 {
     protected bool isBeingHeld = false;
-    public Cradle currentCradle, potentailCradle;
+    public Cradle currentCradle, potentialCradle;
 
     public bool IsBeingHeld { get => isBeingHeld; }
-
-
 
     public void OnPickup()
     {
         Unlock();
         isBeingHeld = true;
-        if (currentCradle != null) {
-            currentCradle.isOccupied = false;
-            currentCradle = null;
-        }
+        if (currentCradle) currentCradle.DetachPipe();
+
+        this.currentCradle = null;
     }
 
     public void OnDrop()
     {
+        Debug.Log("pipe dropped");
         isBeingHeld = false;
-        if (potentailCradle != null)
+        if (potentialCradle != null)
         {
-            Collider trigger = gameObject.GetComponent<Collider>();
-            if (trigger != null)
-            {
-                potentailCradle.Trigger(trigger);
-            }
+            potentialCradle.ProcessCollision(this);
         }
     }
 

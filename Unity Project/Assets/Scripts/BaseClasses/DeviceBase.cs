@@ -20,7 +20,7 @@ public class DeviceBase : MonoBehaviour
     public bool hasItem = false;
 
 
-    public EnergyItemBase battery;
+    public Battery battery;
     public CradleNetwork cradleNetwork;
 
     public bool pipesNotRequired = true;
@@ -51,10 +51,16 @@ public class DeviceBase : MonoBehaviour
     public void DeactivateDevice()
     {
         if (this.DeviceActivated == null) return;
-        this.DeviceActivated(this, null);
+        this.DeviceDeactivated(this, null);
     }
 
-    public void AttachBattery(EnergyItemBase aBattery)
+    public void ProduceItem()
+    {
+        if (ItemProduced == null) return;
+        ItemProduced(this, null);
+    }
+
+    public void AttachBattery(Battery aBattery)
     {
         this.battery = aBattery;
         if (this.CanCycle())
@@ -103,7 +109,7 @@ public class DeviceBase : MonoBehaviour
             this.productionTime += delta;
             if (this.productionTime >= productionTimeRequired)
             {
-                ItemProduced(this, null);
+                ProduceItem();
                 this.hasItem = true;
                 this.productionTime = 0;
             }
