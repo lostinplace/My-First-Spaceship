@@ -1,0 +1,16 @@
+{
+    "name": "SpaceshipLogic",
+    "references": [
+        "SteamVR",
+        "SteamVR_Editor",
+        "SteamVR_Input_Editor"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}

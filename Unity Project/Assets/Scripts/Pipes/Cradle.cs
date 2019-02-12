@@ -4,65 +4,67 @@ using UnityEngine;
 
 
 /*Stationary part of the ship that other pipes plug into.*/
-public class Cradle : Orientable
+public partial class Cradle : Orientable
 {
-    public bool isOccupied = false;
+    
     private void OnTriggerEnter(Collider other) {
-        Trigger(other);
+        Debug.Log("cradle trigger entered");
+        Pipe tmpPipe = other.gameObject.GetComponent<Pipe>();
+        ProcessCollision(tmpPipe);
     }
 
-    public void Trigger( Collider other )
+    public bool startWithPipe = true;
+
+    void Start()
     {
-        Pipe[] pipes = other.gameObject.GetComponents<Pipe>();
-        Pipe pipe = null;
-        if (pipes.Length > 0 && isOccupied == false )
+         
+        if (startWithPipe)
         {
-            pipe = pipes[0];
-            if (pipe.IsBeingHeld != true)
-            {
-                isOccupied = true;
-                pipe.currentCradle = this;
-                pipe.Lock();
-                pipe.transform.position = transform.TransformPoint(origin);
-                pipe.transform.Translate(pipe.transform.TransformVector(pipe.origin));
-                pipe.transform.rotation = transform.rotation * direction * pipe.direction;
-            }
-            else
-                pipe.potentailCradle = this;
+            var prefab = Resources.Load("RuntimePipe");
+            var obj = (GameObject)Instantiate(prefab);
+            var myPipe = obj.GetComponent<Pipe>();
+            AttachPipe(myPipe);
         }
     }
+
+    public void ProcessCollision( Pipe tmpPipe )
+    {
+        
+        if (!tmpPipe) return;
+        if (!tmpPipe.IsBeingHeld && !connectedPipe)
+        {
+            AttachPipe(tmpPipe);
+        }
+        else
+        {
+            tmpPipe.potentialCradle = this;
+        }
+    }
+
+    public void AttachPipe(Pipe aPipe)
+    {
+        if(!connectPipe(aPipe)) return;
+
+        aPipe.currentCradle = this;
+        aPipe.Lock();
+
+        var pipeAreaTransform = this.gameObject.GetComponentInChildren<Transform>().Find("PipeArea");
+        var capsuleCollider = this.gameObject.GetComponent<CapsuleCollider>();
+
+        aPipe.transform.SetPositionAndRotation(pipeAreaTransform.position, pipeAreaTransform.rotation);        
+    }
+
+    public void DetachPipe()
+    {
+        connectedPipe = null;
+    }
+
     private void OnTriggerExit(Collider other)
     {
-        Pipe[] pipes = other.gameObject.GetComponents<Pipe>();
-        if (pipes.Length > 0 )
-            pipes[0].potentailCradle = null;
+        Debug.Log("cradle trigger exit");
+        Pipe tmpPipe = other.gameObject.GetComponent<Pipe>();
+        if (!tmpPipe) return;
+        tmpPipe.potentialCradle = null;
     }
-  public Pipe connectedPipe;
-
-  public bool connectPipe(Pipe aPipe)
-  {
-    if (this.connectedPipe != null)
-      return false;
-
-    this.connectedPipe = aPipe;
-    return true;
-  }
-
-  public bool ApplyHeat (float heat){
-    return this.connectedPipe && this.connectedPipe.ApplyHeat(heat);
-  }
-
-  public bool isConnected()
-  {
-    return this.connectedPipe && connectedPipe.integrityState != Pipe.PipeIntegrityState.BAD;
-  }
-
-  public Pipe disconnectPipe(Pipe aPipe)
-  {
-    if (this.connectedPipe == null)
-      return null;
-    Pipe tmpPipe = this.connectedPipe;
-    this.connectedPipe = null;
-    return tmpPipe;
-  }
+    
 }
