@@ -31,12 +31,23 @@ public class FMODEmitter : MonoBehaviour
         this.isPlaying = this.PlaybackState != FMOD.Studio.PLAYBACK_STATE.STOPPED;
     }
 
+    protected void SetOffline()
+    {
+        this.Emitter.setParameterValue("is_offline", 1);
+    }
+
+    protected void SetOnline()
+    {
+        this.Emitter.setParameterValue("is_offline", 0);
+    }
+
     protected void StartEmitter()
     {
         this.Emitter = FMODUnity.RuntimeManager.CreateInstance(EmitterEvent);
         this.Emitter.setParameterValue("is_offline", this.IsOffline ? 1 : 0);
         this.Emitter.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
         this.Emitter.start();
+        this.Emitter.release();
     }
 
     protected void KillEmitter()
@@ -44,7 +55,6 @@ public class FMODEmitter : MonoBehaviour
         if (this.isPlaying)
         {
             Emitter.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-            Emitter.release();
         }
     }
 }
