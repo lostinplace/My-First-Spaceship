@@ -29,21 +29,19 @@ public partial class Cradle : Orientable
 
     public void ProcessCollision( Pipe tmpPipe )
     {
-        
-        if (!tmpPipe) return;
-        if (!tmpPipe.IsBeingHeld && !connectedPipe)
+        if (tmpPipe != null)
         {
-            AttachPipe(tmpPipe);
-        }
-        else
-        {
-            tmpPipe.potentialCradle = this;
+            if (!tmpPipe.IsBeingHeld && !connectedPipe)
+                AttachPipe(tmpPipe);
+            else
+                tmpPipe.potentialCradle = this;
         }
     }
 
     public void AttachPipe(Pipe aPipe)
     {
-        if(!connectPipe(aPipe)) return;
+        if(!connectPipe(aPipe))
+            return;
 
         aPipe.currentCradle = this;
         aPipe.Lock();
@@ -54,8 +52,7 @@ public partial class Cradle : Orientable
         aPipe.transform.SetPositionAndRotation(pipeAreaTransform.position, pipeAreaTransform.rotation);        
     }
 
-    public void DetachPipe()
-    {
+    public void DetachPipe() {
         connectedPipe = null;
     }
 
@@ -63,8 +60,8 @@ public partial class Cradle : Orientable
     {
         Debug.Log("cradle trigger exit");
         Pipe tmpPipe = other.gameObject.GetComponent<Pipe>();
-        if (!tmpPipe) return;
-        tmpPipe.potentialCradle = null;
+        if (tmpPipe)
+            tmpPipe.potentialCradle = null;
     }
     
 }

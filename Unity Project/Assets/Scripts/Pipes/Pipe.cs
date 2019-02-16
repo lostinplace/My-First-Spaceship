@@ -14,9 +14,10 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
     {
         Unlock();
         isBeingHeld = true;
-        if (currentCradle) currentCradle.DetachPipe();
-
-        this.currentCradle = null;
+        if (currentCradle != null) {
+            currentCradle.DetachPipe();
+            currentCradle = null;
+        }
     }
 
     public void OnDrop()
@@ -24,9 +25,7 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
         Debug.Log("pipe dropped");
         isBeingHeld = false;
         if (potentialCradle != null)
-        {
             potentialCradle.ProcessCollision(this);
-        }
     }
 
     public GameObject GetGameObject() {
