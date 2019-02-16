@@ -61,9 +61,9 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
     var heatEmission = CalculateHeatEmission();
     renderer.material.SetColor("_EmissionColor", new Color(heatEmission, 0, 0));
 
-    Debug.Log($"pipe heat: {this.currentHeat}");
+    /*Debug.Log($"pipe heat: {this.currentHeat}");
     Debug.Log($"pipe heatemission: {heatEmission}");
-    Debug.Log($"pipe integrity: {this.currentIntegrity}");
+    Debug.Log($"pipe integrity: {this.currentIntegrity}");*/
   }
 
   float CalculateHeatEmission()

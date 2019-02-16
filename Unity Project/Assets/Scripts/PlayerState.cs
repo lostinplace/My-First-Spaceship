@@ -12,7 +12,9 @@ public class PlayerState : MonoBehaviour
 
     // -------------------- HUNGER --------------------
     [SerializeField]
-    private float hungerBurnDown = 90f;
+    public float unburntHungerMax = 90f;
+
+    private float hungerBurnDown;
 
     private float curHungerBurnDown;
 
@@ -20,7 +22,7 @@ public class PlayerState : MonoBehaviour
     private float maxHungerTime = 30f;
 
     private float curHungerTime;
-
+    
     // ---------------------- AIR ---------------------
     [SerializeField]
     private float maxAirlessTime = 60f;
@@ -37,8 +39,7 @@ public class PlayerState : MonoBehaviour
     // -------------------- ENGINE --------------------
     [SerializeField]
     private float maxEngineOffTime = 120f;
-
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -80,23 +81,21 @@ public class PlayerState : MonoBehaviour
        air.DeviceDeactivated -= Air_DeviceDeactivated;
     }
 
+    void Awake() {
+        curHungerBurnDown = unburntHungerMax;
+    }
+    
     // Update is called once per frame
     void Update()
     {
         if (curHungerBurnDown > 0)
-        {
             curHungerBurnDown -= Time.deltaTime;
-        }
         else
         {
             if (curHungerTime < maxHungerTime)
-            {
                 curHungerTime += Time.deltaTime;
-            }
             else
-            {
                 TriggerEndgame(false, "If you ignore the munchies for too long, it gets deadly.");
-            }
         }
 
         if (isAirOn)
@@ -114,7 +113,9 @@ public class PlayerState : MonoBehaviour
                 TriggerEndgame(false, "So it turns out you need air to not die.");
             }
         }
-
+        /*TODO: (From Chris G.) This needs to be fixed so that the player doesent find out they loose because
+         the engine was not online for enough time at the end. Or so that when the engine 
+         has been off for too long it doesent keep going.*/
         curTripTime += Time.deltaTime;
         if (curTripTime >= totalTripTime)
         {
@@ -136,4 +137,37 @@ public class PlayerState : MonoBehaviour
         // TODO: DO THIS
         Debug.Log("Game Over:\n" + message);
     }
+    
+    //<properties>
+
+    public float TotalTripTime => totalTripTime;
+
+    public float CurTripTime => curTripTime;
+
+    public DeviceBase Air => air;
+
+    public DeviceBase Engine => engine;
+
+    public float HungerBurnDown => hungerBurnDown;
+
+    public float CurHungerBurnDown => curHungerBurnDown;
+
+    public float MaxHungerTime => maxHungerTime;
+
+    public float CurHungerTime => curHungerTime;
+
+    public float MaxAirlessTime => maxAirlessTime;
+
+    public float CurAirlessTime => curAirlessTime;
+
+    public float AirRefillRate => airRefillRate;
+
+    public float CurAirFill => curAirFill;
+
+    public bool IsAirOn => isAirOn;
+
+    public float MaxEngineOffTime => maxEngineOffTime;
+
+    //</properties>
+    
 }

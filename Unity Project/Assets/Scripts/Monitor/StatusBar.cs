@@ -1,21 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public enum Status
-{
+public enum StatusBarState {
     STOPPED, INCREASING, DECREASING
 }
 
 public class StatusBar : MonoBehaviour
 {
-    public float statusPercentage = 1f;
     public float maximumWidth;
     public float currentWidth;
     public float maximumHeight;
     public float currentHeight;
     public float changeRatePerSecond = 0; //Let's go by percentage for this
-    public Status status = Status.STOPPED;
+    [FormerlySerializedAs("status")] public StatusBarState statusBarState = StatusBarState.STOPPED;
     private float prevTime, currentTime;
     public Canvas canvas;
     public string stateName;
@@ -31,9 +30,9 @@ public class StatusBar : MonoBehaviour
         currentTime = Time.time;
     }
 
-    public void StartChange(Status status, float changeRatePerSecond = 0f)
+    public void StartChange(StatusBarState statusBarState, float changeRatePerSecond = 0f)
     {
-        this.status = status;
+        this.statusBarState = statusBarState;
         this.changeRatePerSecond = changeRatePerSecond;
         currentTime = Time.time;
     }
@@ -47,11 +46,11 @@ public class StatusBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (status != Status.STOPPED)
+        if (statusBarState != StatusBarState.STOPPED)
         {
             prevTime = currentTime;
             currentTime = Time.time;
-            Debug.Log(this.name);
+            //Debug.Log(this.name);
             float changeBy = 0;
             if (this.name == "Battery")
             {
@@ -66,7 +65,7 @@ public class StatusBar : MonoBehaviour
                 Vector3[] fourCornersArrayAfter = new Vector3[4];
                 rectTransform.GetWorldCorners(fourCornersArrayAfter);
                 float calcY = posBefore - (fourCornersArrayAfter[0].y - fourCornersArrayBefore[0].y);
-                Debug.Log((fourCornersArrayAfter[0].y - fourCornersArrayBefore[0].y));
+                //Debug.Log((fourCornersArrayAfter[0].y - fourCornersArrayBefore[0].y));
                 rectTransform.position = new Vector3(rectTransform.position.x, calcY, rectTransform.position.z);
             }
             else
@@ -82,7 +81,7 @@ public class StatusBar : MonoBehaviour
                 Vector3[] fourCornersArrayAfter = new Vector3[4];
                 rectTransform.GetWorldCorners(fourCornersArrayAfter);
                 float calcX = posBefore - (fourCornersArrayAfter[0].x - fourCornersArrayBefore[0].x);
-                Debug.Log((fourCornersArrayAfter[0].x - fourCornersArrayBefore[0].x));
+                //Debug.Log((fourCornersArrayAfter[0].x - fourCornersArrayBefore[0].x));
                 rectTransform.position = new Vector3(calcX, rectTransform.position.y, rectTransform.position.z);
             }
         }
@@ -93,7 +92,7 @@ public class StatusBar : MonoBehaviour
         if (currentWidth > maximumWidth)
         {
             currentWidth = maximumWidth;
-            status = Status.STOPPED;
+            statusBarState = StatusBarState.STOPPED;
         }
     }
 
@@ -102,7 +101,7 @@ public class StatusBar : MonoBehaviour
         if (currentWidth > maximumWidth)
         {
             currentWidth = maximumWidth;
-            status = Status.STOPPED;
+            statusBarState = StatusBarState.STOPPED;
         }
     }
 }
