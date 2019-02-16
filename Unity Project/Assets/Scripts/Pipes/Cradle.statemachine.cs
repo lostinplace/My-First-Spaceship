@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 /*Stationary part of the ship that other pipes plug into.*/
-public partial class Cradle : Orientable
+public partial class Cradle : MonoBehaviour
 {
     public Pipe connectedPipe;
 
@@ -24,7 +24,7 @@ public partial class Cradle : Orientable
 
     public bool isConnected()
     {
-        return this.connectedPipe && connectedPipe.integrityState != Pipe.PipeIntegrityState.BAD;
+        return connectedPipe && connectedPipe.integrityState != Pipe.PipeIntegrityState.BAD;
     }
 
     public Pipe disconnectPipe(Pipe aPipe)
