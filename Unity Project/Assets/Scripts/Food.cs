@@ -8,12 +8,8 @@ public class Food : MonoBehaviour
 
     private void OnTriggerEnter( Collider collider )
     {
-        // Debug.Log(collision.gameObject.name);
-
         if (collider.gameObject.name.Equals("HeadCollider"))
         {
-            //Debug.Log("boiiiiiii");
-
             if (ps)
             {
                 Valve.VR.InteractionSystem.Interactable interaction = collider.gameObject.GetComponent<Valve.VR.InteractionSystem.Interactable>();

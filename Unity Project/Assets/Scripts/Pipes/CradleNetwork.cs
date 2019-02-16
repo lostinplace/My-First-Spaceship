@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 
 public class CradleNetwork : MonoBehaviour
 {
+  public Cradle[] CradleList;
+  public List<Cradle> cradles;
 
-  List<Cradle> cradles = new List<Cradle>();
   public bool isConnected()
   {
     return cradles.TrueForAll(x => x.isConnected());
@@ -18,13 +20,12 @@ public class CradleNetwork : MonoBehaviour
   }
   // Start is called before the first frame update
   void Start()
-    {
-        
-    }
+  {
+    this.cradles = CradleList != null ? CradleList.ToList() : new List<Cradle>();
+  }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  // Update is called once per frame
+  void Update()
+  {
+  }
 }

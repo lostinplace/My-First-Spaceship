@@ -5,12 +5,19 @@ using UnityEngine;
 
 public class Plug : MonoBehaviour
 {
-    Battery currentBattery;
-    DeviceBase myDevice;
+    public Battery currentBattery;
+    public DeviceBase myDevice;
+    public bool StartsWithBattery = true;
 
     private void Start()
     {
-
+        if (StartsWithBattery)
+        {
+            var prefab = Resources.Load("RuntimeBattery");
+            var obj = (GameObject)Instantiate(prefab);
+            var myBattery = obj.GetComponent<Battery>();
+            AttachBattery(myBattery);
+        }
     }
 
     private void OnTriggerEnter(Collider other) {

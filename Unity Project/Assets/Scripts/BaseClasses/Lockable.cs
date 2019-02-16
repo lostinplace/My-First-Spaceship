@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Lockable : Orientable
+public class Lockable :MonoBehaviour
 {
     protected bool isLocked = false;
     public bool IsLocked { get => isLocked; }

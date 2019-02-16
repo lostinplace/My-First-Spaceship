@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1019155076, guid: 2e4b412aa32c29649917a08c05b0bbea, type: 3}
       propertyPath: m_Name
-      value: Pipe
+      value: RuntimePipe
       objectReference: {fileID: 0}
     - target: {fileID: 1019155084, guid: 2e4b412aa32c29649917a08c05b0bbea, type: 3}
       propertyPath: m_LocalPosition.x
@@ -55,5 +55,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4958715164361515451, guid: 2e4b412aa32c29649917a08c05b0bbea, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2e4b412aa32c29649917a08c05b0bbea, type: 3}
