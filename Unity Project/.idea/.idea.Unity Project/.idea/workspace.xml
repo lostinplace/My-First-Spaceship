@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f896c7e2-8ee7-4a6d-a548-e0603155fd50" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/dev/Device Logic Demo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/dev/Device Logic Demo.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monitor/Monitor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Monitor/Monitor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Monitor/StatusBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Monitor/StatusBar.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pipes/Pipe.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pipes/Pipe.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerState.cs" afterDir="false" />
-    </list>
+    <list default="true" id="f896c7e2-8ee7-4a6d-a548-e0603155fd50" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +13,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerState.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="102" column="94" selection-start-line="102" selection-start-column="81" selection-end-line="102" selection-end-column="94" />
+            <state relative-caret-position="332">
+              <caret line="47" selection-start-line="47" selection-end-line="47" />
               <folding>
                 <marker date="1550357282331" expanded="true" signature="60:4522" ph="{...}" />
                 <marker date="1550357282331" expanded="true" signature="1026:1345" ph="{...}" />
@@ -40,6 +34,22 @@
                 <marker date="1550357282331" expanded="true" signature="3239:3433" ph="{...}" />
                 <marker date="1550357282331" expanded="true" signature="3450:3648" ph="{...}" />
                 <marker date="1550357282331" expanded="true" signature="3715:3797" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Monitor/SpaceshipTravel.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <marker date="1550350857805" expanded="true" signature="64:1186" ph="{...}" />
+                <marker date="1550350857805" expanded="true" signature="279:489" ph="{...}" />
+                <marker date="1550350857805" expanded="true" signature="495:603" ph="/* void BeginGame() ... */" />
+                <marker date="1550350857805" expanded="true" signature="621:1184" ph="{...}" />
+                <marker date="1550350857805" expanded="true" signature="717:1024" ph="{...}" />
+                <marker date="1550350857805" expanded="true" signature="1098:1178" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -127,7 +137,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Monitor/Monitor.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="720">
@@ -169,6 +179,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Pipes/Pipe.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Monitor/SpaceshipTravel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Monitor/StatusBar.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/SteamVR/Input/SteamVR_Action_Boolean.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerState.cs" root0="FORCE_HIGHLIGHTING" />
@@ -263,12 +274,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1550352149773</updated>
-      <workItem from="1550352151757" duration="6460000" />
+      <workItem from="1550352151757" duration="6751000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6460000" />
+    <option name="totallyTimeSpent" value="6751000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -485,10 +496,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Monitor/Monitor.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="99" column="20" selection-start-line="99" selection-start-column="20" selection-end-line="99" selection-end-column="20" />
+          <folding>
+            <marker date="1550359452452" expanded="false" signature="6:116" ph="..." />
+            <marker date="1550359452452" expanded="true" signature="154:4302" ph="{...}" />
+            <marker date="1550359452452" expanded="true" signature="494:3163" ph="{...}" />
+            <marker date="1550359452452" expanded="true" signature="1041:1345" ph="{...}" />
+            <marker date="1550359452452" expanded="true" signature="1258:1335" ph="{...}" />
+            <marker date="1550359452452" expanded="true" signature="1374:3157" ph="{...}" />
+            <marker date="1550359452452" expanded="true" signature="1514:3147" ph="{...}" />
+            <marker date="1550359452452" expanded="true" signature="2138:3133" ph="{...}" />
+            <marker date="1550359452452" expanded="true" signature="2372:2877" ph="{...}" />
+            <marker date="1550359452452" expanded="true" signature="2902:3115" ph="{...}" />
+            <marker date="1550359452452" expanded="true" signature="3183:3212" ph="{...}" />
+            <marker date="1550359452452" expanded="true" signature="3235:3337" ph="{...}" />
+            <marker date="1550359452452" expanded="true" signature="3342:3559" ph="/* The reason this needs to be called every frame is because ... */" />
+            <marker date="1550359452452" expanded="true" signature="3601:3697" ph="{...}" />
+            <marker date="1550359452452" expanded="true" signature="3756:3980" ph="{...}" />
+            <marker date="1550359452452" expanded="true" signature="4042:4300" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerState.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="102" column="94" selection-start-line="102" selection-start-column="81" selection-end-line="102" selection-end-column="94" />
+        <state relative-caret-position="332">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
           <folding>
             <marker date="1550357282331" expanded="true" signature="60:4522" ph="{...}" />
             <marker date="1550357282331" expanded="true" signature="1026:1345" ph="{...}" />
@@ -512,27 +548,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Monitor/Monitor.cs">
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Monitor/SpaceshipTravel.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="99" column="20" selection-start-line="99" selection-start-column="20" selection-end-line="99" selection-end-column="20" />
+        <state>
           <folding>
-            <marker date="1550359452452" expanded="false" signature="6:116" ph="..." />
-            <marker date="1550359452452" expanded="true" signature="154:4302" ph="{...}" />
-            <marker date="1550359452452" expanded="true" signature="494:3163" ph="{...}" />
-            <marker date="1550359452452" expanded="true" signature="1041:1345" ph="{...}" />
-            <marker date="1550359452452" expanded="true" signature="1258:1335" ph="{...}" />
-            <marker date="1550359452452" expanded="true" signature="1374:3157" ph="{...}" />
-            <marker date="1550359452452" expanded="true" signature="1514:3147" ph="{...}" />
-            <marker date="1550359452452" expanded="true" signature="2138:3133" ph="{...}" />
-            <marker date="1550359452452" expanded="true" signature="2372:2877" ph="{...}" />
-            <marker date="1550359452452" expanded="true" signature="2902:3115" ph="{...}" />
-            <marker date="1550359452452" expanded="true" signature="3183:3212" ph="{...}" />
-            <marker date="1550359452452" expanded="true" signature="3235:3337" ph="{...}" />
-            <marker date="1550359452452" expanded="true" signature="3342:3559" ph="/* The reason this needs to be called every frame is because ... */" />
-            <marker date="1550359452452" expanded="true" signature="3601:3697" ph="{...}" />
-            <marker date="1550359452452" expanded="true" signature="3756:3980" ph="{...}" />
-            <marker date="1550359452452" expanded="true" signature="4042:4300" ph="{...}" />
+            <marker date="1550350857805" expanded="true" signature="64:1186" ph="{...}" />
+            <marker date="1550350857805" expanded="true" signature="279:489" ph="{...}" />
+            <marker date="1550350857805" expanded="true" signature="495:603" ph="/* void BeginGame() ... */" />
+            <marker date="1550350857805" expanded="true" signature="621:1184" ph="{...}" />
+            <marker date="1550350857805" expanded="true" signature="717:1024" ph="{...}" />
+            <marker date="1550350857805" expanded="true" signature="1098:1178" ph="{...}" />
           </folding>
         </state>
       </provider>
