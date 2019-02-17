@@ -480,6 +480,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1019155077, guid: 2e4b412aa32c29649917a08c05b0bbea, type: 3}
+      propertyPath: currentIntegrity
+      value: 3000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e4b412aa32c29649917a08c05b0bbea, type: 3}
 --- !u!1001 &1512733514
@@ -493,6 +497,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PipeCradeSingle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8284223762593381, guid: 771d8f5f9dc24024791af4713acc0dbd, type: 3}
+      propertyPath: startWithPipe
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4326410164157947618, guid: 771d8f5f9dc24024791af4713acc0dbd,
         type: 3}
@@ -549,10 +557,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8284223762593381, guid: 771d8f5f9dc24024791af4713acc0dbd, type: 3}
-      propertyPath: startWithPipe
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 771d8f5f9dc24024791af4713acc0dbd, type: 3}
 --- !u!1001 &1529690860
@@ -565,6 +569,10 @@ PrefabInstance:
     - target: {fileID: 304517020, guid: f1a2fe2fcff2bd140b97cfdc8266804b, type: 3}
       propertyPath: m_Name
       value: PipeCradleDouble
+      objectReference: {fileID: 0}
+    - target: {fileID: 304517030, guid: f1a2fe2fcff2bd140b97cfdc8266804b, type: 3}
+      propertyPath: startWithPipe
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 304517031, guid: f1a2fe2fcff2bd140b97cfdc8266804b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -632,10 +640,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 304517029, guid: f1a2fe2fcff2bd140b97cfdc8266804b, type: 3}
       propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 304517030, guid: f1a2fe2fcff2bd140b97cfdc8266804b, type: 3}
-      propertyPath: startWithPipe
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -955,6 +959,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PipeCradeSingle (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8284223762593381, guid: 771d8f5f9dc24024791af4713acc0dbd, type: 3}
+      propertyPath: startWithPipe
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4326410164157947618, guid: 771d8f5f9dc24024791af4713acc0dbd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1009,10 +1017,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8284223762593381, guid: 771d8f5f9dc24024791af4713acc0dbd, type: 3}
-      propertyPath: startWithPipe
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 771d8f5f9dc24024791af4713acc0dbd, type: 3}

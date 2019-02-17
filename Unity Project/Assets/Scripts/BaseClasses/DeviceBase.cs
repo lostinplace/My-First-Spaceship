@@ -38,7 +38,9 @@ public class DeviceBase : MonoBehaviour
 
   public bool pipesNotRequired = true;
 
-  public bool batteryNotRequired = true;
+  public bool BatteriesRequired = false;
+
+  private bool batteryNotRequired;
 
   public bool isActive = true;
 
@@ -52,13 +54,21 @@ public class DeviceBase : MonoBehaviour
   {
     plug.myDevice = this;
     if(!cradleNetwork) cradleNetwork = new CradleNetwork();
+    batteryNotRequired = !BatteriesRequired || powerConsumptionPerSecond < 0;
   }
 
   public bool DoCycle(float delta)
   {
     if (!this.isActive) return false;
-    var powered = !batteryNotRequired && this.battery && this.battery.Consume(delta, powerConsumptionPerSecond * delta);
-    var piped = !pipesNotRequired && cradleNetwork.isConnected() && cradleNetwork.ApplyHeat(heatOutputPerSecond * delta);
+    
+    var powered = !BatteriesRequired || (this.battery && this.battery.Consume(delta, powerConsumptionPerSecond * delta));
+    if (!BatteriesRequired && this.powerConsumptionPerSecond < 0)
+    {
+      var result = battery && battery.Consume(delta, powerConsumptionPerSecond * delta);
+    }
+
+    var piped = pipesNotRequired || (cradleNetwork.isConnected() && cradleNetwork.ApplyHeat(heatOutputPerSecond * delta));
+
     return powered && piped;
   }
 
@@ -93,7 +103,7 @@ public class DeviceBase : MonoBehaviour
 
   public bool CanCycle()
   {
-    var powered = this.batteryNotRequired || (battery && !battery.isDead && battery.currentChargeInSeconds > 0);
+    var powered = !BatteriesRequired || (battery && !battery.isDead && battery.currentChargeInSeconds > 0);
     var piped = pipesNotRequired || cradleNetwork.isConnected();
     return powered && piped;
   }
