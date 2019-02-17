@@ -10,11 +10,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerState.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="47" selection-start-line="47" selection-end-line="47" />
+            <state relative-caret-position="647">
+              <caret line="68" column="5" lean-forward="true" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
               <folding>
                 <marker date="1550357282331" expanded="true" signature="60:4522" ph="{...}" />
                 <marker date="1550357282331" expanded="true" signature="1026:1345" ph="{...}" />
@@ -34,22 +34,6 @@
                 <marker date="1550357282331" expanded="true" signature="3239:3433" ph="{...}" />
                 <marker date="1550357282331" expanded="true" signature="3450:3648" ph="{...}" />
                 <marker date="1550357282331" expanded="true" signature="3715:3797" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Monitor/SpaceshipTravel.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <marker date="1550350857805" expanded="true" signature="64:1186" ph="{...}" />
-                <marker date="1550350857805" expanded="true" signature="279:489" ph="{...}" />
-                <marker date="1550350857805" expanded="true" signature="495:603" ph="/* void BeginGame() ... */" />
-                <marker date="1550350857805" expanded="true" signature="621:1184" ph="{...}" />
-                <marker date="1550350857805" expanded="true" signature="717:1024" ph="{...}" />
-                <marker date="1550350857805" expanded="true" signature="1098:1178" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -274,12 +258,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1550352149773</updated>
-      <workItem from="1550352151757" duration="6751000" />
+      <workItem from="1550352151757" duration="7279000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6751000" />
+    <option name="totallyTimeSpent" value="7279000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -521,10 +505,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Monitor/SpaceshipTravel.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <marker date="1550350857805" expanded="true" signature="64:1186" ph="{...}" />
+            <marker date="1550350857805" expanded="true" signature="279:489" ph="{...}" />
+            <marker date="1550350857805" expanded="true" signature="495:603" ph="/* void BeginGame() ... */" />
+            <marker date="1550350857805" expanded="true" signature="621:1184" ph="{...}" />
+            <marker date="1550350857805" expanded="true" signature="717:1024" ph="{...}" />
+            <marker date="1550350857805" expanded="true" signature="1098:1178" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerState.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
+        <state relative-caret-position="647">
+          <caret line="68" column="5" lean-forward="true" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
           <folding>
             <marker date="1550357282331" expanded="true" signature="60:4522" ph="{...}" />
             <marker date="1550357282331" expanded="true" signature="1026:1345" ph="{...}" />
@@ -544,20 +542,6 @@
             <marker date="1550357282331" expanded="true" signature="3239:3433" ph="{...}" />
             <marker date="1550357282331" expanded="true" signature="3450:3648" ph="{...}" />
             <marker date="1550357282331" expanded="true" signature="3715:3797" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/Monitor/SpaceshipTravel.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <marker date="1550350857805" expanded="true" signature="64:1186" ph="{...}" />
-            <marker date="1550350857805" expanded="true" signature="279:489" ph="{...}" />
-            <marker date="1550350857805" expanded="true" signature="495:603" ph="/* void BeginGame() ... */" />
-            <marker date="1550350857805" expanded="true" signature="621:1184" ph="{...}" />
-            <marker date="1550350857805" expanded="true" signature="717:1024" ph="{...}" />
-            <marker date="1550350857805" expanded="true" signature="1098:1178" ph="{...}" />
           </folding>
         </state>
       </provider>
