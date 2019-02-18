@@ -116,8 +116,8 @@ MonoBehaviour:
   hasItem: 0
   plug: {fileID: 4289545319932363470}
   cradleNetwork: {fileID: 3264881244533049308}
-  pipesNotRequired: 1
-  batteryNotRequired: 1
+  pipesNotRequired: 0
+  BatteriesRequired: 0
   isActive: 1
 --- !u!64 &7653909087141137544
 MeshCollider:
@@ -145,6 +145,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7226884745dda8a4096a31f6bbf987fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CradleList: []
+  cradles: []
 --- !u!1 &2759380727262310968
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,3 +300,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentBattery: {fileID: 0}
   myDevice: {fileID: 5765941889432227462}
+  StartsWithBattery: 1

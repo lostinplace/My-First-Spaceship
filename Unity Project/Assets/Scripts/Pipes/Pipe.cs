@@ -9,6 +9,9 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
   public Cradle currentCradle, potentialCradle;
 
   public bool IsBeingHeld { get => isBeingHeld; }
+  public static float MaxHeat = 230;
+
+  public static float CoolingRate = 0.008f;
 
   public void OnPickup()
   {
@@ -41,38 +44,32 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
       { PipeIntegrityState.MEDIUM, Resources.Load<Material>("pipe_medium") },
       { PipeIntegrityState.GOOD, Resources.Load<Material>("pipe_good")},
     };
+    myRenderer = GetComponent<MeshRenderer>();
   }
 
   public static Dictionary<PipeIntegrityState, Material> materialDict;
+  private Renderer myRenderer;
 
   void Update()
   {
+    var delta = Time.deltaTime;
+    ProcessHeat(delta);
+    SetAppearance();
+  }
 
-    var renderer = GetComponent<MeshRenderer>();
-    try
-    {
-      renderer.material = materialDict[this.integrityState];
-    } catch(Exception ex)
-    {
-      Debug.Log("weird");
-      Debug.LogException(ex);
-    }
-
+  void SetAppearance()
+  {
+    myRenderer.material = materialDict[this.integrityState];
     var heatEmission = CalculateHeatEmission();
-    renderer.material.SetColor("_EmissionColor", new Color(heatEmission, 0, 0));
-
-    /*Debug.Log($"pipe heat: {this.currentHeat}");
-    Debug.Log($"pipe heatemission: {heatEmission}");
-    Debug.Log($"pipe integrity: {this.currentIntegrity}");*/
+    myRenderer.material.SetColor("_EmissionColor", new Color(heatEmission, 0, 0));
   }
 
   float CalculateHeatEmission()
   {
-
-    float result = (this.currentHeat+1) / 100;
+    float result = (this.currentHeat+1) / MaxHeat;
     float limited = Math.Min(result, 1);
-    return limited * 255.0f;
 
+    return limited;
   }
 
 

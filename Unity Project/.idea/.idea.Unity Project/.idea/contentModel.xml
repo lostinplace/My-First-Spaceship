@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Sam\.Rider2018.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Sam\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_Unity Project.-632968200.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Sam\ChrisG\My-First-Spaceship\Unity Project" t="IncludeRecursive">
+    <e p="C:\Users\Sam De Lara\.Rider2018.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Sam De Lara\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_Unity Project.-881236572.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Sam De Lara\Documents\GitHub\My-First-Spaceship2\Unity Project" t="IncludeRecursive">
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="BaseClasses" t="Include">
@@ -17,11 +17,6 @@
             <e p="Plug.cs" t="Include" />
           </e>
           <e p="Food.cs" t="Include" />
-          <e p="Monitor" t="Include">
-            <e p="Monitor.cs" t="Include" />
-            <e p="SpaceshipTravel.cs" t="Include" />
-            <e p="StatusBar.cs" t="Include" />
-          </e>
           <e p="Pipes" t="Include">
             <e p="Cradle.cs" t="Include" />
             <e p="Cradle.statemachine.cs" t="Include" />
@@ -31,14 +26,14 @@
           </e>
           <e p="PlayerState.cs" t="Include" />
           <e p="SceneChanger.cs" t="Include" />
+          <e p="Selectable.cs" t="Include" />
           <e p="SpaceshipLogic.asmdef" t="Include" />
+          <e p="SpaceshipTravel.cs" t="Include" />
+          <e p="StatusBar.cs" t="Include" />
           <e p="Tests" t="Include">
             <e p="BatteryTests.cs" t="Include" />
             <e p="PipeTests.cs" t="Include" />
             <e p="Tests.asmdef" t="Include" />
-          </e>
-          <e p="UtilityClasses" t="Include">
-            <e p="Icon.cs" t="Include" />
           </e>
         </e>
         <e p="SteamVR" t="Include">

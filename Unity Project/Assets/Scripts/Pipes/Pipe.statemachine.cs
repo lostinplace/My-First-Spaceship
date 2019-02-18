@@ -21,7 +21,7 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
   /// <summary>
   /// this is the exponent that is applied to the current heat level to determine damage.  if it gets bigger than 1 things will break very quickly
   /// </summary>
-  public static double damageScalingBase = 0.2;
+  public static double damageScalingBase = 0.6;
 
   static System.Random randGen = new System.Random(randomSeed);
 
@@ -67,15 +67,24 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
   public bool ApplyHeat(float heatValue)
   {
     this.currentHeat += heatValue;
-    if (heatValue > 0) return this.ApplyDamage();
-    return true;
+    if (heatValue > 0)
+    {
+      this.ApplyDamage(Time.deltaTime);
+    }
+    return this.currentIntegrity > 0;
   }
 
-  public bool ApplyDamage()
+  public void ProcessHeat(float timeDelta)
   {
-    double damage = GetDamageForHeat(this.currentHeat);
+    var heatToBeApplied = CoolingRate * timeDelta;
+    this.currentHeat -= Math.Min(heatToBeApplied, this.currentHeat);
+  }
+
+  public void ApplyDamage(float timeDelta)
+  {
+    double damage = GetDamageForHeat(this.currentHeat) * timeDelta;
     this.currentIntegrity -= (float)damage;
-    return this.currentIntegrity > 0;
+    
   }
 }
 
