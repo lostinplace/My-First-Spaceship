@@ -48,10 +48,12 @@ public class PlayerState : MonoBehaviour
   void Start()
   {
     DontDestroyOnLoad(this.gameObject);
-
-    air.DeviceActivated += Air_DeviceActivated;
-    air.DeviceDeactivated += Air_DeviceDeactivated;
-
+    if (air)
+    {
+      air.DeviceActivated += Air_DeviceActivated;
+      air.DeviceDeactivated += Air_DeviceDeactivated;
+    }
+    
     curHungerBurnDown = maxHungerTime;
 
     curHungerTime = 0f;
@@ -81,6 +83,7 @@ public class PlayerState : MonoBehaviour
 
   private void OnDisable()
   {
+    if (!air) return;
      air.DeviceActivated -= Air_DeviceActivated;
      air.DeviceDeactivated -= Air_DeviceDeactivated;
   }
