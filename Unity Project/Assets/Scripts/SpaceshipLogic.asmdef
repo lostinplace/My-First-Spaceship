@@ -3,7 +3,8 @@
     "references": [
         "SteamVR",
         "SteamVR_Editor",
-        "SteamVR_Input_Editor"
+        "SteamVR_Input_Editor",
+        "FMOD"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],
