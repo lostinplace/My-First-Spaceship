@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1019155078}
   - component: {fileID: 1019155079}
   - component: {fileID: 1019155081}
+  - component: {fileID: 238215054985279571}
   m_Layer: 0
   m_Name: Pipe
   m_TagString: Untagged
@@ -225,3 +226,17 @@ MonoBehaviour:
   handFollowTransform: 1
   highlightOnHover: 1
   hideHighlight: []
+--- !u!64 &238215054985279571
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019155076}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: b4d76c85536cf594a8cf37327dddbda7, type: 3}

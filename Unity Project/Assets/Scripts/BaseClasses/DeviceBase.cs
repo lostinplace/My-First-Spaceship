@@ -21,7 +21,7 @@ public class DeviceBase : MonoBehaviour
 
   public Plug plug;
 
-  public Battery battery
+  public Battery currentBattery
   {
     get
     {
@@ -42,7 +42,12 @@ public class DeviceBase : MonoBehaviour
 
   private bool batteryNotRequired;
 
-  public bool isActive = true;
+  public bool isActive {
+    get
+    {
+      return this.CanCycle();
+    }
+  }
 
   public void ResetActivation()
   {
@@ -61,10 +66,10 @@ public class DeviceBase : MonoBehaviour
   {
     if (!this.isActive) return false;
     
-    var powered = !BatteriesRequired || (this.battery && this.battery.Consume(delta, powerConsumptionPerSecond * delta));
+    var powered = !BatteriesRequired || (this.currentBattery && this.currentBattery.Consume(delta, powerConsumptionPerSecond * delta));
     if (!BatteriesRequired && this.powerConsumptionPerSecond < 0)
     {
-      var result = battery && battery.Consume(delta, powerConsumptionPerSecond * delta);
+      var result = currentBattery && currentBattery.Consume(delta, powerConsumptionPerSecond * delta);
     }
 
     var piped = pipesNotRequired || (cradleNetwork.isConnected() && cradleNetwork.ApplyHeat(heatOutputPerSecond * delta));
@@ -86,24 +91,19 @@ public class DeviceBase : MonoBehaviour
 
   public void AttachBattery(Battery aBattery)
   {
-    this.battery = aBattery;
-    if (this.CanCycle())
-    {
-      this.isActive = true;
-      DeactivateDevice();
-    }
+    this.currentBattery = aBattery;
   }
 
   public void RemoveBattery()
   {
-    this.battery = null;
-    this.isActive = false;
-    DeactivateDevice();
+    this.currentBattery = null;
+    if(this.BatteriesRequired)
+      DeactivateDevice();
   }
 
   public bool CanCycle()
   {
-    var powered = !BatteriesRequired || (battery && !battery.isDead && battery.currentChargeInSeconds > 0);
+    var powered = !BatteriesRequired || (currentBattery && !currentBattery.isDead && currentBattery.currentChargeInSeconds > 0);
     var piped = pipesNotRequired || cradleNetwork.isConnected();
     return powered && piped;
   }

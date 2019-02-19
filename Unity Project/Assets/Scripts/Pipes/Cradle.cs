@@ -14,6 +14,10 @@ public partial class Cradle : MonoBehaviour
 
   public bool startWithPipe = true;
 
+  private MeshRenderer placeholderRenderer;
+
+  private static PlayerState myPlayerState;
+
   void Start()
   {
 
@@ -24,6 +28,10 @@ public partial class Cradle : MonoBehaviour
       var myPipe = obj.GetComponent<Pipe>();
       AttachPipe(myPipe);
     }
+    
+    var tmp = transform.Find("PipeArea/Placeholder");
+    placeholderRenderer = tmp.GetComponent<MeshRenderer>();
+    myPlayerState = GameObject.FindObjectOfType<PlayerState>();
   }
 
   public void ProcessCollision( Pipe tmpPipe )
@@ -63,6 +71,11 @@ public partial class Cradle : MonoBehaviour
     Pipe tmpPipe = other.gameObject.GetComponent<Pipe>();
     if (!tmpPipe) return;
     tmpPipe.potentialCradle = null;
+  }
+
+  void Update()
+  {
+    placeholderRenderer.enabled = myPlayerState.PipesHeld > 0 && !this.connectedPipe ;
   }
 
 }

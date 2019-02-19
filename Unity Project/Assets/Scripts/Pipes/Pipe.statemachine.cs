@@ -9,8 +9,8 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
   public enum PipeIntegrityState
   {
     GOOD = 1000,
-    MEDIUM = 600,
-    BAD = 300,
+    MEDIUM = 500,
+    BAD = 1,
     RUPTURED = 0
   }
 
