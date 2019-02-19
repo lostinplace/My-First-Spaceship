@@ -6,7 +6,6 @@ using System.Linq;
 
 public class CradleNetwork : MonoBehaviour
 {
-  public Cradle[] CradleList;
   public List<Cradle> cradles;
 
   public bool isConnected()
@@ -21,7 +20,7 @@ public class CradleNetwork : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
-    this.cradles = CradleList != null ? CradleList.ToList() : new List<Cradle>();
+    if (cradles == null) cradles = new List<Cradle>();
   }
 
   // Update is called once per frame

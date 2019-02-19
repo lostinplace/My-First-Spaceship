@@ -7,6 +7,7 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
 {
   protected bool isBeingHeld = false;
   public Cradle currentCradle, potentialCradle;
+  private static PlayerState myPlayerState;
 
   public bool IsBeingHeld { get => isBeingHeld; }
   public static float MaxHeat = 300;
@@ -19,7 +20,9 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
     isBeingHeld = true;
     if (currentCradle) currentCradle.DetachPipe();
 
+
     this.currentCradle = null;
+    myPlayerState.PipesHeld++;
   }
 
   public void OnDrop()
@@ -33,6 +36,7 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
     {
       potentialCradle.ProcessCollision(this);
     }
+    myPlayerState.PipesHeld--;
   }
 
   public GameObject GetGameObject() {
@@ -51,6 +55,7 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
     };
     myRenderer = GetComponent<MeshRenderer>();
     rupturedMesh = Resources.Load<Mesh>("pipe_rupture");
+    myPlayerState = GameObject.FindObjectOfType<PlayerState>();
   }
 
   public static Dictionary<PipeIntegrityState, Material> materialDict;
@@ -72,7 +77,6 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
       var filter = this.GetComponent<MeshFilter>();
       filter.mesh = rupturedMesh;
     }
-    myRenderer = GetComponent<MeshRenderer>();
     myRenderer.material = materialDict[this.integrityState];
     var heatEmission = CalculateHeatEmission();
     myRenderer.material.SetColor("_EmissionColor", new Color(heatEmission, 0, 0));
