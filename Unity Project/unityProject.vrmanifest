@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.myfavoritespaceship.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\Sam De Lara\\Documents\\GitHub\\My-First-Spaceship2\\Unity Project\\actions.json",
+      "action_manifest_path": "C:\\Users\\Chris\\source\\repos\\My-First-Spaceship\\Unity Project\\actions.json",
       "strings": {
         "en_us": {
           "name": "My Favorite Spaceship [Testing]"

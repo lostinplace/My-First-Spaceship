@@ -9,8 +9,9 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
   public enum PipeIntegrityState
   {
     GOOD = 1000,
-    MEDIUM = 50,
-    BAD = 0,
+    MEDIUM = 600,
+    BAD = 300,
+    RUPTURED = 0
   }
 
   public float currentIntegrity;
@@ -35,8 +36,10 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
           return PipeIntegrityState.GOOD;
         case var _ when currentIntegrity > (float)PipeIntegrityState.MEDIUM:
           return PipeIntegrityState.MEDIUM;
-        default:
+        case var _ when currentIntegrity > (float)PipeIntegrityState.BAD:
           return PipeIntegrityState.BAD;
+        default:
+          return PipeIntegrityState.RUPTURED;
       }
     }
   }
@@ -45,15 +48,15 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
   {
     get
     {
-      return this.integrityState == PipeIntegrityState.BAD;
+      return this.integrityState == PipeIntegrityState.RUPTURED;
     }
   }
   public static double GaussianRandom(double mean, double stdDev)
   {
-    double u1 = 1.0 - randGen.NextDouble(); //uniform(0,1] random doubles
+    double u1 = 1.0 - randGen.NextDouble(); 
     double u2 = 1.0 - randGen.NextDouble();
-    double randStdNormal = Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Sin(2.0 * Math.PI * u2); //random normal(0,1)
-    double randNormal = mean + stdDev * randStdNormal; //random normal(m
+    double randStdNormal = Math.Sqrt(-2.0 * Math.Log(u1)) * Math.Sin(2.0 * Math.PI * u2); 
+    double randNormal = mean + stdDev * randStdNormal; 
     return randNormal;
   }
 

@@ -24,7 +24,7 @@ public partial class Cradle : MonoBehaviour
 
     public bool isConnected()
     {
-        return connectedPipe && connectedPipe.integrityState != Pipe.PipeIntegrityState.BAD;
+        return connectedPipe && !connectedPipe.isBroken;
     }
 
     public Pipe disconnectPipe(Pipe aPipe)

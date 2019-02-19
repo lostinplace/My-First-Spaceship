@@ -25,6 +25,10 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
   public void OnDrop()
   {
     isBeingHeld = false;
+    if (currentCradle)
+    {
+      currentCradle.DetachPipe();
+    }
     if (potentialCradle != null)
     {
       potentialCradle.ProcessCollision(this);
@@ -43,12 +47,16 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
       { PipeIntegrityState.BAD, Resources.Load<Material>("pipe_bad") },
       { PipeIntegrityState.MEDIUM, Resources.Load<Material>("pipe_medium") },
       { PipeIntegrityState.GOOD, Resources.Load<Material>("pipe_good")},
+      { PipeIntegrityState.RUPTURED, Resources.Load<Material>("pipe_ruptured")},
     };
     myRenderer = GetComponent<MeshRenderer>();
+    rupturedMesh = Resources.Load<Mesh>("pipe_rupture");
   }
 
   public static Dictionary<PipeIntegrityState, Material> materialDict;
   private Renderer myRenderer;
+
+  private static Mesh rupturedMesh;
 
   void Update()
   {
@@ -59,6 +67,11 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
 
   void SetAppearance()
   {
+    if(this.integrityState == PipeIntegrityState.RUPTURED)
+    {
+      var filter = this.GetComponent<MeshFilter>();
+      filter.mesh = rupturedMesh;
+    }
     myRenderer = GetComponent<MeshRenderer>();
     myRenderer.material = materialDict[this.integrityState];
     var heatEmission = CalculateHeatEmission();
