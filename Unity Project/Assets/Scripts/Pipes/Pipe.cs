@@ -18,7 +18,10 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
   {
     Unlock();
     isBeingHeld = true;
-    if (currentCradle) currentCradle.DetachPipe();
+    if (currentCradle)
+      currentCradle.DetachPipe();
+    else
+      print("oops");
 
 
     this.currentCradle = null;

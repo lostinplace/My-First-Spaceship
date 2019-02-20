@@ -10,10 +10,6 @@ public class Alarm : MonoBehaviour
   
   private MeshRenderer alarmRenderer;
 
-  private Color onColor = new Color(1, 0, 0);
-  private Color offColor = new Color(0, 0, 0);
-
-
   // Start is called before the first frame update
   void Start()
   {
@@ -23,15 +19,23 @@ public class Alarm : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-
     if (!device.isActive)
     {
       var iteration = Mathf.Floor(Time.fixedTime / flashTime);
       float cycle = iteration % 2;
-      alarmRenderer.materials[1].SetColor("_EmissionColor", cycle == 0 ? onColor : offColor);
+      
+      if (cycle == 0)
+      {
+        alarmRenderer.materials[1].EnableKeyword("_EMISSION");
+      }
+      else
+      {
+        alarmRenderer.materials[1].DisableKeyword("_EMISSION");
+      }
+      
     } else
     {
-      alarmRenderer.materials[1].SetColor("_EmissionColor", offColor);
+      alarmRenderer.materials[1].DisableKeyword("_EMISSION");
     }
   }
 }
