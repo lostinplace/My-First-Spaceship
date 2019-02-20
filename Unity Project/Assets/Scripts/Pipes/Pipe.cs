@@ -12,7 +12,7 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
   public bool IsBeingHeld { get => isBeingHeld; }
   public static float MaxHeat = 300;
 
-  public static float CoolingRate = 0.8f;
+  public static float HeatLossPerSecond = 3f;
 
   public void OnPickup()
   {
@@ -59,6 +59,7 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
     myRenderer = GetComponent<MeshRenderer>();
     rupturedMesh = Resources.Load<Mesh>("pipe_rupture");
     myPlayerState = GameObject.FindObjectOfType<PlayerState>();
+    myRenderer.material.EnableKeyword("_EMISSION");
   }
 
   public static Dictionary<PipeIntegrityState, Material> materialDict;

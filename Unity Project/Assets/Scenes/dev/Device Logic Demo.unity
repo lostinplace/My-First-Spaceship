@@ -707,7 +707,7 @@ PrefabInstance:
     - target: {fileID: 5765941889432227462, guid: 85ebfd8109a8dbc4b90d9ea658eab437,
         type: 3}
       propertyPath: heatOutputPerSecond
-      value: 5
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5765941889432227462, guid: 85ebfd8109a8dbc4b90d9ea658eab437,
         type: 3}

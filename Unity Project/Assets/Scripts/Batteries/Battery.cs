@@ -20,6 +20,12 @@ public partial class Battery : Lockable, Handleable.HandleableItem
     
   }
 
+  Color getEmissiveColor()
+  {
+    
+    return new Color(2.0f * (1 - chargeRatio), 2.0f * chargeRatio, 0);
+  }
+
   public static Dictionary<EnergyState, Material> BatteryMaterials;
 
   public void OnDrop()
@@ -48,9 +54,29 @@ public partial class Battery : Lockable, Handleable.HandleableItem
     myPlayerState = GameObject.FindObjectOfType<PlayerState>();
   }
 
+  public static float chargingFlashTime = 0.25f;
+
   private void Update()
   {
-    var myMaterial = BatteryMaterials[energyLevel];
-    myRenderer.material = myMaterial;
+    //var myMaterial = BatteryMaterials[energyLevel];
+    //myRenderer.material = myMaterial;
+    
+    if (this.isDead)
+    {
+      myRenderer.material.DisableKeyword("_EMISSION");
+      return;
+    }
+
+    var color = getEmissiveColor();
+
+    if (charging) {
+      var iteration = Mathf.Floor(Time.fixedTime / chargingFlashTime);
+      var nowColor = iteration % 2 == 0 ? new Color() : color;
+      myRenderer.material.SetColor("_EmissionColor", nowColor);
+      return;
+    }
+
+    myRenderer.material.SetColor("_EmissionColor", color);
+   
   }
 }

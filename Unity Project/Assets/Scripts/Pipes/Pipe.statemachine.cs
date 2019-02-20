@@ -79,7 +79,7 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
 
   public void ProcessHeat(float timeDelta)
   {
-    var heatToBeApplied = CoolingRate * timeDelta;
+    var heatToBeApplied = HeatLossPerSecond * timeDelta;
     this.currentHeat -= Math.Min(heatToBeApplied, this.currentHeat);
   }
 
