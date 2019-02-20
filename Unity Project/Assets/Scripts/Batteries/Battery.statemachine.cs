@@ -61,7 +61,8 @@ public partial class Battery : Lockable, Handleable.HandleableItem
   public bool Consume(float time, float charge)
   {
     if (this.isDead) return false;
-    lifetimeInSeconds -= time;
+    if (charge > 0) lifetimeInSeconds -= time;
     return AdjustCharge(charge * -1);
+    
   }
 }

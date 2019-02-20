@@ -17,12 +17,10 @@ public partial class Battery : Lockable, Handleable.HandleableItem
     isBeingHeld = true;
     if (currentPlug) currentPlug.DetachBattery();
     myPlayerState.BatteriesHeld++;
-    
   }
 
   Color getEmissiveColor()
   {
-    
     return new Color(2.0f * (1 - chargeRatio), 2.0f * chargeRatio, 0);
   }
 
@@ -69,7 +67,7 @@ public partial class Battery : Lockable, Handleable.HandleableItem
 
     var color = getEmissiveColor();
 
-    if (charging) {
+    if (charging && chargeRatio != 1) {
       var iteration = Mathf.Floor(Time.fixedTime / chargingFlashTime);
       var nowColor = iteration % 2 == 0 ? new Color() : color;
       myRenderer.material.SetColor("_EmissionColor", nowColor);
