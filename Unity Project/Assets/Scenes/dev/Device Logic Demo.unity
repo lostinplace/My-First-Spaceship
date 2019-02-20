@@ -731,6 +731,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3264881244533049308, guid: 85ebfd8109a8dbc4b90d9ea658eab437,
         type: 3}
+      propertyPath: cradles.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3264881244533049308, guid: 85ebfd8109a8dbc4b90d9ea658eab437,
+        type: 3}
       propertyPath: CradleList.Array.data[0]
       value: 
       objectReference: {fileID: 1381358340}
@@ -742,6 +747,21 @@ PrefabInstance:
     - target: {fileID: 3264881244533049308, guid: 85ebfd8109a8dbc4b90d9ea658eab437,
         type: 3}
       propertyPath: CradleList.Array.data[2]
+      value: 
+      objectReference: {fileID: 872711612}
+    - target: {fileID: 3264881244533049308, guid: 85ebfd8109a8dbc4b90d9ea658eab437,
+        type: 3}
+      propertyPath: cradles.Array.data[0]
+      value: 
+      objectReference: {fileID: 1838071641}
+    - target: {fileID: 3264881244533049308, guid: 85ebfd8109a8dbc4b90d9ea658eab437,
+        type: 3}
+      propertyPath: cradles.Array.data[1]
+      value: 
+      objectReference: {fileID: 1381358340}
+    - target: {fileID: 3264881244533049308, guid: 85ebfd8109a8dbc4b90d9ea658eab437,
+        type: 3}
+      propertyPath: cradles.Array.data[2]
       value: 
       objectReference: {fileID: 872711612}
     m_RemovedComponents:
