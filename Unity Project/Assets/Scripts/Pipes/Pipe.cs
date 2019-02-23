@@ -10,6 +10,7 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
   private static PlayerState myPlayerState;
 
   public bool IsBeingHeld { get => isBeingHeld; }
+  
   public static float MaxHeat = 300;
 
   public static float HeatLossPerSecond = 3f;
@@ -47,7 +48,7 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
   }
 
   void Start() {
-    this.currentIntegrity = 1500;
+    
     Handleable.InitializeHandleableItem(this);
     materialDict = new Dictionary<PipeIntegrityState, Material>()
     {
@@ -60,6 +61,16 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
     rupturedMesh = Resources.Load<Mesh>("pipe_rupture");
     myPlayerState = GameObject.FindObjectOfType<PlayerState>();
     myRenderer.material.EnableKeyword("_EMISSION");
+    
+    
+    var settings = GameObject.FindObjectOfType<SpaceshipSettings>();
+    InitializeWithSettings(settings);
+  }
+
+  private void InitializeWithSettings(SpaceshipSettings settings)
+  {
+    currentIntegrity = currentIntegrity == 0 ? settings.defaultPipeIntegrity : currentIntegrity;
+    
   }
 
   public static Dictionary<PipeIntegrityState, Material> materialDict;

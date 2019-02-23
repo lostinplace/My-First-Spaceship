@@ -59,6 +59,7 @@ public partial class Cradle : MonoBehaviour
     var capsuleCollider = this.gameObject.GetComponent<CapsuleCollider>();
 
     aPipe.transform.SetPositionAndRotation(pipeAreaTransform.position, pipeAreaTransform.rotation);
+    
   }
 
   public void DetachPipe()

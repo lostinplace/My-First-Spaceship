@@ -13,9 +13,11 @@ public partial class Battery : Lockable, Handleable.HandleableItem
     DEAD
   }
 
-  public float currentChargeInSeconds = 10;
-  public float maxChargeInSeconds = 10;
-  public float lifetimeInSeconds = 30;
+  public float currentChargeInSeconds;
+  public float maxChargeInSeconds;
+  public float lifetimeInSeconds;
+  
+  
   public bool isDead {
     get => this.lifetimeInSeconds <= 0;    
   }

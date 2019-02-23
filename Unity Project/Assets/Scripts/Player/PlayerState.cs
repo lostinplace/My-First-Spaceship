@@ -9,7 +9,9 @@ public class PlayerState : MonoBehaviour
 
   public DeviceBase air;
   public DeviceBase engine;
-
+  public DeviceBase fridge;
+  public DeviceBase monitor;
+  
   // -------------------- HUNGER --------------------
   [SerializeField]
   public float unburntHungerMax = 90f;
@@ -39,6 +41,28 @@ public class PlayerState : MonoBehaviour
   private float curAirFill;
 
   private bool isAirOn;
+
+  public bool AirIsActive
+  {
+    get => air && air.isActive;
+  }
+
+  public bool FridgeIsActive
+  {
+    get => fridge && fridge.isActive;
+  }
+
+  public bool MonitorIsActive
+  {
+    get => monitor && monitor.isActive;
+  }
+
+  public bool EngineIsActive
+  {
+    get => engine && engine.isActive;
+  }
+
+  
 
   // -------------------- ENGINE --------------------
   [SerializeField]

@@ -32,6 +32,7 @@ public partial class Battery : Lockable, Handleable.HandleableItem
     if (potentialPlug) potentialPlug.ProcessCollision(this);
     myPlayerState.BatteriesHeld--;
   }
+  
   public GameObject GetGameObject() {
     return gameObject;
   }
@@ -50,6 +51,15 @@ public partial class Battery : Lockable, Handleable.HandleableItem
     };
     myRenderer = this.GetComponent<MeshRenderer>();
     myPlayerState = GameObject.FindObjectOfType<PlayerState>();
+    var settings = GameObject.FindObjectOfType<SpaceshipSettings>();
+    InitializeWithSettings(settings);
+  }
+
+  private void InitializeWithSettings(SpaceshipSettings settings)
+  {
+    lifetimeInSeconds = lifetimeInSeconds == 0 ? settings.defaultBatteryLifetimeInSeconds : lifetimeInSeconds;
+    currentChargeInSeconds = currentChargeInSeconds == 0 ? settings.defaultBatteryChargeInSeconds : currentChargeInSeconds;
+    this.maxChargeInSeconds = maxChargeInSeconds == 0 ? settings.defaultBatteryChargeInSeconds : maxChargeInSeconds;
   }
 
   public static float chargingFlashTime = 0.25f;

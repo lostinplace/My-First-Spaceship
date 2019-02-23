@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 675964266, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
       propertyPath: m_Name
-      value: Battery
+      value: RuntimeBattery
       objectReference: {fileID: 0}
     - target: {fileID: 675964276, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
       propertyPath: m_LocalPosition.x
@@ -53,6 +53,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 675964276, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 675964273, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
+      propertyPath: currentChargeInSeconds
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 675964273, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
+      propertyPath: maxChargeInSeconds
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 675964273, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
+      propertyPath: lifetimeInSeconds
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

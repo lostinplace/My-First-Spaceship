@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 675964276}
   - component: {fileID: 675964275}
+  - component: {fileID: 675964273}
   - component: {fileID: 675964274}
   - component: {fileID: 675964267}
   - component: {fileID: 675964268}
@@ -17,7 +18,6 @@ GameObject:
   - component: {fileID: 675964270}
   - component: {fileID: 675964271}
   - component: {fileID: 675964272}
-  - component: {fileID: 675964273}
   m_Layer: 0
   m_Name: Battery
   m_TagString: Untagged
@@ -47,6 +47,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 675964266}
   m_Mesh: {fileID: 4300000, guid: c8ddf2a1d6e8928468e9dceac176a6a2, type: 3}
+--- !u!114 &675964273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675964266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe7614cb37a7eca4bb10035c8b472549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentPlug: {fileID: 0}
+  potentialPlug: {fileID: 0}
+  isBeingHeld: 0
+  currentChargeInSeconds: 10
+  maxChargeInSeconds: 10
+  lifetimeInSeconds: 15
 --- !u!23 &675964274
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -223,22 +241,3 @@ MonoBehaviour:
   handFollowTransform: 1
   highlightOnHover: 1
   hideHighlight: []
---- !u!114 &675964273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 675964266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe7614cb37a7eca4bb10035c8b472549, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentPlug: {fileID: 0}
-  potentialPlug: {fileID: 0}
-  isBeingHeld: 0
-  currentChargeInSeconds: 10
-  maxChargeInSeconds: 10
-  lifetimeInSeconds: 30
-  isDead: 0

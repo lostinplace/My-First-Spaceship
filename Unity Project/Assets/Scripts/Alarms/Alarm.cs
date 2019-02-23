@@ -19,6 +19,7 @@ public class Alarm : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
+    var strobeMaterial = alarmRenderer.materials[1];
     if (!device.isActive)
     {
       var iteration = Mathf.Floor(Time.fixedTime / flashTime);
@@ -26,16 +27,16 @@ public class Alarm : MonoBehaviour
       
       if (cycle == 0)
       {
-        alarmRenderer.materials[1].EnableKeyword("_EMISSION");
+        strobeMaterial.EnableKeyword("_EMISSION");
       }
       else
       {
-        alarmRenderer.materials[1].DisableKeyword("_EMISSION");
+        strobeMaterial.DisableKeyword("_EMISSION");
       }
       
     } else
     {
-      alarmRenderer.materials[1].DisableKeyword("_EMISSION");
+      strobeMaterial.DisableKeyword("_EMISSION");
     }
   }
 }

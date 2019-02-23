@@ -65,12 +65,21 @@ public class DeviceBase : MonoBehaviour
   public bool DoCycle(float delta)
   {
     if (!this.isActive) return false;
-    
-    var powered = !BatteriesRequired || (this.currentBattery && this.currentBattery.Consume(delta, powerConsumptionPerSecond * delta));
-    if (!BatteriesRequired && this.powerConsumptionPerSecond < 0)
+
+    bool powered = false;
+
+    if (BatteriesRequired && this.powerConsumptionPerSecond > 0)
     {
-      var result = currentBattery && currentBattery.Consume(delta, powerConsumptionPerSecond * delta);
+      powered = this.currentBattery && this.currentBattery.Consume(delta, powerConsumptionPerSecond * delta);
     }
+
+    if (this.powerConsumptionPerSecond < 0)
+    {
+      powered = true;
+      currentBattery.Consume(delta, powerConsumptionPerSecond * delta);
+    }
+
+    if (!BatteriesRequired) powered = true;
 
     var piped = pipesNotRequired || (cradleNetwork.isConnected() && cradleNetwork.ApplyHeat(heatOutputPerSecond * delta));
 
