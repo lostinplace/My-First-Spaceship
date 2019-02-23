@@ -21,6 +21,8 @@ public partial class Cradle : MonoBehaviour
 
   public UnityEvent pipeInAudio, pipeOutAudio;
 
+  bool isLoading = true;
+
   void Start()
   {
 
@@ -35,6 +37,7 @@ public partial class Cradle : MonoBehaviour
     var tmp = transform.Find("PipeArea/Placeholder");
     placeholderRenderer = tmp.GetComponent<MeshRenderer>();
     myPlayerState = GameObject.FindObjectOfType<PlayerState>();
+    isLoading = false;
   }
 
   public void ProcessCollision( Pipe tmpPipe )
@@ -63,7 +66,10 @@ public partial class Cradle : MonoBehaviour
 
     aPipe.transform.SetPositionAndRotation(pipeAreaTransform.position, pipeAreaTransform.rotation);
 
-    pipeInAudio.Invoke();
+    if (!isLoading)
+    {
+      pipeInAudio.Invoke();
+    }
   }
 
   public void DetachPipe()
