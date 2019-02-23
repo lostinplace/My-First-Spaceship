@@ -745,6 +745,8 @@ MonoBehaviour:
   air: {fileID: 0}
   engine: {fileID: 0}
   unburntHungerMax: 90
+  PipesHeld: 0
+  BatteriesHeld: 0
   maxHungerTime: 30
   maxAirlessTime: 60
   airRefillRate: 1
@@ -1387,6 +1389,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1682218302}
   - component: {fileID: 1682218303}
+  - component: {fileID: 2679878337610967517}
+  - component: {fileID: 3162432551961338581}
   m_Layer: 0
   m_Name: FollowHead
   m_TagString: Untagged
@@ -1417,6 +1421,33 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1682218301}
   m_Enabled: 1
+--- !u!114 &2679878337610967517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682218301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 602bfedbc7822eb43ac2564e2dd0f0b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AmbienceEvent: event:/ambience
+  FailstateEvent: event:/failstates/failstate_air
+--- !u!114 &3162432551961338581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1682218301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ListenerNumber: 0
 --- !u!1 &1875312615
 GameObject:
   m_ObjectHideFlags: 0
