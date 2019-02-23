@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 /*Stationary part of the ship that other pipes plug into.*/
@@ -17,6 +18,8 @@ public partial class Cradle : MonoBehaviour
   private MeshRenderer placeholderRenderer;
 
   private static PlayerState myPlayerState;
+
+  public UnityEvent pipeInAudio, pipeOutAudio;
 
   void Start()
   {
@@ -59,11 +62,14 @@ public partial class Cradle : MonoBehaviour
     var capsuleCollider = this.gameObject.GetComponent<CapsuleCollider>();
 
     aPipe.transform.SetPositionAndRotation(pipeAreaTransform.position, pipeAreaTransform.rotation);
+
+    pipeInAudio.Invoke();
   }
 
   public void DetachPipe()
   {
     connectedPipe = null;
+    pipeOutAudio.Invoke();
   }
 
   private void OnTriggerExit(Collider other)
