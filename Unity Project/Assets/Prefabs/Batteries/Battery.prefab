@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 675964271}
   - component: {fileID: 675964272}
   - component: {fileID: 675964273}
+  - component: {fileID: 441211472111087050}
   m_Layer: 0
   m_Name: Battery
   m_TagString: Untagged
@@ -148,7 +149,18 @@ MonoBehaviour:
   restoreOriginalParent: 0
   onPickUp:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 441211472111087050}
+        m_MethodName: PlayGrab
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   onDetachFromHand:
@@ -241,4 +253,17 @@ MonoBehaviour:
   currentChargeInSeconds: 10
   maxChargeInSeconds: 10
   lifetimeInSeconds: 30
-  isDead: 0
+--- !u!114 &441211472111087050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675964266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c04e8e77f9eb14049bba7e1d5c4914a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GrabEvent: event:/battery/battery_grab
+  DropEvent: 
