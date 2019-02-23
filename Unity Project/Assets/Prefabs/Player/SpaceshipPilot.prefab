@@ -674,6 +674,8 @@ GameObject:
   - component: {fileID: 1050603549}
   - component: {fileID: 1050603548}
   - component: {fileID: 4005860485098724616}
+  - component: {fileID: 9095511359778993044}
+  - component: {fileID: 8316166020547743168}
   m_Layer: 0
   m_Name: SpaceshipPilot
   m_TagString: Untagged
@@ -751,6 +753,37 @@ MonoBehaviour:
   maxAirlessTime: 60
   airRefillRate: 1
   maxEngineOffTime: 120
+--- !u!114 &9095511359778993044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050603547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f91ad7973d026f4ba0c45b697b1a5ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlertsEvent: event:/alert_messages/alerts
+  isEngineOffline: 0
+  isAirOffline: 0
+  isFoodOffline: 0
+  isHUDOffline: 0
+--- !u!114 &8316166020547743168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050603547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 602bfedbc7822eb43ac2564e2dd0f0b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AmbienceEvent: event:/ambience
+  FailstateEvent: event:/failstates/failstate_air
 --- !u!1 &1093097603
 GameObject:
   m_ObjectHideFlags: 0
@@ -1389,7 +1422,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1682218302}
   - component: {fileID: 1682218303}
-  - component: {fileID: 2679878337610967517}
   - component: {fileID: 3162432551961338581}
   m_Layer: 0
   m_Name: FollowHead
@@ -1421,20 +1453,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1682218301}
   m_Enabled: 1
---- !u!114 &2679878337610967517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1682218301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 602bfedbc7822eb43ac2564e2dd0f0b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AmbienceEvent: event:/ambience
-  FailstateEvent: event:/failstates/failstate_air
 --- !u!114 &3162432551961338581
 MonoBehaviour:
   m_ObjectHideFlags: 0
