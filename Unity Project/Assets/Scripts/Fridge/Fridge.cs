@@ -66,10 +66,7 @@ public class Fridge : MonoBehaviour
             lastDoorState = door.IsLocked;
         }
         else if (other.gameObject.GetComponent<Food>() != food && food != null)
-        {
-            Debug.Log( "Detected food!" );
             foodIsPresent = true;
-        }
     }
 
     private void OnTriggerExit(Collider other)
