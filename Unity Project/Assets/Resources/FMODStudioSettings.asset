@@ -59,17 +59,4 @@ MonoBehaviour:
   Plugins: []
   MasterBanks:
   - Master Bank
-  - D:\game_projects\new_mfs\My-First-Spaceship\Unity Project\Assets\Audio\FMOD\Desktop\Master
-    Bank
-  - D:\My-First-Spaceship\Unity Project\Assets\Audio\FMOD\Desktop\Master Bank
-  - C:\Users\Chris\source\repos\My-First-Spaceship\Unity Project\Assets\Audio\FMOD\Desktop\Master
-    Bank
-  - C:\Users\TheFl\source\repos\My-First-Spaceship\Unity Project\Assets\Audio\FMOD\Desktop\Master
-    Bank
-  Banks:
-  - Master Bank
-  - game_environment
-  - title_screen.assets
-  - title_screen
-  - game_environment.assets
-  - Master Bank.assets
+  Banks: []

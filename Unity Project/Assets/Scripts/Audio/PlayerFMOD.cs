@@ -20,8 +20,9 @@ public class PlayerFMOD : MonoBehaviour
     public string FailstateEvent;
     FMOD.Studio.EventInstance Failstate;
 
-    FMOD.Studio.Bus MachinesBus = FMODUnity.RuntimeManager.GetBus("bus:/machines");
-    FMOD.Studio.Bus AmbienceBus = FMODUnity.RuntimeManager.GetBus("bus/ambience");
+
+    FMOD.Studio.Bus MachinesBus = FMODUnity.RuntimeManager.GetBus("Bus:/machines");
+    FMOD.Studio.Bus AmbienceBus = FMODUnity.RuntimeManager.GetBus("Bus/ambience");
 
 
     // Start is called before the first frame update
