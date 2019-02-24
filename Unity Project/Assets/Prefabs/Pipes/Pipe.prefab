@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 1019155079}
   - component: {fileID: 1019155081}
   - component: {fileID: 238215054985279571}
+  - component: {fileID: 7417770772641316001}
   m_Layer: 0
   m_Name: Pipe
   m_TagString: Untagged
@@ -151,7 +152,18 @@ MonoBehaviour:
   restoreOriginalParent: 0
   onPickUp:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7417770772641316001}
+        m_MethodName: PlayGrab
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   onDetachFromHand:
@@ -240,3 +252,17 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: b4d76c85536cf594a8cf37327dddbda7, type: 3}
+--- !u!114 &7417770772641316001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019155076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a69a01c594edef4691c0e8bac6a6cb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GrabEvent: event:/pipe/pipe_grab
+  DropEvent: 

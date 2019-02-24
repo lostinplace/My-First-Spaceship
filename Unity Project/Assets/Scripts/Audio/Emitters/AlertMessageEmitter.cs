@@ -11,6 +11,8 @@ public class AlertMessageEmitter : MonoBehaviour
 
     bool IsPlayingAlert;
 
+    private PlayerState playerState;
+
     public bool isEngineOffline;
     public bool isAirOffline;
     public bool isFoodOffline;
@@ -21,13 +23,8 @@ public class AlertMessageEmitter : MonoBehaviour
         return this.isEngineOffline || this.isAirOffline || this.isFoodOffline;
     }
 
-    public void SetComponentAlert()
-    {
-
-    }
-
-    public void UnsetComponentAlert()
-    {
+    // TODO: pull in Chris W alarm state properties from PlayerState
+    private void SetAlarmStates() {
 
     }
 
@@ -35,19 +32,16 @@ public class AlertMessageEmitter : MonoBehaviour
     void Start()
     {
         this.Alerts = FMODUnity.RuntimeManager.CreateInstance(AlertsEvent);
-
-        this.isEngineOffline = false;
-        this.isAirOffline = false;
-        this.isFoodOffline = false;
-
-        this.isHUDOffline = false;
         this.IsPlayingAlert = false;
+        this.playerState = this.GetComponent<PlayerState>();
     }
 
     // Update is called once per frame
     void Update()
     {
         Alerts.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+
+        this.SetAlarmStates();
 
         Alerts.getPlaybackState(out PlaybackState);
         this.IsPlayingAlert = this.PlaybackState != FMOD.Studio.PLAYBACK_STATE.STOPPED;
