@@ -25,7 +25,7 @@ public class Fridge : MonoBehaviour
 
     void Update()
     {
-        if (doorIsClosed == true && foodIsPresent == false)
+        if (doorIsClosed == true && ( foodIsPresent == false || food == null ) )
             refrigerator.hasItem = false;
         else
             refrigerator.hasItem = true;
@@ -66,10 +66,14 @@ public class Fridge : MonoBehaviour
             lastDoorState = door.IsLocked;
         }
         else if (other.gameObject.GetComponent<Food>() != food && food != null)
+        {
+            Debug.Log( "Detected food!" );
             foodIsPresent = true;
+        }
     }
 
-    private void OnTriggerExit(Collider other) {
+    private void OnTriggerExit(Collider other)
+    {
         if (other.gameObject.GetComponent<Food>() != food && food != null)
             foodIsPresent = false;
         if (other.gameObject.GetComponent<Lockable>() == door)
