@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class Fridge : MonoBehaviour
@@ -8,19 +9,50 @@ public class Fridge : MonoBehaviour
     [SerializeField] public GameObject foodPrefab, foodOrienter;
     [SerializeField] public Lockable door;
     [SerializeField] public PlayerState player;
+    protected MeshRenderer yellowIndicatorLight, greenIndicatorLight;
+    protected Material yellowIndicatorLightMaterial, greenIndicatorLightMaterial;
     protected DeviceBase refrigerator;
     protected bool lastDoorState, doorIsClosed, foodIsPresent;
     protected GameObject food;
+    public static readonly string GREEN_INDICATOR_LIGHT_RO = "indicator_light_green";
+    public static readonly string YELLOW_INDICATOR_LIGHT_RO = "indicator_light_yellow";
+    public static readonly string SHADER_KEYWORD_RO = "_EMISSION";
 
     void Start()
     {
         refrigerator = GetComponent<DeviceBase>();
+        MeshRenderer[] childrenShaders = transform.parent.GetComponentsInChildren<MeshRenderer>();
+        Regex yellowLightRegex = new Regex(YELLOW_INDICATOR_LIGHT_RO);
+        Regex greenLightRegex = new Regex(GREEN_INDICATOR_LIGHT_RO);
+        foreach( MeshRenderer current in childrenShaders )
+        {
+            if (current.gameObject.name.CompareTo(YELLOW_INDICATOR_LIGHT_RO) == 0)
+            {
+                foreach (Material currentMaterial in current.materials) {
+                    if (yellowLightRegex.IsMatch( currentMaterial.name ) == true)
+                        yellowIndicatorLightMaterial = currentMaterial;
+                }
+                yellowIndicatorLight = current;
+            }
+            else if (current.gameObject.name.CompareTo(GREEN_INDICATOR_LIGHT_RO) == 0)
+            {
+                foreach (Material currentMaterial in current.materials) {
+                    if (greenLightRegex.IsMatch( currentMaterial.name ) == true)
+                        greenIndicatorLightMaterial = currentMaterial;
+                }
+                greenIndicatorLight = current;
+            }
+            if (greenIndicatorLight != null && yellowIndicatorLight != null)
+                break;
+        }
         lastDoorState = door.IsLocked;
         foodIsPresent = false;
         doorIsClosed = true;
         if (player == null)
             player = GameObject.FindObjectOfType<PlayerState>();
         refrigerator.ItemProduced += ProduceFood;
+        yellowIndicatorLightMaterial.DisableKeyword(SHADER_KEYWORD_RO);
+        greenIndicatorLightMaterial.DisableKeyword(SHADER_KEYWORD_RO);
     }
 
     void Update()
@@ -29,8 +61,25 @@ public class Fridge : MonoBehaviour
             refrigerator.hasItem = false;
         else
             refrigerator.hasItem = true;
+        if (refrigerator.isActive == true && doorIsClosed == true)
+        {
+            if (foodIsPresent == true)
+            {
+                greenIndicatorLightMaterial.EnableKeyword(SHADER_KEYWORD_RO);
+                yellowIndicatorLightMaterial.DisableKeyword(SHADER_KEYWORD_RO);
+            }
+            else
+            {
+                greenIndicatorLightMaterial.DisableKeyword(SHADER_KEYWORD_RO);
+                yellowIndicatorLightMaterial.EnableKeyword(SHADER_KEYWORD_RO);
+            }
+        }
+        else {
+            yellowIndicatorLightMaterial.DisableKeyword(SHADER_KEYWORD_RO);
+            greenIndicatorLightMaterial.DisableKeyword(SHADER_KEYWORD_RO);
+        }
     }
-    
+
     void OnDestroy() {
         //Cleanup.//
         refrigerator.ItemProduced -= ProduceFood;

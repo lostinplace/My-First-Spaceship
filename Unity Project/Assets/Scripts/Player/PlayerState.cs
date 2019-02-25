@@ -128,7 +128,10 @@ public class PlayerState : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    isAirOn = ( air.plug.currentBattery != null ) && air.isActive;
+    if( air ) {
+        if( air.plug )
+            isAirOn = (air.plug.currentBattery != null) && air.isActive;
+    }
     ThrobHurt();
     if (curHungerBurnDown > 0)
       curHungerBurnDown -= Time.deltaTime;
@@ -155,15 +158,16 @@ public class PlayerState : MonoBehaviour
     /*TODO: (From Chris G.) This needs to be fixed so that the player doesent find out they loose because
      the engine was not online for enough time at the end. Or so that when the engine 
      has been off for too long it doesent keep going.*/
+    /*Resolved! If you keep the engine offline for too long you loose, this will
+     * be indicated on the monitor.*/
     curTripTime += Time.deltaTime;
-    if (curTripTime >= totalTripTime)
-    {
-      if (totalTripTime - engine.timeActiveInSeconds < maxEngineOffTime) {
+    if (engine) {
+        if (curTripTime - engine.timeActiveInSeconds > maxEngineOffTime)
+            TriggerEndgame(false, "Your engine stopped running for too long.");
+    }
+    if (curTripTime >= totalTripTime) {
         TriggerEndgame(true, "Congrats! You've successfully kept your crappy used " +
           "spaceship together long enough to make it home!");
-      }
-      else
-        TriggerEndgame(false, "Your engine stopped running for too long.");
     }
     UpdateFade();
   }
