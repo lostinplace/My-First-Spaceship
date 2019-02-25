@@ -1,11 +1,22 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneChanger : MonoBehaviour
+public class SceneChanger
 {
-     public void LoadGame()
+    public static string gameOverMessage;
+    public static void LoadGame() {
+        SceneManager.LoadScene("new_enviornment");
+    }
+    public static void GameOver( string message )
     {
-        // TODO: change to actual game scene
-        SceneManager.LoadScene("SampleScene");
+        gameOverMessage = message;
+        UnityEngine.GameObject test = UnityEngine.GameObject.Instantiate(new GameObject());
+        UnityEngine.GameObject.DontDestroyOnLoad(test);
+        foreach (GameObject current in test.scene.GetRootGameObjects())
+            UnityEngine.GameObject.Destroy(current);
+        SceneManager.LoadScene("GameOver");
+    }
+    public static void GoToMainMenu() {
+        SceneManager.LoadScene("Title");
     }
 }

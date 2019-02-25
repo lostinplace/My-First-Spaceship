@@ -2,6 +2,13 @@
 
 public class PlayerState : MonoBehaviour
 {
+
+  protected UnityEngine.UI.RawImage playerHurtUI;
+  protected Canvas uiCanvas;
+  protected Color playerHurtOriginalColor;
+  [SerializeField] public float playerHurtThrobSpeed;
+  protected bool throbbing = true;
+  protected bool throbDown = false;
   // -------------------- GENERAL -------------------
   [SerializeField]
   private float totalTripTime = 300f;
@@ -47,9 +54,14 @@ public class PlayerState : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
+    playerHurtUI = GetComponentInChildren<UnityEngine.UI.RawImage>();
+    uiCanvas = GetComponentInChildren<Canvas>();
+    playerHurtOriginalColor = playerHurtUI.color;
+    playerHurtUI.color = Color.clear;
     DontDestroyOnLoad(this.gameObject);
     if (air)
     {
+      isAirOn = air.isActive;
       air.DeviceActivated += Air_DeviceActivated;
       air.DeviceDeactivated += Air_DeviceDeactivated;
     }
@@ -62,14 +74,14 @@ public class PlayerState : MonoBehaviour
 
     curTripTime = 0f;
   }
-
-  private void Air_DeviceDeactivated(object sender, System.EventArgs e)
-  {
+  //TODO: Suggest not using this for this.
+  private void Air_DeviceDeactivated(object sender, System.EventArgs e) {
     isAirOn = false;
+    curAirlessTime = 0f;
   }
 
-  private void Air_DeviceActivated(object sender, System.EventArgs e)
-  {
+    //TODO: Suggest not using this for this.
+    private void Air_DeviceActivated(object sender, System.EventArgs e) {
     isAirOn = true;
     curAirlessTime = 0f;
   }
@@ -81,7 +93,18 @@ public class PlayerState : MonoBehaviour
     curHungerTime = 0;
   }
 
-  private void OnDisable()
+  void ThrobHurt()
+  {
+        if (throbDown == true && GameOverText.ColorsAreClose(playerHurtUI.color, Color.clear, .003f) != true)
+            playerHurtUI.color = Color.Lerp(playerHurtUI.color, Color.clear, playerHurtThrobSpeed * Time.deltaTime);
+        else if (throbDown == false && throbbing == true && GameOverText.ColorsAreClose(playerHurtUI.color, playerHurtOriginalColor, .003f) != true)
+            playerHurtUI.color = Color.Lerp(playerHurtUI.color, playerHurtOriginalColor, playerHurtThrobSpeed * Time.deltaTime);
+        else if (GameOverText.ColorsAreClose(playerHurtUI.color, playerHurtOriginalColor, .003f))
+            throbDown = true;
+        else if (GameOverText.ColorsAreClose(playerHurtUI.color, Color.clear, .003f))
+            throbDown = false;
+  }
+    private void OnDisable()
   {
     if (!air) return;
      air.DeviceActivated -= Air_DeviceActivated;
@@ -95,6 +118,8 @@ public class PlayerState : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
+    isAirOn = ( air.plug.currentBattery != null ) && air.isActive;
+    ThrobHurt();
     if (curHungerBurnDown > 0)
       curHungerBurnDown -= Time.deltaTime;
     else
@@ -102,7 +127,7 @@ public class PlayerState : MonoBehaviour
       if (curHungerTime < maxHungerTime)
         curHungerTime += Time.deltaTime;
       else
-        TriggerEndgame(false, "If you ignore the munchies for too long, it gets deadly.");
+        TriggerEndgame(false, "You passed out from hunger.");
     }
 
     if (isAirOn)
@@ -112,37 +137,30 @@ public class PlayerState : MonoBehaviour
     else
     {
       if (curAirlessTime < maxAirlessTime)
-      {
         curAirlessTime += Time.deltaTime;
-      }
       else
-      {
-        TriggerEndgame(false, "So it turns out you need air to not die.");
-      }
+        TriggerEndgame(false, "You asphyxiated.");
     }
+        throbbing = !(curHungerBurnDown > 0 && isAirOn);
+        Debug.Log("Current hunger burn " + ( curHungerBurnDown > 0 ) + " air is on " + isAirOn + " throbbing " + throbbing);
     /*TODO: (From Chris G.) This needs to be fixed so that the player doesent find out they loose because
      the engine was not online for enough time at the end. Or so that when the engine 
      has been off for too long it doesent keep going.*/
     curTripTime += Time.deltaTime;
     if (curTripTime >= totalTripTime)
     {
-      if (totalTripTime - engine.timeActiveInSeconds < maxEngineOffTime)
-      {
+      if (totalTripTime - engine.timeActiveInSeconds < maxEngineOffTime) {
         TriggerEndgame(true, "Congrats! You've successfully kept your crappy used " +
           "spaceship together long enough to make it home!");
       }
       else
-      {
-        TriggerEndgame(false, "Looks like you didn't keep the engine running for long " +
-          "enough and ran out of fuel before you got home.");
-      }
+        TriggerEndgame(false, "You did not have enough speed to achive Earth orbit.");
     }
   }
 
   void TriggerEndgame(bool won, string message)
   {
-    // TODO: DO THIS
-    Debug.Log("Game Over:\n" + message);
+    SceneChanger.GameOver(message);
   }
   
   //<properties>
