@@ -100,9 +100,12 @@ public class Monitor : MonoBehaviour
     //TODO: Untested
     protected void DisplayEngineStatus()
     {
-        if (player.Engine.isActive == true)
-            engineBar.StartChange(StatusBarState.INCREASING, (1f / player.MaxEngineOffTime));
-        else
-            engineBar.StartChange(StatusBarState.DECREASING, (-1f / player.MaxEngineOffTime));
+        if (player.Engine)
+        {
+            if (player.Engine.isActive == true)
+                engineBar.StartChange(StatusBarState.STOPPED, 0f);
+            else
+                engineBar.StartChange(StatusBarState.DECREASING, (-1f / player.MaxEngineOffTime));
+        }
     }
 }
