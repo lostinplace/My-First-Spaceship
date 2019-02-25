@@ -9,11 +9,12 @@ public class GameOverText : MonoBehaviour
     protected int currentAutoMessage = 0;
     public float messageDisplayTime = 0f;
     protected Color originalColor;
+    public float fadeSpeed = 1f;
     public float colorTolerence = 0f;
     public static readonly float DEFAULT_COLOR_TOLERENCE_RO = .003f;
     protected string[] autoMessages = new string[] {
         "Your computer automatically called called space highway - side assistance.",
-        "Your going to have to call someone to pick you up from Ganymede.",
+        "Your going to have to call someone to pick you up from Mars.",
         "Probably your parents...", "Who told you not to buy this ship.",
         "Game over."
     };
@@ -43,7 +44,7 @@ public class GameOverText : MonoBehaviour
         if (currentTime <= 0f)
         {
             if (ColorsAreClose(gameOverText.color, Color.clear, colorTolerence) != true)
-                gameOverText.color = Color.Lerp(gameOverText.color, Color.clear, Time.deltaTime);
+                gameOverText.color = Color.Lerp(gameOverText.color, Color.clear, fadeSpeed * Time.deltaTime);
             else if (currentAutoMessage < autoMessages.Length)
             {
                 gameOverText.text = autoMessages[currentAutoMessage];
@@ -56,7 +57,7 @@ public class GameOverText : MonoBehaviour
         else
         {
             if (ColorsAreClose( gameOverText.color, originalColor, colorTolerence ) != true)
-                gameOverText.color = Color.Lerp(gameOverText.color, originalColor, Time.deltaTime);
+                gameOverText.color = Color.Lerp(gameOverText.color, originalColor, fadeSpeed * Time.deltaTime);
             else
                 currentTime -= Time.deltaTime;
         }
