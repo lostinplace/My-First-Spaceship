@@ -25,12 +25,14 @@ public class DeviceBase : MonoBehaviour
   {
     get
     {
-      return this.plug.currentBattery;
+      if (!plug) return null;
+      return plug.currentBattery;
     }
 
     set
     {
-      this.plug.currentBattery = value;
+      if (!plug) return;
+      plug.currentBattery = value;
     }
   }
 
@@ -113,7 +115,7 @@ public class DeviceBase : MonoBehaviour
   public bool CanCycle()
   {
     var powered = !BatteriesRequired || (currentBattery && !currentBattery.isDead && currentBattery.currentChargeInSeconds > 0);
-    var piped = pipesNotRequired || cradleNetwork.isConnected();
+    var piped = pipesNotRequired || (cradleNetwork && cradleNetwork.isConnected());
     return powered && piped;
   }
 
