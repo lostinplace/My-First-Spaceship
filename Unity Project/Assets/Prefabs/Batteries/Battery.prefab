@@ -241,4 +241,3 @@ MonoBehaviour:
   currentChargeInSeconds: 10
   maxChargeInSeconds: 10
   lifetimeInSeconds: 30
-  isDead: 0
