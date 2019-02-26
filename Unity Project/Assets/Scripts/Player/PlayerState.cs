@@ -2,7 +2,8 @@
 
 public class PlayerState : MonoBehaviour
 {
-
+  [SerializeField] public GameObject userInterfacePrefab;
+  protected GameObject playerUserInterface;
   protected UnityEngine.UI.RawImage playerHurtUI;
   protected UnityEngine.UI.Image fadeToBlack;
   protected Canvas uiCanvas;
@@ -130,8 +131,9 @@ public class PlayerState : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
-    playerHurtUI = GetComponentInChildren<UnityEngine.UI.RawImage>();
-    fadeToBlack = GetComponentInChildren<UnityEngine.UI.Image>();
+    playerUserInterface = Instantiate(userInterfacePrefab);
+    playerHurtUI = playerUserInterface.GetComponentInChildren<UnityEngine.UI.RawImage>();
+    fadeToBlack = playerUserInterface.GetComponentInChildren<UnityEngine.UI.Image>();
     originalFadeToBlackColor = fadeToBlack.color;
     fadeToBlack.color = new Color(0f, 0f, 0f, 0f);
     
