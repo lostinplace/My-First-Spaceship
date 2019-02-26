@@ -22,7 +22,7 @@ public class SpaceshipTravel : MonoBehaviour
 
     var settings = GameObject.FindObjectOfType<SpaceshipSettings>();
     if (!settings) timeLimit = 100f;
-    timeLimit = settings.timeLimitInSeconds;
+    else timeLimit = settings.timeLimitInSeconds;
   }
 
   //void BeginGame()

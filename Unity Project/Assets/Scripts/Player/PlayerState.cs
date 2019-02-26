@@ -20,10 +20,15 @@ public class PlayerState : MonoBehaviour
   private float totalTripTime = 300f;
   private float curTripTime;
 
-  public DeviceBase air;
-  public DeviceBase engine;
-  public DeviceBase fridge;
-  public DeviceBase monitor;
+  private SpaceshipSettings settings;
+
+  public  DeviceBase air;
+
+  public  DeviceBase engine;
+
+  public  DeviceBase fridge;
+
+  public  DeviceBase monitor;
   
   // -------------------- HUNGER --------------------
   [SerializeField]
@@ -102,14 +107,14 @@ public class PlayerState : MonoBehaviour
 
   void ThrobHurt()
   {
-        if ((throbDown == true || throbbing == false ) && GameOverText.ColorsAreClose(playerHurtUI.color, Color.clear, .003f) != true)
-            playerHurtUI.color = Color.Lerp(playerHurtUI.color, Color.clear, playerHurtThrobSpeed * Time.deltaTime);
-        else if (throbDown == false && throbbing == true && GameOverText.ColorsAreClose(playerHurtUI.color, playerHurtOriginalColor, colorFadeTolerence) != true)
-            playerHurtUI.color = Color.Lerp(playerHurtUI.color, playerHurtOriginalColor, playerHurtThrobSpeed * Time.deltaTime);
-        else if (GameOverText.ColorsAreClose(playerHurtUI.color, playerHurtOriginalColor, colorFadeTolerence))
-            throbDown = true;
-        else if (GameOverText.ColorsAreClose(playerHurtUI.color, Color.clear, .003f))
-            throbDown = false;
+        //if ((throbDown == true || throbbing == false ) && GameOverText.ColorsAreClose(playerHurtUI.color, Color.clear, .003f) != true)
+        //    playerHurtUI.color = Color.Lerp(playerHurtUI.color, Color.clear, playerHurtThrobSpeed * Time.deltaTime);
+        //else if (throbDown == false && throbbing == true && GameOverText.ColorsAreClose(playerHurtUI.color, playerHurtOriginalColor, colorFadeTolerence) != true)
+        //    playerHurtUI.color = Color.Lerp(playerHurtUI.color, playerHurtOriginalColor, playerHurtThrobSpeed * Time.deltaTime);
+        //else if (GameOverText.ColorsAreClose(playerHurtUI.color, playerHurtOriginalColor, colorFadeTolerence))
+        //    throbDown = true;
+        //else if (GameOverText.ColorsAreClose(playerHurtUI.color, Color.clear, .003f))
+        //    throbDown = false;
   }
     private void OnDisable()
   {
@@ -129,7 +134,7 @@ public class PlayerState : MonoBehaviour
     fadeToBlack = GetComponentInChildren<UnityEngine.UI.Image>();
     originalFadeToBlackColor = fadeToBlack.color;
     fadeToBlack.color = new Color(0f, 0f, 0f, 0f);
-    uiCanvas = GetComponentInChildren<Canvas>();
+    
     playerHurtOriginalColor = playerHurtUI.color;
     playerHurtUI.color = Color.clear;
     DontDestroyOnLoad(this.gameObject);
@@ -147,6 +152,9 @@ public class PlayerState : MonoBehaviour
     curAirFill = 0f;
 
     curTripTime = 0f;
+
+    settings = GameObject.FindObjectOfType<SpaceshipSettings>();
+    if (settings) totalTripTime = settings.timeLimitInSeconds;
   }
 
   // Update is called once per frame
