@@ -933,7 +933,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentCradle: {fileID: 0}
   potentialCradle: {fileID: 0}
-  currentIntegrity: 0
+  currentIntegrity: 1500
   currentHeat: 0
 --- !u!4 &738475514
 Transform:
@@ -7396,6 +7396,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startWithPipe: 0
+  pipeInAudio:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  pipeOutAudio:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   connectedPipe: {fileID: 0}
 --- !u!64 &238215054711265061
 MeshCollider:

@@ -743,7 +743,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27b12d2042253164197f8c5a990f309d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ui: {fileID: 8972135329948949068, guid: 428befa889184e743a63782d09829ea0, type: 3}
+  userInterfacePrefab: {fileID: 8972135329948949068, guid: 428befa889184e743a63782d09829ea0,
+    type: 3}
   playerHurtThrobSpeed: 5
   fadeToBlackSpeed: 0.2
   colorFadeTolerence: 0.003

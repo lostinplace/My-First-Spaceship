@@ -108,14 +108,14 @@ public class PlayerState : MonoBehaviour
 
   void ThrobHurt()
   {
-        //if ((throbDown == true || throbbing == false ) && GameOverText.ColorsAreClose(playerHurtUI.color, Color.clear, .003f) != true)
-        //    playerHurtUI.color = Color.Lerp(playerHurtUI.color, Color.clear, playerHurtThrobSpeed * Time.deltaTime);
-        //else if (throbDown == false && throbbing == true && GameOverText.ColorsAreClose(playerHurtUI.color, playerHurtOriginalColor, colorFadeTolerence) != true)
-        //    playerHurtUI.color = Color.Lerp(playerHurtUI.color, playerHurtOriginalColor, playerHurtThrobSpeed * Time.deltaTime);
-        //else if (GameOverText.ColorsAreClose(playerHurtUI.color, playerHurtOriginalColor, colorFadeTolerence))
-        //    throbDown = true;
-        //else if (GameOverText.ColorsAreClose(playerHurtUI.color, Color.clear, .003f))
-        //    throbDown = false;
+        if ((throbDown == true || throbbing == false ) && GameOverText.ColorsAreClose(playerHurtUI.color, Color.clear, .003f) != true)
+            playerHurtUI.color = Color.Lerp(playerHurtUI.color, Color.clear, playerHurtThrobSpeed * Time.deltaTime);
+        else if (throbDown == false && throbbing == true && GameOverText.ColorsAreClose(playerHurtUI.color, playerHurtOriginalColor, colorFadeTolerence) != true)
+            playerHurtUI.color = Color.Lerp(playerHurtUI.color, playerHurtOriginalColor, playerHurtThrobSpeed * Time.deltaTime);
+        else if (GameOverText.ColorsAreClose(playerHurtUI.color, playerHurtOriginalColor, colorFadeTolerence))
+            throbDown = true;
+        else if (GameOverText.ColorsAreClose(playerHurtUI.color, Color.clear, .003f))
+            throbDown = false;
   }
     private void OnDisable()
   {
