@@ -2,36 +2,50 @@
 
 public class SpaceshipTravel : MonoBehaviour
 {
-    private float initialPosition;
-    private float endPosition;
-    public float timeLimit = 300f; // 5 minutes
-    private float startTime;
-    // Start is called before the first frame update
-    void Start()
-    {
-        initialPosition = this.GetComponent<RectTransform>().position.x;
-        endPosition = initialPosition;
-        endPosition += Mathf.Abs(initialPosition) * 2;
-        startTime = Time.time;
-    }
+  public float timeLimit; // 5 minutes
+  private float startTime;
+  private float totalDistance;
+  private float initialPosition;
+  public RectTransform boundingRect;
 
-    //void BeginGame()
-    //{
-    //startTime = Time.deltaTime;
-    //}
+  // Start is called before the first frame update
+  void Start()
+  {
+    var thisTransform = this.GetComponent<RectTransform>();
+    var iconWidth = thisTransform.rect.width;
+    initialPosition = boundingRect.offsetMin.x;
+    
+    var trackStart = boundingRect.offsetMin.x;
+    var trackEnd = boundingRect.offsetMax.x - (iconWidth / 2);
+    startTime = Time.time;
+    totalDistance = trackEnd - trackStart;
 
-    // Update is called once per frame
-    void Update()
+    var settings = GameObject.FindObjectOfType<SpaceshipSettings>();
+    if (!settings) timeLimit = 100f;
+    timeLimit = settings.timeLimitInSeconds;
+  }
+
+  //void BeginGame()
+  //{
+  //startTime = Time.deltaTime;
+  //}
+
+  // Update is called once per frame
+  void Update()
+  {
+    float currentTime = Time.time;
+    if ((currentTime - startTime) < timeLimit)
     {
-        float currentTime = Time.time;
-        if ((currentTime - startTime) < timeLimit)
-        {
-            Vector3 currentPosition = this.GetComponent<RectTransform>().position;
-            this.GetComponent<RectTransform>().position = new Vector3(initialPosition + (((currentTime - startTime) / timeLimit) * (endPosition - initialPosition)), currentPosition.y, currentPosition.z);
-        }
-        else if (startTime > 0 && (currentTime - startTime) >= timeLimit)
-        {
-            // They win the game -- add win conditions here
-        }
+      Vector3 currentPosition = this.GetComponent<RectTransform>().localPosition;
+      
+      var completionRatio = (currentTime - startTime) / timeLimit;
+      var newX = completionRatio * totalDistance + initialPosition;
+
+      this.GetComponent<RectTransform>().localPosition = new Vector3(newX, currentPosition.y, currentPosition.z);
     }
+    else if (startTime > 0 && (currentTime - startTime) >= timeLimit)
+    {
+      // They win the game -- add win conditions here
+    }
+  }
 }

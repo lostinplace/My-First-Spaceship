@@ -15,10 +15,16 @@ public class SpaceshipSettings : MonoBehaviour
         public float defaultHeatDamageScalingFactor = 0.5f;
         public float maxPipeHeat = 300;
         public float HeatLossPerSecond = 5;
-    #endregion
+  #endregion
 
-    // Start is called before the first frame update
-    void Start()
+  #region Scene
+
+  public float timeLimitInSeconds = 300f;
+
+  #endregion
+
+  // Start is called before the first frame update
+  void Start()
     {
         Pipe.MaxIntegrity = defaultPipeIntegrity;
         Pipe.damageScalingBase = defaultHeatDamageScalingFactor;
