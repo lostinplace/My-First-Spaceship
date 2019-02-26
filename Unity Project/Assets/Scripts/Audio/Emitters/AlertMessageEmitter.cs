@@ -12,19 +12,25 @@ public class AlertMessageEmitter : MonoBehaviour
     bool IsPlayingAlert;
 
     private PlayerState playerState;
-
-    public bool isEngineOffline;
-    public bool isAirOffline;
-    public bool isFoodOffline;
-    public bool isHUDOffline;
+    private Dictionary<string, bool> componentStates;
 
     private bool HasOfflineComponent()
     {
-        return this.isEngineOffline || this.isAirOffline || this.isFoodOffline;
+        return !this.componentStates["engine"]
+            || !this.componentStates["air"]
+            || !this.componentStates["food"];
     }
 
     // TODO: pull in Chris W alarm state properties from PlayerState
     private void SetAlarmStates() {
+        this.componentStates["air"] = this.playerState.AirIsActive;
+        this.componentStates["engine"] = this.playerState.EngineIsActive;
+        this.componentStates["food"] = this.playerState.FridgeIsActive;
+        this.componentStates["monitor"] = this.playerState.MonitorIsActive;
+
+        this.Alerts.setParameterValue("is_engine_offline", !this.componentStates["engine"] ? 1 : 0);
+        this.Alerts.setParameterValue("is_air_offline", !this.componentStates["air"] ? 1 : 0);
+        this.Alerts.setParameterValue("is_food_offline", !this.componentStates["food"] ? 1 : 0);
 
     }
 
@@ -34,6 +40,12 @@ public class AlertMessageEmitter : MonoBehaviour
         this.Alerts = FMODUnity.RuntimeManager.CreateInstance(AlertsEvent);
         this.IsPlayingAlert = false;
         this.playerState = this.GetComponent<PlayerState>();
+
+        this.componentStates = new Dictionary<string, bool>();
+        this.componentStates.Add("air", true);
+        this.componentStates.Add("engine", true);
+        this.componentStates.Add("food", true);
+        this.componentStates.Add("monitor", true);
     }
 
     // Update is called once per frame
@@ -46,7 +58,8 @@ public class AlertMessageEmitter : MonoBehaviour
         Alerts.getPlaybackState(out PlaybackState);
         this.IsPlayingAlert = this.PlaybackState != FMOD.Studio.PLAYBACK_STATE.STOPPED;
 
-        if (this.HasOfflineComponent() && !this.IsPlayingAlert && !this.isHUDOffline)
+        // TODO: Add in the monitor check to only play alerts when monitor is active. Keeping it out for now for early testing purposes.
+        if (this.HasOfflineComponent() && !this.IsPlayingAlert)
         {
             this.PlayMessages();
             this.IsPlayingAlert = true;
@@ -55,10 +68,6 @@ public class AlertMessageEmitter : MonoBehaviour
 
     void PlayMessages()
     {
-        this.Alerts.setParameterValue("is_engine_offline", this.isEngineOffline ? 1 : 0);
-        this.Alerts.setParameterValue("is_air_offline", this.isAirOffline ? 1 : 0);
-        this.Alerts.setParameterValue("is_food_offline", this.isFoodOffline ? 1 : 0);
-
         this.Alerts.start();
     }
 }
