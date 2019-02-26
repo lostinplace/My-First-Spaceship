@@ -16,6 +16,7 @@ public class MenuCradle : MonoBehaviour
 
     void Update()
     {
+        fadeOutImage.rectTransform.sizeDelta = new Vector2(fadeOutImage.canvas.pixelRect.width, fadeOutImage.canvas.pixelRect.height);
         if (menuCradle.connectedPipe == null)
         {
             if ((TARGET_COLOR_RO.a - fadeOutImage.color.a) > fadeTolerence)

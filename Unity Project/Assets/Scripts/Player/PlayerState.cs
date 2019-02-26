@@ -128,7 +128,10 @@ public class PlayerState : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    if( air ) {
+    Rect canvasRectangle = playerHurtUI.canvas.pixelRect;
+    playerHurtUI.rectTransform.sizeDelta = new Vector2(canvasRectangle.width, canvasRectangle.height);
+    fadeToBlack.rectTransform.sizeDelta = new Vector2(canvasRectangle.width, canvasRectangle.height);
+    if ( air ) {
         if( air.plug )
             isAirOn = (air.plug.currentBattery != null) && air.isActive;
     }
