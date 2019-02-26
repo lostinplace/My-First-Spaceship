@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public partial class Pipe : Lockable, Handleable.HandleableItem
 {
@@ -14,6 +15,9 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
   public static float MaxHeat = 300;
 
   public static float HeatLossPerSecond = 3f;
+
+  public UnityEvent pipeBurstAudio;
+  private bool hasPlayedBurstAudio = false;
 
   public void OnPickup()
   {
@@ -91,6 +95,12 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
     {
       var filter = this.GetComponent<MeshFilter>();
       filter.mesh = rupturedMesh;
+
+      if (!hasPlayedBurstAudio)
+      {
+        pipeBurstAudio.Invoke();
+        hasPlayedBurstAudio = true;
+      }
     }
     myRenderer.material = materialDict[this.integrityState];
     var heatEmission = CalculateHeatEmission();

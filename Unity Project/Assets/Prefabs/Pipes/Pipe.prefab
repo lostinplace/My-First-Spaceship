@@ -54,6 +54,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentCradle: {fileID: 0}
   potentialCradle: {fileID: 0}
+  pipeBurstAudio:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7417770772641316001}
+        m_MethodName: playPipeBurst
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   currentIntegrity: 0
   currentHeat: 0
 --- !u!33 &1019155083
@@ -265,4 +281,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GrabEvent: event:/pipe/pipe_grab
-  DropEvent: 
+  pipeBurstEvent: event:/pipe/pipe_burst
