@@ -5,7 +5,7 @@ public class SceneChanger
 {
     public static string gameOverMessage;
     public static void LoadGame() {
-        SceneManager.LoadScene("new_enviornment");
+        SceneManager.LoadScene("new_layout");
     }
     public static void GameOver( string message )
     {
@@ -17,6 +17,6 @@ public class SceneChanger
         SceneManager.LoadScene("GameOver");
     }
     public static void GoToMainMenu() {
-        SceneManager.LoadScene("Title");
+        SceneManager.LoadScene("main_menu");
     }
 }

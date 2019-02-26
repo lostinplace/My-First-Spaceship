@@ -25,7 +25,8 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
 
 
     this.currentCradle = null;
-    myPlayerState.PipesHeld++;
+    if( myPlayerState )
+      myPlayerState.PipesHeld++;
   }
 
   public void OnDrop()
@@ -39,14 +40,16 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
     {
       potentialCradle.ProcessCollision(this);
     }
-    myPlayerState.PipesHeld--;
+    if( myPlayerState )
+      myPlayerState.PipesHeld--;
   }
 
   public GameObject GetGameObject() {
     return gameObject;
   }
 
-  void Start() {
+  void Start()
+  {
     this.currentIntegrity = 1500;
     Handleable.InitializeHandleableItem(this);
     materialDict = new Dictionary<PipeIntegrityState, Material>()

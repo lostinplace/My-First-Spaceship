@@ -75,7 +75,7 @@ public partial class Cradle : MonoBehaviour
 
   void Update()
   {
-    placeholderRenderer.enabled = myPlayerState.PipesHeld > 0 && !this.connectedPipe ;
+    placeholderRenderer.enabled = ( myPlayerState ? myPlayerState.PipesHeld > 0 : false ) && !this.connectedPipe ;
   }
 
 }
