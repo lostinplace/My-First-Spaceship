@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 /*Stationary part of the ship that other pipes plug into.*/
@@ -18,6 +19,10 @@ public partial class Cradle : MonoBehaviour
 
   private static PlayerState myPlayerState;
 
+  public UnityEvent pipeInAudio, pipeOutAudio;
+
+  bool isLoading = true;
+
   void Start()
   {
 
@@ -28,10 +33,11 @@ public partial class Cradle : MonoBehaviour
       var myPipe = obj.GetComponent<Pipe>();
       AttachPipe(myPipe);
     }
-    
+
     var tmp = transform.Find("PipeArea/Placeholder");
     placeholderRenderer = tmp.GetComponent<MeshRenderer>();
     myPlayerState = GameObject.FindObjectOfType<PlayerState>();
+    isLoading = false;
   }
 
   public void ProcessCollision( Pipe tmpPipe )
@@ -59,11 +65,17 @@ public partial class Cradle : MonoBehaviour
     var capsuleCollider = this.gameObject.GetComponent<CapsuleCollider>();
 
     aPipe.transform.SetPositionAndRotation(pipeAreaTransform.position, pipeAreaTransform.rotation);
+
+    if (!isLoading)
+    {
+      pipeInAudio.Invoke();
+    }
   }
 
   public void DetachPipe()
   {
     connectedPipe = null;
+    pipeOutAudio.Invoke();
   }
 
   private void OnTriggerExit(Collider other)

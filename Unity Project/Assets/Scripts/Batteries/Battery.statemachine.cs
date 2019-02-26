@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using System;
 
 public partial class Battery : Lockable, Handleable.HandleableItem
@@ -13,11 +14,13 @@ public partial class Battery : Lockable, Handleable.HandleableItem
     DEAD
   }
 
-  public float currentChargeInSeconds = 10;
-  public float maxChargeInSeconds = 10;
-  public float lifetimeInSeconds = 30;
+  public UnityEvent batteryChargeAudio;
+
+  public float currentChargeInSeconds;
+  public float maxChargeInSeconds;
+  public float lifetimeInSeconds;
   public bool isDead {
-    get => this.lifetimeInSeconds <= 0;    
+    get => this.lifetimeInSeconds <= 0;
   }
 
   public float chargeRatio
@@ -50,6 +53,11 @@ public partial class Battery : Lockable, Handleable.HandleableItem
 
   protected bool AdjustCharge(float adjustment)
   {
+    if (adjustment > 0 && !charging)
+    {
+      batteryChargeAudio.Invoke();
+    }
+
     charging = (adjustment > 0);
     float attemptedCharge = this.currentChargeInSeconds + adjustment;
     float boundedByMin = Math.Max(attemptedCharge, 0);
@@ -63,6 +71,6 @@ public partial class Battery : Lockable, Handleable.HandleableItem
     if (this.isDead) return false;
     if (charge > 0) lifetimeInSeconds -= time;
     return AdjustCharge(charge * -1);
-    
+
   }
 }

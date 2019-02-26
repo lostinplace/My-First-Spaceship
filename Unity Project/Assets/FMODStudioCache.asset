@@ -14,13 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 114157568481057174}
-  - {fileID: 114694750739108702}
+  - {fileID: 114821672887816458}
   EditorEvents:
   - {fileID: 114490149772941602}
   - {fileID: 114390556781888286}
   - {fileID: 114992060135630234}
   - {fileID: 114400917518879810}
-  - {fileID: 114386570378640656}
   - {fileID: 114328552878432198}
   - {fileID: 114781695035477910}
   - {fileID: 114661403435121852}
@@ -29,6 +28,8 @@ MonoBehaviour:
   - {fileID: 114487368379278240}
   - {fileID: 114976397848195622}
   - {fileID: 114608099388647626}
+  - {fileID: 114370705488817450}
+  - {fileID: 114400802390210190}
   MasterBanks:
   - {fileID: 114993489729902988}
   - {fileID: 114177029283486140}
@@ -39,9 +40,25 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 114300911768125934}
   - {fileID: 114157568481057174}
-  stringsBankWriteTime: 636867334429262903
+  stringsBankWriteTime: 636866277532656842
   cacheVersion: 3
 --- !u!114 &114012059991190916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_offline
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114023458503109340
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -72,7 +89,7 @@ MonoBehaviour:
   Path: event:/pipe/pipe_out
   guid: 99ce3adb9b6fdd4cbae989631541f125
   Banks:
-  - {fileID: 114694750739108702}
+  - {fileID: 114821672887816458}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -80,6 +97,38 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 5
   Length: 2454
+--- !u!114 &114060254640507462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_food_offline
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114065020867882074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_offline
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114157568481057174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,11 +142,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\Audio\FMOD\Desktop\Master Bank.strings.bank
-  lastModified: 636867334429262903
+  lastModified: 636866277532656842
   LoadResult: 0
   FileSizes:
   - Name: 
-    Value: 1534
+    Value: 1582
   Exists: 1
 --- !u!114 &114159482929597600
 MonoBehaviour:
@@ -152,6 +201,22 @@ MonoBehaviour:
   Max: 1
   Default: 0
 --- !u!114 &114218319361096976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_offline
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114275642683577112
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -237,15 +302,15 @@ MonoBehaviour:
   Path: event:/engine/engine_running
   guid: 79fc15f2613f3d4f8273597f33ec9727
   Banks:
-  - {fileID: 114694750739108702}
+  - {fileID: 114821672887816458}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114773472643667576}
+  - {fileID: 114065020867882074}
   MinDistance: 1
   MaxDistance: 5
-  Length: 51544
+  Length: 51000
 --- !u!114 &114331353839865514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,6 +359,45 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114370705488817450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: snapshot:/failstate
+  guid: 72efbb2c8875df48af2222921e45780f
+  Banks:
+  - {fileID: 114821672887816458}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
+--- !u!114 &114385291008050392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_hud_offline
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114386570378640656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,7 +436,7 @@ MonoBehaviour:
   Path: event:/battery/battery_charge
   guid: 1d54e390dc8a2c40ad54bd82965a2727
   Banks:
-  - {fileID: 114694750739108702}
+  - {fileID: 114821672887816458}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -356,6 +460,32 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114400802390210190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/alert_messages/alerts
+  guid: ae3c58ecb2e4234eadfbe22a86c3c628
+  Banks:
+  - {fileID: 114821672887816458}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 114060254640507462}
+  - {fileID: 114976260222552280}
+  - {fileID: 114944396284771428}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 20500
 --- !u!114 &114400917518879810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,7 +501,7 @@ MonoBehaviour:
   Path: event:/food/eating
   guid: 4b8ab2a2a76ca04c94302189439eecf3
   Banks:
-  - {fileID: 114694750739108702}
+  - {fileID: 114821672887816458}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -458,7 +588,7 @@ MonoBehaviour:
   Path: event:/battery/battery_grab
   guid: cdaeb65bc4569c409ccdb6ccb59337f6
   Banks:
-  - {fileID: 114694750739108702}
+  - {fileID: 114821672887816458}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -481,12 +611,12 @@ MonoBehaviour:
   Path: event:/ambience
   guid: 0a14b4b1aef7e14e891586253832e6cd
   Banks:
-  - {fileID: 114694750739108702}
+  - {fileID: 114821672887816458}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114999844880505114}
+  - {fileID: 114023458503109340}
   MinDistance: 0
   MaxDistance: 0
   Length: 87195
@@ -505,12 +635,12 @@ MonoBehaviour:
   Path: event:/hud/hud_ambience
   guid: a89cf1c2218f7d4fb55e502d5eca5a04
   Banks:
-  - {fileID: 114694750739108702}
+  - {fileID: 114821672887816458}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114878159136406766}
+  - {fileID: 114385291008050392}
   MinDistance: 1
   MaxDistance: 5
   Length: 18315
@@ -598,22 +728,6 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
---- !u!114 &114605286582126820
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: is_offline
-  Min: 0
-  Max: 1
-  Default: 0
 --- !u!114 &114608099388647626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -629,7 +743,7 @@ MonoBehaviour:
   Path: event:/pipe/pipe_burst
   guid: fa941d26607ae941a829818aad5b6fa5
   Banks:
-  - {fileID: 114694750739108702}
+  - {fileID: 114821672887816458}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -691,12 +805,12 @@ MonoBehaviour:
   Path: event:/air_machine/air_machine
   guid: 7e5d5e227febb041a431681e6d459b67
   Banks:
-  - {fileID: 114694750739108702}
+  - {fileID: 114821672887816458}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114605286582126820}
+  - {fileID: 114275642683577112}
   MinDistance: 1
   MaxDistance: 5
   Length: 31815
@@ -730,7 +844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: C:\Users\TheFl\source\repos\My-First-Spaceship\Unity Project\Assets\Audio\FMOD\Desktop\Master
     Bank.bank
-  lastModified: 636867334429232803
+  lastModified: 636862037209889811
   LoadResult: 0
   FileSizes:
   - Name: 
@@ -768,22 +882,6 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
---- !u!114 &114773472643667576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: is_offline
-  Min: 0
-  Max: 1
-  Default: 0
 --- !u!114 &114781695035477910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -799,7 +897,7 @@ MonoBehaviour:
   Path: event:/failstates/failstate_air
   guid: 7cf80d7f815f8f4189c8e96bc7679d7c
   Banks:
-  - {fileID: 114694750739108702}
+  - {fileID: 114821672887816458}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -871,6 +969,26 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114821672887816458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: C:\Users\Chris\source\repos\My-First-Spaceship\Unity Project\Assets\Audio\FMOD\Desktop\Master
+    Bank.bank
+  lastModified: 636866277532616898
+  LoadResult: 0
+  FileSizes:
+  - Name: 
+    Value: 2519392
+  Exists: 1
 --- !u!114 &114849580366815464
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -919,7 +1037,7 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
---- !u!114 &114878159136406766
+--- !u!114 &114944396284771428
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -931,7 +1049,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: is_hud_offline
+  Name: is_air_offline
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114976260222552280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_engine_offline
   Min: 0
   Max: 1
   Default: 0
@@ -950,7 +1084,7 @@ MonoBehaviour:
   Path: event:/pipe/pipe_in
   guid: eb6780b11e5df04386fc4ebe5fbd52d9
   Banks:
-  - {fileID: 114694750739108702}
+  - {fileID: 114821672887816458}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -989,7 +1123,7 @@ MonoBehaviour:
   Path: event:/pipe/pipe_grab
   guid: 2a07915a0758744f8f6f1b67fd63e7ab
   Banks:
-  - {fileID: 114694750739108702}
+  - {fileID: 114821672887816458}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1017,19 +1151,3 @@ MonoBehaviour:
   - Name: 
     Value: 2128096
   Exists: 0
---- !u!114 &114999844880505114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: is_offline
-  Min: 0
-  Max: 1
-  Default: 0

@@ -8,23 +8,28 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
 {
   public enum PipeIntegrityState
   {
-    GOOD = 1000,
-    MEDIUM = 500,
+    GOOD = 3,
+    MEDIUM = 2,
     BAD = 1,
     RUPTURED = 0
   }
 
   public float currentIntegrity;
+  
+  public static float MaxIntegrity;
 
-  public float currentHeat = 0;
-  public static Int32 randomSeed = 7357;
-
-  /// <summary>
-  /// this is the exponent that is applied to the current heat level to determine damage.  if it gets bigger than 1 things will break very quickly
-  /// </summary>
   public static double damageScalingBase = 0.6;
 
+  public float currentHeat = 0;
+  
+  public static Int32 randomSeed = 7357;
+
   static System.Random randGen = new System.Random(randomSeed);
+
+  public float IntegrityRatio
+  {
+    get => currentIntegrity / MaxIntegrity;
+  }
 
   public PipeIntegrityState integrityState
   {
@@ -32,11 +37,11 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
     {
       switch (currentIntegrity)
       {
-        case var _ when currentIntegrity > (float)PipeIntegrityState.GOOD:
+        case var _ when IntegrityRatio > 0.66 :
           return PipeIntegrityState.GOOD;
-        case var _ when currentIntegrity > (float)PipeIntegrityState.MEDIUM:
+        case var _ when IntegrityRatio > 0.33:
           return PipeIntegrityState.MEDIUM;
-        case var _ when currentIntegrity > (float)PipeIntegrityState.BAD:
+        case var _ when currentIntegrity > 0:
           return PipeIntegrityState.BAD;
         default:
           return PipeIntegrityState.RUPTURED;
@@ -62,7 +67,7 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
 
   public static double GetDamageForHeat(float heatValue)
   {
-    double stdDev = Math.Pow(heatValue, damageScalingBase);
+    double stdDev = Math.Pow(heatValue, heatValue/MaxHeat);
     double damageValue = GaussianRandom(0, stdDev);
     return Math.Abs(damageValue);
   }
