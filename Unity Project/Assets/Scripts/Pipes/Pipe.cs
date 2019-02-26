@@ -30,7 +30,8 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
 
 
     this.currentCradle = null;
-    myPlayerState.PipesHeld++;
+    if( myPlayerState )
+      myPlayerState.PipesHeld++;
   }
 
   public void OnDrop()
@@ -44,7 +45,8 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
     {
       potentialCradle.ProcessCollision(this);
     }
-    myPlayerState.PipesHeld--;
+    if( myPlayerState )
+      myPlayerState.PipesHeld--;
   }
 
   public GameObject GetGameObject() {
@@ -68,7 +70,8 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
     
     
     var settings = GameObject.FindObjectOfType<SpaceshipSettings>();
-    InitializeWithSettings(settings);
+    if( settings )
+        InitializeWithSettings(settings);
   }
 
   private void InitializeWithSettings(SpaceshipSettings settings)

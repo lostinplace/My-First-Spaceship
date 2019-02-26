@@ -2,7 +2,8 @@
 
 public class PlayerState : MonoBehaviour
 {
-
+  [SerializeField] public GameObject userInterfacePrefab;
+  protected GameObject playerUserInterface;
   protected UnityEngine.UI.RawImage playerHurtUI;
   protected UnityEngine.UI.Image fadeToBlack;
   protected Canvas uiCanvas;
@@ -20,10 +21,15 @@ public class PlayerState : MonoBehaviour
   private float totalTripTime = 300f;
   private float curTripTime;
 
-  public DeviceBase air;
-  public DeviceBase engine;
-  public DeviceBase fridge;
-  public DeviceBase monitor;
+  private SpaceshipSettings settings;
+
+  public  DeviceBase air;
+
+  public  DeviceBase engine;
+
+  public  DeviceBase fridge;
+
+  public  DeviceBase monitor;
   
   // -------------------- HUNGER --------------------
   [SerializeField]
@@ -125,11 +131,12 @@ public class PlayerState : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
-    playerHurtUI = GetComponentInChildren<UnityEngine.UI.RawImage>();
-    fadeToBlack = GetComponentInChildren<UnityEngine.UI.Image>();
+    playerUserInterface = Instantiate(userInterfacePrefab);
+    playerHurtUI = playerUserInterface.GetComponentInChildren<UnityEngine.UI.RawImage>();
+    fadeToBlack = playerUserInterface.GetComponentInChildren<UnityEngine.UI.Image>();
     originalFadeToBlackColor = fadeToBlack.color;
     fadeToBlack.color = new Color(0f, 0f, 0f, 0f);
-    uiCanvas = GetComponentInChildren<Canvas>();
+    
     playerHurtOriginalColor = playerHurtUI.color;
     playerHurtUI.color = Color.clear;
     DontDestroyOnLoad(this.gameObject);
@@ -147,12 +154,18 @@ public class PlayerState : MonoBehaviour
     curAirFill = 0f;
 
     curTripTime = 0f;
+
+    settings = GameObject.FindObjectOfType<SpaceshipSettings>();
+    if (settings) totalTripTime = settings.timeLimitInSeconds;
   }
 
   // Update is called once per frame
   void Update()
   {
-    if( air ) {
+    Rect canvasRectangle = playerHurtUI.canvas.pixelRect;
+    playerHurtUI.rectTransform.sizeDelta = new Vector2(canvasRectangle.width, canvasRectangle.height);
+    fadeToBlack.rectTransform.sizeDelta = new Vector2(canvasRectangle.width, canvasRectangle.height);
+    if ( air ) {
         if( air.plug )
             isAirOn = (air.plug.currentBattery != null) && air.isActive;
     }

@@ -38,7 +38,7 @@ public class DeviceBase : MonoBehaviour
 
   public CradleNetwork cradleNetwork;
 
-  public bool pipesNotRequired = true;
+  public bool pipesRequired = true;
 
   public bool BatteriesRequired = false;
 
@@ -66,11 +66,9 @@ public class DeviceBase : MonoBehaviour
 
   public bool DoCycle(float delta)
   {
-    if (!this.isActive) return false;
-
     bool powered = false;
 
-    if (BatteriesRequired && this.powerConsumptionPerSecond > 0)
+    if (BatteriesRequired && this.powerConsumptionPerSecond >= 0)
     {
       powered = this.currentBattery && this.currentBattery.Consume(delta, powerConsumptionPerSecond * delta);
     }
@@ -78,12 +76,12 @@ public class DeviceBase : MonoBehaviour
     if (this.powerConsumptionPerSecond < 0)
     {
       powered = true;
-      currentBattery.Consume(delta, powerConsumptionPerSecond * delta);
+      if(currentBattery) currentBattery.Consume(delta, powerConsumptionPerSecond * delta);
     }
 
     if (!BatteriesRequired) powered = true;
 
-    var piped = pipesNotRequired || (cradleNetwork.isConnected() && cradleNetwork.ApplyHeat(heatOutputPerSecond * delta));
+    var piped = !pipesRequired || (cradleNetwork && cradleNetwork.isConnected() && cradleNetwork.ApplyHeat(heatOutputPerSecond * delta));
 
     return powered && piped;
   }
@@ -115,7 +113,7 @@ public class DeviceBase : MonoBehaviour
   public bool CanCycle()
   {
     var powered = !BatteriesRequired || (currentBattery && !currentBattery.isDead && currentBattery.currentChargeInSeconds > 0);
-    var piped = pipesNotRequired || (cradleNetwork && cradleNetwork.isConnected());
+    var piped = pipesRequired || (cradleNetwork && cradleNetwork.isConnected());
     return powered && piped;
   }
 
@@ -123,34 +121,28 @@ public class DeviceBase : MonoBehaviour
   void Update()
   {
     var delta = Time.deltaTime;
-    if (this.CanCycle() && this.DoCycle(delta))
+    if (this.CanCycle())
     {
-      if (!this.isActive)
-      {
-        DeactivateDevice();
-      }
-      timeActiveInSeconds += delta;
-    }
-    else
-    {
-      if (this.isActive)
-      {
-        DeactivateDevice();
-      }
-    }
+      var cycleCompleted = this.DoCycle(delta);
 
-    if (!hasItem && this.isActive)
-    {
-      this.productionTime += delta;
-      if (this.productionTime >= productionTimeRequired)
+      if (!cycleCompleted)
       {
-        ProduceItem();
-        this.hasItem = true;
-        this.productionTime = 0;
+        DeactivateDevice();
       }
-    }
-    else
-    {
+
+      timeActiveInSeconds += delta;
+
+      if (!hasItem)
+      {
+        this.productionTime += delta;
+        if (this.productionTime >= productionTimeRequired)
+        {
+          ProduceItem();
+          this.hasItem = true;
+          this.productionTime = 0;
+        }
+      }
+    } else{
       this.productionTime = 0;
     }
   }
