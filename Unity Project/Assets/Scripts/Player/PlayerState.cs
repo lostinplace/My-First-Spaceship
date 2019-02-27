@@ -181,9 +181,7 @@ public class PlayerState : MonoBehaviour
     }
 
     if (isAirOn)
-    {
       curAirFill = Mathf.Min(maxAirlessTime, curAirFill + Time.deltaTime * airRefillRate);
-    }
     else
     {
       if (curAirlessTime < maxAirlessTime)

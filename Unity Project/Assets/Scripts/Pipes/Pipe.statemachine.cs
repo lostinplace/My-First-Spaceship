@@ -26,8 +26,7 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
 
   static System.Random randGen = new System.Random(randomSeed);
 
-  public float IntegrityRatio
-  {
+  public float IntegrityRatio {
     get => currentIntegrity / MaxIntegrity;
   }
 
@@ -51,8 +50,7 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
 
   public bool isBroken
   {
-    get
-    {
+    get {
       return this.integrityState == PipeIntegrityState.RUPTURED;
     }
   }
