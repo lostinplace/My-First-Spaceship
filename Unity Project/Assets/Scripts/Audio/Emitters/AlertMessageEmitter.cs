@@ -21,8 +21,8 @@ public class AlertMessageEmitter : MonoBehaviour
             || !this.componentStates["food"];
     }
 
-    // TODO: pull in Chris W alarm state properties from PlayerState
-    private void SetAlarmStates() {
+    private void SetAlarmStates()
+    {
         this.componentStates["air"] = this.playerState.AirIsActive;
         this.componentStates["engine"] = this.playerState.EngineIsActive;
         this.componentStates["food"] = this.playerState.FridgeIsActive;
@@ -31,7 +31,7 @@ public class AlertMessageEmitter : MonoBehaviour
         this.Alerts.setParameterValue("is_engine_offline", !this.componentStates["engine"] ? 1 : 0);
         this.Alerts.setParameterValue("is_air_offline", !this.componentStates["air"] ? 1 : 0);
         this.Alerts.setParameterValue("is_food_offline", !this.componentStates["food"] ? 1 : 0);
-
+        this.Alerts.setParameterValue("is_monitor_offline", !this.componentStates["monitor"] ? 1 : 0);
     }
 
     // Start is called before the first frame update
@@ -58,8 +58,7 @@ public class AlertMessageEmitter : MonoBehaviour
         Alerts.getPlaybackState(out PlaybackState);
         this.IsPlayingAlert = this.PlaybackState != FMOD.Studio.PLAYBACK_STATE.STOPPED;
 
-        // TODO: Add in the monitor check to only play alerts when monitor is active. Keeping it out for now for early testing purposes.
-        if (this.HasOfflineComponent() && !this.IsPlayingAlert)
+        if (this.HasOfflineComponent() && !this.IsPlayingAlert && this.componentStates["monitor"])
         {
             this.PlayMessages();
             this.IsPlayingAlert = true;
