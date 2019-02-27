@@ -5,6 +5,10 @@ using UnityEngine;
 
 public partial class Pipe : Lockable, Handleable.HandleableItem
 {
+  [SerializeField] public ParticleSystem smokePrefab;
+  //Highly suggest this be in local space/parented to this object!//
+  [SerializeField] public GameObject smokeSpawnPoint;
+  protected ParticleSystem smoke;
   protected bool isBeingHeld = false;
   public Cradle currentCradle, potentialCradle;
   private static PlayerState myPlayerState;
@@ -49,15 +53,19 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
     return gameObject;
   }
 
-  void Start() {
-    
+  void Start()
+  {
+    smoke = Instantiate(smokePrefab, transform);
+    smoke.gameObject.SetActive( false );
+    smoke.transform.position = smokeSpawnPoint.transform.position;
+    smoke.transform.rotation = smokeSpawnPoint.transform.rotation;
     Handleable.InitializeHandleableItem(this);
     materialDict = new Dictionary<PipeIntegrityState, Material>()
     {
       { PipeIntegrityState.BAD, Resources.Load<Material>("pipe_bad") },
       { PipeIntegrityState.MEDIUM, Resources.Load<Material>("pipe_medium") },
-      { PipeIntegrityState.GOOD, Resources.Load<Material>("pipe_good")},
-      { PipeIntegrityState.RUPTURED, Resources.Load<Material>("pipe_ruptured")},
+      { PipeIntegrityState.GOOD, Resources.Load<Material>("pipe_good") },
+      { PipeIntegrityState.RUPTURED, Resources.Load<Material>("pipe_ruptured") },
     };
     myRenderer = GetComponent<MeshRenderer>();
     rupturedMesh = Resources.Load<Mesh>("pipe_rupture");
@@ -70,8 +78,7 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
         InitializeWithSettings(settings);
   }
 
-  private void InitializeWithSettings(SpaceshipSettings settings)
-  {
+  private void InitializeWithSettings(SpaceshipSettings settings) {
     currentIntegrity = currentIntegrity == 0 ? settings.defaultPipeIntegrity : currentIntegrity;
     
   }
@@ -94,6 +101,10 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
     {
       var filter = this.GetComponent<MeshFilter>();
       filter.mesh = rupturedMesh;
+      if (currentCradle)
+        smoke.gameObject.SetActive(true);
+      else
+        smoke.gameObject.SetActive(false);
     }
     myRenderer.material = materialDict[this.integrityState];
     var heatEmission = CalculateHeatEmission();
