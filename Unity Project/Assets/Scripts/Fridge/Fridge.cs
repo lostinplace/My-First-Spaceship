@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class Fridge : MonoBehaviour
 {
-    [SerializeField] public GameObject foodPrefab, foodOrienter;
-    [SerializeField] public Lockable door;
-    [SerializeField] public PlayerState player;
+    public GameObject foodPrefab, foodOrienter;
+    public Lockable door;
+    private PlayerState player;
     protected MeshRenderer yellowIndicatorLight, greenIndicatorLight;
     protected Material yellowIndicatorLightMaterial, greenIndicatorLightMaterial;
     protected DeviceBase refrigerator;
@@ -20,7 +20,7 @@ public class Fridge : MonoBehaviour
 
     void Start()
     {
-        refrigerator = GetComponent<DeviceBase>();
+        refrigerator = GetComponentInParent<DeviceBase>();
         MeshRenderer[] childrenShaders = transform.parent.GetComponentsInChildren<MeshRenderer>();
         Regex yellowLightRegex = new Regex(YELLOW_INDICATOR_LIGHT_RO);
         Regex greenLightRegex = new Regex(GREEN_INDICATOR_LIGHT_RO);
