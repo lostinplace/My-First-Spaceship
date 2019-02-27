@@ -225,8 +225,8 @@ public class PlayerState : MonoBehaviour
         SceneChanger.GameOver(gameOverMessage);
     }
   }
-  
-  //<properties>
+
+  #region Properties
 
   public float TotalTripTime => totalTripTime;
 
@@ -256,6 +256,6 @@ public class PlayerState : MonoBehaviour
 
   public float MaxEngineOffTime => maxEngineOffTime;
 
-  //</properties>
+  #endregion
   
 }
