@@ -31,7 +31,7 @@ public class AlertMessageEmitter : MonoBehaviour
         this.Alerts.setParameterValue("is_engine_offline", !this.componentStates["engine"] ? 1 : 0);
         this.Alerts.setParameterValue("is_air_offline", !this.componentStates["air"] ? 1 : 0);
         this.Alerts.setParameterValue("is_food_offline", !this.componentStates["food"] ? 1 : 0);
-        this.Alerts.setParameterValue("is_monitor_offline", !this.componentStates["monitor"] ? 1 : 0);
+        this.Alerts.setParameterValue("is_monitor_offline", 0);
     }
 
     // Start is called before the first frame update
@@ -39,7 +39,7 @@ public class AlertMessageEmitter : MonoBehaviour
     {
         this.Alerts = FMODUnity.RuntimeManager.CreateInstance(AlertsEvent);
         this.IsPlayingAlert = false;
-        this.playerState = this.GetComponent<PlayerState>();
+        playerState = GameObject.FindObjectOfType<PlayerState>();
 
         this.componentStates = new Dictionary<string, bool>();
         this.componentStates.Add("air", true);

@@ -933,7 +933,7 @@ PrefabInstance:
         type: 3}
       propertyPath: myDevice
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2776408207035619803}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69f9ef04e1f77e64c82ba148627c485c, type: 3}
 --- !u!4 &1815748513712771453 stripped
