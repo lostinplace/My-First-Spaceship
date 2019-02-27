@@ -113,7 +113,7 @@ public class DeviceBase : MonoBehaviour
   public bool CanCycle()
   {
     var powered = !BatteriesRequired || (currentBattery && !currentBattery.isDead && currentBattery.currentChargeInSeconds > 0);
-    var piped = pipesRequired || (cradleNetwork && cradleNetwork.isConnected());
+    var piped = !pipesRequired || (cradleNetwork && cradleNetwork.isConnected());
     return powered && piped;
   }
 
