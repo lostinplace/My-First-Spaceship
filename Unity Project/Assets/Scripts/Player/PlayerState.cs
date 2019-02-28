@@ -163,7 +163,6 @@ public class PlayerState : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    Debug.Log(playerVRCamera.aspect);
     float frustrumHeight = 2.0f * distanceFromCamera * Mathf.Tan(playerVRCamera.fieldOfView * 0.5f * Mathf.Deg2Rad);
     float frustrumWidth = frustrumHeight * playerVRCamera.aspect;
     playerHurtUI.rectTransform.sizeDelta = new Vector2( frustrumWidth, frustrumHeight );

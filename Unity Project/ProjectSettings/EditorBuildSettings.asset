@@ -5,18 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: Assets/Scenes/dev/Device Logic Demo.unity
-    guid: dfd82a21b16223a4eba59ec9c6639dcf
-  - enabled: 1
-    path: Assets/Scenes/dev/Title.unity
-    guid: 1dfd93a46f4645c4895f7ffe44d28ed4
   - enabled: 1
     path: Assets/Scenes/prod/new_layout.unity
     guid: ea10bf1f9f4ea7c47a21935382d6fd44

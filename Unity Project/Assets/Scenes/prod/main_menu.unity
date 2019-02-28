@@ -980,8 +980,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 738475506}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.10539, y: -1.0168, z: -0.16729}
-  m_LocalScale: {x: 0.002511774, y: 0.002511774, z: 0.002511774}
+  m_LocalPosition: {x: 0, y: -1.0168, z: -4.057455}
+  m_LocalScale: {x: 0.000837258, y: 0.000837258, z: 0.000837258}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -1391,7 +1391,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 975435407}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.153}
   m_LocalScale: {x: 0.002749287, y: 0.002749287, z: 0.002749287}
   m_Children:
   - {fileID: 1312477205}
@@ -1428,7 +1428,7 @@ PrefabInstance:
     - target: {fileID: 4741100299824780655, guid: 28cd4f81909e4564b890837a9ff8e67f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.198163
+      value: -16.088327
       objectReference: {fileID: 0}
     - target: {fileID: 4741100299824780655, guid: 28cd4f81909e4564b890837a9ff8e67f,
         type: 3}
@@ -7356,7 +7356,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2098150207}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.24, z: -1.16}
+  m_LocalPosition: {x: 0, y: -2.964, z: -4.534}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2123037037}
@@ -7599,8 +7599,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1947829333942157612}
   m_LocalRotation: {x: -0.49966395, y: 0.5003359, z: -0.5003359, w: -0.49966395}
-  m_LocalPosition: {x: -0.48872, y: -0.93661, z: -0.098835}
-  m_LocalScale: {x: 0.019557001, y: 0.016284322, z: 0.019557001}
+  m_LocalPosition: {x: -0.1602, y: -0.93661, z: -3.9892}
+  m_LocalScale: {x: 0.006519, y: 0.0054281065, z: 0.006519}
   m_Children:
   - {fileID: 5728297326161194642}
   m_Father: {fileID: 0}
@@ -7653,8 +7653,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 2.5993247
-  m_Height: 26.780304
+  m_Radius: 7.797975
+  m_Height: 48.20454
   m_Direction: 1
   m_Center: {x: -0.0000029811035, y: -28.651104, z: 0.7461002}
 --- !u!4 &5728297326161194642
