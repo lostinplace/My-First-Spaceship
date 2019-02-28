@@ -86,7 +86,15 @@ public class Plug : MonoBehaviour
 
   void Update()
   {
-    placeholderRenderer.enabled = myPlayerState.BatteriesHeld > 0 && !currentBattery;
+    try
+    {
+      placeholderRenderer.enabled = myPlayerState.BatteriesHeld > 0 && !currentBattery;
+    }
+    catch(Exception e)
+    {
+      Debug.Log(e.Message);
+    }
+    
   }
 
 }

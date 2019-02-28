@@ -117,10 +117,23 @@ public class DeviceBase : MonoBehaviour
     return powered && piped;
   }
 
+
+  float updateThreshold = 0.2f;
+  float cumulativeDelta = 0;
+
   // Update is called once per frame
   void Update()
   {
-    var delta = Time.deltaTime;
+    
+
+    if (UnityEngine.Random.value > updateThreshold)
+    {
+      cumulativeDelta += Time.deltaTime;
+      return;
+    }
+
+    var delta = cumulativeDelta;
+
     if (this.CanCycle())
     {
       var cycleCompleted = this.DoCycle(delta);
@@ -145,5 +158,7 @@ public class DeviceBase : MonoBehaviour
     } else{
       this.productionTime = 0;
     }
+
+    cumulativeDelta = 0;
   }
 }

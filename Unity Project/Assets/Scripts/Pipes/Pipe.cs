@@ -59,10 +59,6 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
 
   void Start()
   {
-    smoke = Instantiate(smokePrefab, transform);
-    smoke.gameObject.SetActive( false );
-    smoke.transform.position = smokeSpawnPoint.transform.position;
-    smoke.transform.rotation = smokeSpawnPoint.transform.rotation;
     Handleable.InitializeHandleableItem(this);
     materialDict = new Dictionary<PipeIntegrityState, Material>()
     {
@@ -80,6 +76,11 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
     var settings = GameObject.FindObjectOfType<SpaceshipSettings>();
     if( settings )
         InitializeWithSettings(settings);
+
+    smoke = Instantiate(smokePrefab, transform);
+    smoke.gameObject.SetActive(false);
+    smoke.transform.position = smokeSpawnPoint.transform.position;
+    smoke.transform.rotation = smokeSpawnPoint.transform.rotation;
   }
 
   private void InitializeWithSettings(SpaceshipSettings settings) {
@@ -92,11 +93,20 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
 
   private static Mesh rupturedMesh;
 
+  float updateThreshold = 0.2f;
+  float cumulativeDelta = 0;
+
   void Update()
   {
-    var delta = Time.deltaTime;
-    ProcessHeat(delta);
+    if (UnityEngine.Random.value > updateThreshold)
+    {
+      cumulativeDelta += Time.deltaTime;
+      return;
+    } 
+
+    ProcessHeat(cumulativeDelta);
     SetAppearance();
+    cumulativeDelta = 0;
   }
 
   void SetAppearance()
@@ -116,7 +126,7 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
       else
         smoke.gameObject.SetActive(false);
     }
-    myRenderer.material = materialDict[this.integrityState];
+    myRenderer.material = materialDict[integrityState];
     var heatEmission = CalculateHeatEmission();
     myRenderer.material.SetColor("_EmissionColor", new Color(heatEmission, 0, 0));
   }
