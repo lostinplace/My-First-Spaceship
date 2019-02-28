@@ -2,11 +2,13 @@
 
 public class PlayerState : MonoBehaviour
 {
-  [SerializeField] public GameObject userInterfacePrefab;
-  protected GameObject playerUserInterface;
+    //GameObject userInterfacePrefab;
+    //    [SerializeField] public Canvas playerUserInterface;
   protected UnityEngine.UI.RawImage playerHurtUI;
   protected UnityEngine.UI.Image fadeToBlack;
-  protected Canvas uiCanvas;
+    public float distanceFromCamera = .2f;
+    [SerializeField] public Camera playerVRCamera;
+    [SerializeField] public Canvas uiCanvas;
   protected Color playerHurtOriginalColor, originalFadeToBlackColor;
   [SerializeField] public float playerHurtThrobSpeed;
   [SerializeField] public float fadeToBlackSpeed;
@@ -131,9 +133,8 @@ public class PlayerState : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
-    playerUserInterface = Instantiate(userInterfacePrefab);
-    playerHurtUI = playerUserInterface.GetComponentInChildren<UnityEngine.UI.RawImage>();
-    fadeToBlack = playerUserInterface.GetComponentInChildren<UnityEngine.UI.Image>();
+    playerHurtUI = uiCanvas.GetComponentInChildren<UnityEngine.UI.RawImage>();
+    fadeToBlack = uiCanvas.GetComponentInChildren<UnityEngine.UI.Image>();
     originalFadeToBlackColor = fadeToBlack.color;
     fadeToBlack.color = new Color(0f, 0f, 0f, 0f);
     
@@ -162,12 +163,13 @@ public class PlayerState : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    Rect canvasRectangle = playerHurtUI.canvas.pixelRect;
-    playerHurtUI.rectTransform.sizeDelta = new Vector2(canvasRectangle.width, canvasRectangle.height);
-    fadeToBlack.rectTransform.sizeDelta = new Vector2(canvasRectangle.width, canvasRectangle.height);
+    Debug.Log(playerVRCamera.aspect);
+    float frustrumHeight = 2.0f * distanceFromCamera * Mathf.Tan(playerVRCamera.fieldOfView * 0.5f * Mathf.Deg2Rad);
+    float frustrumWidth = frustrumHeight * playerVRCamera.aspect;
+    playerHurtUI.rectTransform.sizeDelta = new Vector2( frustrumWidth, frustrumHeight );
     if ( air ) {
-        if( air.plug )
-            isAirOn = (air.plug.currentBattery != null) && air.isActive;
+      if( air.plug )
+        isAirOn = (air.plug.currentBattery != null) && air.isActive;
     }
     ThrobHurt();
     if (curHungerBurnDown > 0)
