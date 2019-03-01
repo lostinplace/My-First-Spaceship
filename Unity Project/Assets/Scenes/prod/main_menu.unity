@@ -1491,12 +1491,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destinations:
-  - {x: 100, y: 100, z: 100}
-  - {x: -30, y: -30, z: -30}
-  - {x: -100, y: -100, z: -100}
+  - {x: 100, y: 100, z: 30}
+  - {x: -20, y: -20, z: 0}
+  - {x: -90, y: -90, z: -50}
   - {x: 100, y: -100, z: 100}
   - {x: -100, y: 100, z: -100}
-  rocketSpeed: 10
+  rocketSpeed: 11
   rocketDestinationTolerence: 1
 --- !u!4 &1036909787 stripped
 Transform:
@@ -1724,7 +1724,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 15
+      scalar: 1.65
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -1777,7 +1777,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 200
+      scalar: 202.73
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -1893,7 +1893,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 100
+      scalar: 31.6
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -2209,7 +2209,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 5000
+    maxNumParticles: 10000
     size3D: 0
     rotation3D: 0
     gravityModifier:
@@ -2269,10 +2269,10 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 12.5
+    angle: 9.6
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 1
+    radiusThickness: 0
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
@@ -2355,7 +2355,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.1
+      value: 88.37
       mode: 0
       spread: 0
       speed:
@@ -2412,7 +2412,7 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
     arc:
-      value: 360
+      value: 358.13
       mode: 0
       spread: 0
       speed:
@@ -2474,7 +2474,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 73.01
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -2527,7 +2527,7 @@ ParticleSystem:
     rateOverDistance:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 75.1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -2904,7 +2904,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   ColorModule:
-    enabled: 0
+    enabled: 1
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -2913,7 +2913,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 1}
+        key1: {r: 1, g: 1, b: 1, a: 0}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -3092,7 +3092,7 @@ ParticleSystem:
     flipU: 0
     flipV: 0
   VelocityModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -3626,7 +3626,7 @@ ParticleSystem:
     speedModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
