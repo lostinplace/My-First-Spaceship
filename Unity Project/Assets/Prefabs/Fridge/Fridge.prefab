@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 557948413}
   - component: {fileID: 557948415}
   - component: {fileID: 557948414}
+  - component: {fileID: 3510262528742769107}
   m_Layer: 0
   m_Name: fridge_pipe
   m_TagString: Untagged
@@ -25,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 557948412}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: 0.19167022, z: -0, w: 0.98145944}
+  m_LocalPosition: {x: 0.3014751, y: 0, z: -0.17915386}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
   m_Father: {fileID: 1895153007}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 22.101002, z: 0}
 --- !u!33 &557948415
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -77,6 +78,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &3510262528742769107
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557948412}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 11.572843, y: 39.21602, z: 12.17587}
+  m_Center: {x: -30.091633, y: 142.0116, z: -88.38451}
 --- !u!1 &604821944
 GameObject:
   m_ObjectHideFlags: 0
