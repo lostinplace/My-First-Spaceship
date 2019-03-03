@@ -16,7 +16,7 @@ public partial class Battery : Lockable, Handleable.HandleableItem
     Unlock();
     isBeingHeld = true;
     if (currentPlug) currentPlug.DetachBattery();
-    playerState.BatteriesHeld++;   
+    if(playerState) playerState.BatteriesHeld++;   
   }
 
   Color getEmissiveColor()
@@ -30,7 +30,7 @@ public partial class Battery : Lockable, Handleable.HandleableItem
   {
     isBeingHeld = false;
     if (potentialPlug) potentialPlug.ProcessCollision(this);
-    playerState.BatteriesHeld--;
+    if(playerState) playerState.BatteriesHeld--;
     SceneChanger.CleanupList.Add(this.gameObject);
   }
   

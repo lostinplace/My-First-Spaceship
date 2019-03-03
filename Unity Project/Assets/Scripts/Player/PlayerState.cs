@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using Valve.VR;
 
+public enum HoldingTypes
+{
+  BATTERY,
+  PIPE
+}
 
 public class PlayerState : MonoBehaviour
 {  
@@ -53,9 +58,20 @@ public class PlayerState : MonoBehaviour
     get => SceneChanger.settings.monitor;
   }
 
-  public short PipesHeld = 0;
+  private short _pipesHeld;
 
-  public short BatteriesHeld = 0;
+  public short PipesHeld
+  {
+    get => _pipesHeld;
+    set => _pipesHeld = (short)Mathf.Clamp(value, 0, 2);
+  }
+
+  private short _batteriesHeld;
+  public short BatteriesHeld
+  {
+    get => _batteriesHeld;
+    set => _batteriesHeld= (short)Mathf.Clamp(value, 0, 2);
+  }
 
   private bool exited
   {
@@ -97,7 +113,7 @@ public class PlayerState : MonoBehaviour
     airSupplyInSeconds = SceneChanger.settings.airSupplyInSeconds;
     currentTripTime = 0f;
   }
-
+  
   // Update is called once per frame
   void Update()
   {
@@ -124,7 +140,7 @@ public class PlayerState : MonoBehaviour
 
       if (airSupplyInSeconds < 0)
       {
-        if (!suffocating) SteamVR_Fade.Start(Color.red, 10f);
+        if (!suffocating) SteamVR_Fade.Start(SceneChanger.settings.SuffocationColor, SceneChanger.settings.lungCapacityInSeconds);
         suffocating = true;
       }
     }

@@ -19,6 +19,10 @@ public class DeviceBase : MonoBehaviour
   public float productionTimeRequired=5.0f;
   public bool hasItem = false;
 
+  public float overrideStartingBatteryLifeTimeInSeconds = 0;
+  public float overrideStartingBatteryChargeInSeconds = 0;
+  public float overrideStartingBatteryMaxChargeInSeconds = 0;
+  
   public Plug plug;
 
   public Battery currentBattery
@@ -43,6 +47,8 @@ public class DeviceBase : MonoBehaviour
   public bool BatteriesRequired = false;
 
   private bool batteryNotRequired;
+  
+  
 
   public bool isActive {
     get
