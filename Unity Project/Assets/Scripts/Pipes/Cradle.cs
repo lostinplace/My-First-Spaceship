@@ -17,7 +17,7 @@ public partial class Cradle : MonoBehaviour
 
   private MeshRenderer placeholderRenderer;
 
-  private static PlayerState myPlayerState;
+  private static PlayerState playerState => SceneChanger.playerState;
 
   public UnityEvent pipeInAudio, pipeOutAudio;
 
@@ -36,7 +36,7 @@ public partial class Cradle : MonoBehaviour
 
     var tmp = transform.Find("PipeArea/Placeholder");
     placeholderRenderer = tmp.GetComponent<MeshRenderer>();
-    myPlayerState = GameObject.FindObjectOfType<PlayerState>();
+    
     isLoading = false;
   }
 
@@ -87,7 +87,7 @@ public partial class Cradle : MonoBehaviour
 
   void Update()
   {
-    placeholderRenderer.enabled = ( myPlayerState ? myPlayerState.PipesHeld > 0 : false ) && !this.connectedPipe ;
+    placeholderRenderer.enabled = ( playerState ? playerState.PipesHeld > 0 : false ) && !this.connectedPipe ;
   }
 
 }

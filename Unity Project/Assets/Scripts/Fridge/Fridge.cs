@@ -8,7 +8,7 @@ public class Fridge : MonoBehaviour
 {
     public GameObject foodPrefab, foodOrienter;
     public Lockable door;
-    private PlayerState player;
+
     protected MeshRenderer yellowIndicatorLight, greenIndicatorLight;
     protected Material yellowIndicatorLightMaterial, greenIndicatorLightMaterial;
     protected DeviceBase refrigerator;
@@ -48,8 +48,6 @@ public class Fridge : MonoBehaviour
         lastDoorState = door.IsLocked;
         foodIsPresent = false;
         doorIsClosed = true;
-        if (player == null)
-            player = GameObject.FindObjectOfType<PlayerState>();
         refrigerator.ItemProduced += ProduceFood;
         yellowIndicatorLightMaterial.DisableKeyword(SHADER_KEYWORD_RO);
         greenIndicatorLightMaterial.DisableKeyword(SHADER_KEYWORD_RO);
@@ -89,7 +87,6 @@ public class Fridge : MonoBehaviour
     {
         food = GameObject.Instantiate(foodPrefab, 
                 foodOrienter.transform.position, foodOrienter.transform.rotation);
-        food.GetComponent<Food>().ps = player;
         door.Unlock();
     }
     

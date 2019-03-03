@@ -1,22 +1,71 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
 
-public class SceneChanger
+public static class SceneChanger
 {
-    public static string gameOverMessage;
-    public static void LoadGame() {
-        SceneManager.LoadScene("new_layout");
-    }
-    public static void GameOver( string message )
+  public static string gameOverMessage;
+
+  private static PlayerState _playerState;
+  private static bool blockPlayerState = false;
+
+  public static List<GameObject> CleanupList = new List<GameObject>();
+
+  public static PlayerState playerState
+  {
+    get
     {
-        gameOverMessage = message;
-        UnityEngine.GameObject test = UnityEngine.GameObject.Instantiate(new GameObject());
-        UnityEngine.GameObject.DontDestroyOnLoad(test);
-        foreach (GameObject current in test.scene.GetRootGameObjects())
-            UnityEngine.GameObject.Destroy(current);
-        SceneManager.LoadScene("GameOver");
+      if (blockPlayerState) return null;
+      if (!_playerState)
+      {
+        playerState = GameObject.FindObjectOfType<PlayerState>();
+      }
+      return _playerState;
     }
-    public static void GoToMainMenu() {
-        SceneManager.LoadScene("main_menu");
+    private set => SceneChanger._playerState = value;
+  }
+
+  private static SpaceshipSettings _settings;
+  public static SpaceshipSettings settings
+  {
+    get
+    {
+      if (!_settings)
+      {
+        _settings = GameObject.FindObjectOfType<SpaceshipSettings>();
+      }
+      return _settings;
     }
+    private set => SceneChanger._settings = value;
+  }
+
+  public static void LoadGame() {
+    
+    Valve.VR.SteamVR_LoadLevel.Begin("new_layout");
+  }
+
+  public static void GameOver( string message )
+  {
+    gameOverMessage = message;
+    blockPlayerState = true;
+    var leftovers = SceneManager.GetActiveScene().GetRootGameObjects();
+    foreach (var item in CleanupList)
+    {
+      GameObject.DestroyImmediate(item);
+    }
+    CleanupList.Clear();
+
+    Valve.VR.SteamVR_LoadLevel.Begin("GameOver");
+    
+    GameObject.Destroy(playerState);
+    SceneChanger.playerState = null;
+    
+    blockPlayerState = false;
+  }
+
+  public static void GoToMainMenu() {
+
+    Valve.VR.SteamVR_LoadLevel.Begin("main_menu");
+  }
 }

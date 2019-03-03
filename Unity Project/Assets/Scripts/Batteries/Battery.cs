@@ -9,14 +9,14 @@ public partial class Battery : Lockable, Handleable.HandleableItem
   
   public bool isBeingHeld = false;
 
-  private static PlayerState myPlayerState;
+  private PlayerState playerState => SceneChanger.playerState;
   
   public void OnPickup()
   {
     Unlock();
     isBeingHeld = true;
     if (currentPlug) currentPlug.DetachBattery();
-    myPlayerState.BatteriesHeld++;
+    playerState.BatteriesHeld++;   
   }
 
   Color getEmissiveColor()
@@ -30,7 +30,8 @@ public partial class Battery : Lockable, Handleable.HandleableItem
   {
     isBeingHeld = false;
     if (potentialPlug) potentialPlug.ProcessCollision(this);
-    myPlayerState.BatteriesHeld--;
+    playerState.BatteriesHeld--;
+    SceneChanger.CleanupList.Add(this.gameObject);
   }
   
   public GameObject GetGameObject() {
@@ -50,9 +51,9 @@ public partial class Battery : Lockable, Handleable.HandleableItem
       {EnergyState.DEAD, Resources.Load<Material>("battery_dead")}
     };
     myRenderer = this.GetComponent<MeshRenderer>();
-    myPlayerState = GameObject.FindObjectOfType<PlayerState>();
     var settings = GameObject.FindObjectOfType<SpaceshipSettings>();
-    InitializeWithSettings(settings);
+    if(settings)
+      InitializeWithSettings(settings);
   }
 
   private void InitializeWithSettings(SpaceshipSettings settings)

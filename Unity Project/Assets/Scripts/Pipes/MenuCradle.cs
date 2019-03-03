@@ -11,18 +11,14 @@ public class MenuCradle : MonoBehaviour
     public float fadeTolerence = .003f;
     void Start() {
         menuCradle = GetComponent<Cradle>();
-        fadeOutImage.color = new Color(0f, 0f, 0f, 0f);
     }
 
     void Update()
     {
-        fadeOutImage.rectTransform.sizeDelta = new Vector2(fadeOutImage.canvas.pixelRect.width, fadeOutImage.canvas.pixelRect.height);
-        if (menuCradle.connectedPipe == null)
-        {
-            if ((TARGET_COLOR_RO.a - fadeOutImage.color.a) > fadeTolerence)
-                fadeOutImage.color = new Color(0f, 0f, 0f, fadeOutImage.color.a + (fadeSpeed * Time.deltaTime));
-            else
-                SceneChanger.LoadGame();
-        }
+      if (menuCradle.connectedPipe == null)
+      {
+        SceneChanger.LoadGame();
+
+      }
     }
 }

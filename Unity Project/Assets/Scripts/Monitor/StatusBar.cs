@@ -1,107 +1,36 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 public enum StatusBarState {
-    STOPPED, INCREASING, DECREASING
+    ENGINE, AIR, FOOD
 }
 
 public class StatusBar : MonoBehaviour
 {
-    public float maximumWidth;
-    public float currentWidth;
-    public float maximumHeight;
-    public float currentHeight;
-    public float changeRatePerSecond = 0; //Let's go by percentage for this
-    [FormerlySerializedAs("status")] public StatusBarState statusBarState = StatusBarState.STOPPED;
-    private float prevTime, currentTime;
-    public Canvas canvas;
-    public string stateName;
+  private RectTransform thisTransform;
+  public Func<float> scalingFunc
+  {
+    get;
+    set;
+  }
 
+  public StatusBarState AssociatedState;
+  
     // Start is called before the first frame update
-    void Start()
-    {
-        //maximumHeight = this.GetComponent<RectTransform>().rect.height / canvas.scaleFactor;
-        maximumWidth = this.GetComponent<RectTransform>().rect.width / canvas.scaleFactor;
-        maximumHeight = this.GetComponent<RectTransform>().rect.height / canvas.scaleFactor;
-        currentWidth = maximumWidth;
-        currentHeight = maximumHeight;
-        currentTime = Time.time;
-    }
+  void Start()
+  {
+    thisTransform = this.GetComponent<RectTransform>();
+  }
 
-    public void StartChange(StatusBarState statusBarState, float changeRatePerSecond = 0f)
-    {
-        this.statusBarState = statusBarState;
-        this.changeRatePerSecond = changeRatePerSecond;
-        currentTime = Time.time;
-    }
+  // Update is called once per frame
+  void Update()
+  {
+    var xScale = scalingFunc();
+    var clamped = Mathf.Clamp(xScale, 0, 1);
+    thisTransform.localScale = new Vector3(clamped, 1, 1);
 
-    public void AddToStatus(float increaseBy)
-    {
-        this.currentWidth += increaseBy / maximumWidth;
-        CapWidth();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (statusBarState != StatusBarState.STOPPED)
-        {
-            prevTime = currentTime;
-            currentTime = Time.time;
-            //Debug.Log(this.name);
-            float changeBy = 0;
-            if (this.name == "Battery")
-            {
-                changeBy = (currentTime - prevTime) * (changeRatePerSecond * maximumHeight);
-                currentHeight += changeBy;
-                CapHeight();
-                RectTransform rectTransform = this.GetComponent<RectTransform>();
-                float posBefore = rectTransform.position.y;
-                Vector3[] fourCornersArrayBefore = new Vector3[4];
-                rectTransform.GetWorldCorners(fourCornersArrayBefore);
-                rectTransform.sizeDelta = new Vector2(rectTransform.rect.width, currentHeight);
-                Vector3[] fourCornersArrayAfter = new Vector3[4];
-                rectTransform.GetWorldCorners(fourCornersArrayAfter);
-                float calcY = posBefore - (fourCornersArrayAfter[0].y - fourCornersArrayBefore[0].y);
-                //Debug.Log((fourCornersArrayAfter[0].y - fourCornersArrayBefore[0].y));
-                rectTransform.position = new Vector3(rectTransform.position.x, calcY, rectTransform.position.z);
-            }
-            else
-            {
-                changeBy = (currentTime - prevTime) * (changeRatePerSecond * maximumWidth);
-                currentWidth += changeBy;
-                CapWidth();
-                RectTransform rectTransform = this.GetComponent<RectTransform>();
-                float posBefore = rectTransform.position.x;
-                Vector3[] fourCornersArrayBefore = new Vector3[4];
-                rectTransform.GetWorldCorners(fourCornersArrayBefore);
-                rectTransform.sizeDelta = new Vector2(currentWidth, rectTransform.rect.height);
-                Vector3[] fourCornersArrayAfter = new Vector3[4];
-                rectTransform.GetWorldCorners(fourCornersArrayAfter);
-                float calcX = posBefore - (fourCornersArrayAfter[0].x - fourCornersArrayBefore[0].x);
-                //Debug.Log((fourCornersArrayAfter[0].x - fourCornersArrayBefore[0].x));
-                rectTransform.position = new Vector3(calcX, rectTransform.position.y, rectTransform.position.z);
-            }
-        }
-    }
-
-    void CapWidth()
-    {
-        if (currentWidth > maximumWidth)
-        {
-            currentWidth = maximumWidth;
-            statusBarState = StatusBarState.STOPPED;
-        }
-    }
-
-    void CapHeight()
-    {
-        if (currentWidth > maximumWidth)
-        {
-            currentWidth = maximumWidth;
-            statusBarState = StatusBarState.STOPPED;
-        }
-    }
+  }
 }

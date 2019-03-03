@@ -84,7 +84,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9b896b884dfa746a0685bc410d74f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!114 &899024981992375823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,17 +472,17 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4807051411354818897}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -21.001198}
-  m_LocalScale: {x: 1.0000306, y: 1.0000306, z: 1.0000306}
+  m_LocalPosition: {x: 0, y: 0, z: -21.000793}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4807051411080447181}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 50, y: 124}
-  m_SizeDelta: {x: 600, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 389.9908, y: 458.99924}
+  m_SizeDelta: {x: -680, y: -670}
+  m_Pivot: {x: 0, y: 0}
 --- !u!222 &4807051411354818909
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -533,14 +532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b572cef44f9520449af2b2cc19551cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maximumWidth: 0
-  currentWidth: 0
-  maximumHeight: 0
-  currentHeight: 0
-  changeRatePerSecond: 0
-  statusBarState: 0
-  canvas: {fileID: 4807051411080447178}
-  stateName: Food
+  AssociatedState: 2
 --- !u!1 &4807051411421397845
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,17 +649,17 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4807051411506829054}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -21.001198}
-  m_LocalScale: {x: 1.0000306, y: 1.0000306, z: 1.0000306}
+  m_LocalPosition: {x: 0, y: 0, z: -21.000793}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4807051411080447181}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 600, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 339.9908, y: 334.99924}
+  m_SizeDelta: {x: -680, y: -670}
+  m_Pivot: {x: 0, y: 0}
 --- !u!222 &4807051411506829050
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -717,14 +709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b572cef44f9520449af2b2cc19551cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maximumWidth: 0
-  currentWidth: 0
-  maximumHeight: 0
-  currentHeight: 0
-  changeRatePerSecond: 0
-  statusBarState: 0
-  canvas: {fileID: 4807051411080447178}
-  stateName: Air
+  AssociatedState: 1
 --- !u!1 &4807051411601704306
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,17 +1050,17 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4807051412208179226}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -21.001198}
+  m_LocalPosition: {x: 0, y: 0, z: -21.000793}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4807051411080447181}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 57, y: 232}
-  m_SizeDelta: {x: 600, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 397, y: 567}
+  m_SizeDelta: {x: -680, y: -670}
+  m_Pivot: {x: 0, y: 0}
 --- !u!222 &4807051412208179206
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1125,14 +1110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b572cef44f9520449af2b2cc19551cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maximumWidth: 0
-  currentWidth: 0
-  maximumHeight: 0
-  currentHeight: 0
-  changeRatePerSecond: 0
-  statusBarState: 0
-  canvas: {fileID: 4807051411080447178}
-  stateName: Engine
+  AssociatedState: 0
 --- !u!1 &6512006540748826320
 GameObject:
   m_ObjectHideFlags: 0

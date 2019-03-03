@@ -19,7 +19,15 @@ public class SpaceshipSettings : MonoBehaviour
 
   #region Scene
 
-  public float timeLimitInSeconds = 300f;
+  public float timeLimitInSeconds = 180f;
+
+  public float destinationDistanceInSeconds = 60f;
+
+  public float startingFoodSupplyInSeconds = 45f;
+
+  public float airSupplyInSeconds = 10f;
+
+  public float lungCapacityInSeconds = 10f;
 
   public DeviceBase engine;
 
@@ -39,17 +47,6 @@ public class SpaceshipSettings : MonoBehaviour
     Pipe.MaxHeat = maxPipeHeat;
     Pipe.HeatLossPerSecond = HeatLossPerSecond;
 
-    var playerState = GameObject.FindObjectOfType<PlayerState>();
-    playerState.air = air;
-    playerState.engine = engine;
-    playerState.fridge = fridge;
-    playerState.monitor = monitor;
-    
+    var playerState = SceneChanger.playerState; 
   }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -8,7 +8,7 @@ public class Plug : MonoBehaviour
   public Battery currentBattery;
   public DeviceBase myDevice;
   public bool StartsWithBattery = true;
-  private static PlayerState myPlayerState;
+  private static PlayerState playerState => SceneChanger.playerState;
   private MeshRenderer placeholderRenderer;
 
   private void Start()
@@ -20,7 +20,7 @@ public class Plug : MonoBehaviour
       var myBattery = obj.GetComponent<Battery>();
       AttachBattery(myBattery);
     }
-    myPlayerState = GameObject.FindObjectOfType<PlayerState>();
+    
     placeholderRenderer = transform.Find("Placeholder").GetComponent<MeshRenderer>();
   }
 
@@ -86,15 +86,6 @@ public class Plug : MonoBehaviour
 
   void Update()
   {
-    try
-    {
-      placeholderRenderer.enabled = myPlayerState.BatteriesHeld > 0 && !currentBattery;
-    }
-    catch(Exception e)
-    {
-      Debug.Log(e.Message);
-    }
-    
+    placeholderRenderer.enabled = playerState.BatteriesHeld > 0 && !currentBattery;
   }
-
 }

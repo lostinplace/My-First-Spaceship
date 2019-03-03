@@ -12,7 +12,7 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
   protected ParticleSystem smoke;
   protected bool isBeingHeld = false;
   public Cradle currentCradle, potentialCradle;
-  private static PlayerState myPlayerState;
+  private static PlayerState playerState => SceneChanger.playerState;
 
   public bool IsBeingHeld { get => isBeingHeld; }
 
@@ -29,13 +29,10 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
     isBeingHeld = true;
     if (currentCradle)
       currentCradle.DetachPipe();
-    else
-      print("oops");
-
 
     this.currentCradle = null;
-    if( myPlayerState )
-      myPlayerState.PipesHeld++;
+    if( playerState )
+      playerState.PipesHeld++;
   }
 
   public void OnDrop()
@@ -49,8 +46,9 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
     {
       potentialCradle.ProcessCollision(this);
     }
-    if( myPlayerState )
-      myPlayerState.PipesHeld--;
+    if( playerState )
+      playerState.PipesHeld--;
+    SceneChanger.CleanupList.Add(this.gameObject);
   }
 
   public GameObject GetGameObject() {
@@ -69,7 +67,7 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
     };
     myRenderer = GetComponent<MeshRenderer>();
     rupturedMesh = Resources.Load<Mesh>("pipe_rupture");
-    myPlayerState = GameObject.FindObjectOfType<PlayerState>();
+    
     myRenderer.material.EnableKeyword("_EMISSION");
 
 
