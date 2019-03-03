@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0013703795, g: 0.0012962499, b: 0.0012608779, a: 1}
+  m_IndirectSpecularColor: {r: 0.0013703833, g: 0.0012985193, b: 0.0012622306, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -181,6 +181,97 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1001 &856914330
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3587781049223957293, guid: 316195810a9e2c84aa2432d71ffd8d61,
+        type: 3}
+      propertyPath: m_Name
+      value: SpaceshipPilot
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587781049223957291, guid: 316195810a9e2c84aa2432d71ffd8d61,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.242
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587781049223957291, guid: 316195810a9e2c84aa2432d71ffd8d61,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.557
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587781049223957291, guid: 316195810a9e2c84aa2432d71ffd8d61,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.205
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587781049223957291, guid: 316195810a9e2c84aa2432d71ffd8d61,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587781049223957291, guid: 316195810a9e2c84aa2432d71ffd8d61,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587781049223957291, guid: 316195810a9e2c84aa2432d71ffd8d61,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587781049223957291, guid: 316195810a9e2c84aa2432d71ffd8d61,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587781049223957291, guid: 316195810a9e2c84aa2432d71ffd8d61,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587781049223957291, guid: 316195810a9e2c84aa2432d71ffd8d61,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587781049223957291, guid: 316195810a9e2c84aa2432d71ffd8d61,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587781049223957291, guid: 316195810a9e2c84aa2432d71ffd8d61,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801592797309023990, guid: 316195810a9e2c84aa2432d71ffd8d61,
+        type: 3}
+      propertyPath: TitleMusicEvent
+      value: event:/music/title
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801592797309023990, guid: 316195810a9e2c84aa2432d71ffd8d61,
+        type: 3}
+      propertyPath: IsTitleScene
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 316195810a9e2c84aa2432d71ffd8d61, type: 3}
+--- !u!114 &856914331 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4801592797309023990, guid: 316195810a9e2c84aa2432d71ffd8d61,
+    type: 3}
+  m_PrefabInstance: {fileID: 856914330}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 602bfedbc7822eb43ac2564e2dd0f0b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &980900280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -271,6 +362,22 @@ MonoBehaviour:
   fadeOutImage: {fileID: 0}
   fadeSpeed: 0.001
   fadeTolerence: 0.003
+  TitleMusicStop:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 856914331}
+        m_MethodName: StopTitleMusic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1001 &1036909782
 PrefabInstance:
   m_ObjectHideFlags: 0

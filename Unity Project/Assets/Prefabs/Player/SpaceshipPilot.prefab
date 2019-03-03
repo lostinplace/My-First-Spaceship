@@ -1510,6 +1510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AmbienceEvent: event:/ambience
+  TitleMusicEvent: event:/music/title
   FailstateEvent: event:/failstates/failstate_air
 --- !u!1 &3587781049261440280
 GameObject:

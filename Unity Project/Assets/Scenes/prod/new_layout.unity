@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0013703795, g: 0.0012962499, b: 0.0012608779, a: 1}
+  m_IndirectSpecularColor: {r: 0.0013703833, g: 0.0012985193, b: 0.0012622306, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2805,6 +2805,85 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05b54cb3b7d944149b10c9179ef8f3bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1937608459
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3587781049223957293, guid: 316195810a9e2c84aa2432d71ffd8d61,
+        type: 3}
+      propertyPath: m_Name
+      value: SpaceshipPilot
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587781049223957291, guid: 316195810a9e2c84aa2432d71ffd8d61,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.242
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587781049223957291, guid: 316195810a9e2c84aa2432d71ffd8d61,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.557
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587781049223957291, guid: 316195810a9e2c84aa2432d71ffd8d61,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.205
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587781049223957291, guid: 316195810a9e2c84aa2432d71ffd8d61,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587781049223957291, guid: 316195810a9e2c84aa2432d71ffd8d61,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587781049223957291, guid: 316195810a9e2c84aa2432d71ffd8d61,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587781049223957291, guid: 316195810a9e2c84aa2432d71ffd8d61,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587781049223957291, guid: 316195810a9e2c84aa2432d71ffd8d61,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 37
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587781049223957291, guid: 316195810a9e2c84aa2432d71ffd8d61,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587781049223957291, guid: 316195810a9e2c84aa2432d71ffd8d61,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3587781049223957291, guid: 316195810a9e2c84aa2432d71ffd8d61,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801592797309023990, guid: 316195810a9e2c84aa2432d71ffd8d61,
+        type: 3}
+      propertyPath: IsGameEnvironment
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801592797309023990, guid: 316195810a9e2c84aa2432d71ffd8d61,
+        type: 3}
+      propertyPath: TitleMusicEvent
+      value: event:/music/title
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 316195810a9e2c84aa2432d71ffd8d61, type: 3}
 --- !u!1001 &1980461111
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2873,6 +2952,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BatteryCharger
       objectReference: {fileID: 0}
+    - target: {fileID: 5765941889432227462, guid: 85ebfd8109a8dbc4b90d9ea658eab437,
+        type: 3}
+      propertyPath: heatOutputPerSecond
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 360920347, guid: 85ebfd8109a8dbc4b90d9ea658eab437, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.293
@@ -2917,11 +3001,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5765941889432227462, guid: 85ebfd8109a8dbc4b90d9ea658eab437,
-        type: 3}
-      propertyPath: heatOutputPerSecond
-      value: 15
-      objectReference: {fileID: 0}
+    - target: {fileID: 1117431427, guid: 85ebfd8109a8dbc4b90d9ea658eab437, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3060edf4f9a5292469b27110c078708b, type: 2}
     - target: {fileID: 3264881244533049308, guid: 85ebfd8109a8dbc4b90d9ea658eab437,
         type: 3}
       propertyPath: cradles.Array.size
@@ -2957,10 +3040,6 @@ PrefabInstance:
       propertyPath: cradles.Array.data[5]
       value: 
       objectReference: {fileID: 794160434}
-    - target: {fileID: 1117431427, guid: 85ebfd8109a8dbc4b90d9ea658eab437, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 3060edf4f9a5292469b27110c078708b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85ebfd8109a8dbc4b90d9ea658eab437, type: 3}
 --- !u!1001 &2040688030

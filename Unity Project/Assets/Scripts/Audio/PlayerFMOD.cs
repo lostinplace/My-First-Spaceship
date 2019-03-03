@@ -17,15 +17,28 @@ public class PlayerFMOD : MonoBehaviour
     FMOD.Studio.PLAYBACK_STATE AmbiencePlaybackState;
 
     [FMODUnity.EventRef]
+    public string TitleMusicEvent;
+    FMOD.Studio.EventInstance TitleMusic;
+    FMOD.Studio.PLAYBACK_STATE TitleMusicPlaybackState;
+
+    [FMODUnity.EventRef]
     public string FailstateEvent;
     FMOD.Studio.EventInstance Failstate;
+
+    public bool IsTitleScene, IsGameEnvironment, IsGameOver;
+    private bool IsPlayingTitleMusic, IsPlayingAmbience;
 
     // Start is called before the first frame update
     void Start()
     {
-        this.Ambience = FMODUnity.RuntimeManager.CreateInstance(AmbienceEvent);
-        this.Ambience.start();
-        this.Ambience.release();
+        if (this.IsGameEnvironment)
+        {
+            this.PlayShipAmbience();
+        }
+        else if (this.IsTitleScene)
+        {
+            this.PlayTitleMusic();
+        }
     }
 
     // Update is called once per frame
@@ -55,8 +68,27 @@ public class PlayerFMOD : MonoBehaviour
         this.Ambience.release();
     }
 
-    public void ResetGameSounds()
+    public void PlayTitleMusic()
     {
+        this.TitleMusic = FMODUnity.RuntimeManager.CreateInstance(TitleMusicEvent);
+        this.TitleMusic.start();
+    }
 
+    public void StopTitleMusic()
+    {
+        this.TitleMusic.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        this.TitleMusic.release();
+    }
+
+    public void PlayShipAmbience()
+    {
+        this.Ambience = FMODUnity.RuntimeManager.CreateInstance(AmbienceEvent);
+        this.Ambience.start();
+    }
+
+    public void StopShipAmbience()
+    {
+        this.Ambience.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        this.Ambience.release();
     }
 }
