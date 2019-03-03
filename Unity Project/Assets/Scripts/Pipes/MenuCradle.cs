@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
 
 public class MenuCradle : MonoBehaviour
 {
@@ -13,12 +14,13 @@ public class MenuCradle : MonoBehaviour
         menuCradle = GetComponent<Cradle>();
     }
 
-    void Update()
-    {
-      if (menuCradle.connectedPipe == null)
+  void Update()
+  {
+
+
+    if (menuCradle.connectedPipe == null)
       {
         SceneChanger.LoadGame();
-
       }
-    }
+  }
 }

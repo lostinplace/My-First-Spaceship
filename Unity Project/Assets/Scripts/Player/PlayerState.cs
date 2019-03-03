@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Valve.VR;
 
 
 public class PlayerState : MonoBehaviour
@@ -85,6 +86,7 @@ public class PlayerState : MonoBehaviour
     foodSupplyInSeconds = SceneChanger.settings.startingFoodSupplyInSeconds;
   }
 
+  private bool suffocating = false;
 
   // Start is called before the first frame update
   void Start()
@@ -109,6 +111,8 @@ public class PlayerState : MonoBehaviour
     {
       airSupplyInSeconds += delta;
       airSupplyInSeconds = Mathf.Min(airSupplyInSeconds, SceneChanger.settings.airSupplyInSeconds);
+      SteamVR_Fade.Start(Color.clear, 0.5f);
+      suffocating = false;
     }
     else
     {
@@ -117,7 +121,15 @@ public class PlayerState : MonoBehaviour
       {
         TriggerEndgame("You passed out from lack of oxygen");
       }
-    } 
+
+      if (airSupplyInSeconds < 0)
+      {
+        if (!suffocating) SteamVR_Fade.Start(Color.red, 10f);
+        suffocating = true;
+      }
+    }
+
+    
 
     foodSupplyInSeconds -= delta;
 
@@ -142,7 +154,7 @@ public class PlayerState : MonoBehaviour
     exited = true;
     gameOver = true;
     gameOverMessage = message;
-
+    SteamVR_Fade.Start(Color.black, 2.0f);
     SceneChanger.GameOver(gameOverMessage);
   }
 
