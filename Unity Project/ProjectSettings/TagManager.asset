@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - projectile
+  - FxTemporaire
+  - yellow_indicator
+  - green_indicator
   layers:
   - Default
   - TransparentFX

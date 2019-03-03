@@ -145,8 +145,6 @@ public class PlayerState : MonoBehaviour
       }
     }
 
-    
-
     foodSupplyInSeconds -= delta;
 
     if(foodSupplyInSeconds <= 0)
