@@ -15,6 +15,10 @@ public partial class Cradle : MonoBehaviour
 
   public bool startWithPipe = true;
 
+  public float overrideStartingPipeIntegrity = 0;
+  public float overrideStartingPipeHeat = 0;
+  
+
   private MeshRenderer placeholderRenderer;
 
   private static PlayerState playerState => SceneChanger.playerState;
@@ -31,6 +35,10 @@ public partial class Cradle : MonoBehaviour
       var prefab = Resources.Load("RuntimePipe");
       var obj = (GameObject)Instantiate(prefab);
       var myPipe = obj.GetComponent<Pipe>();
+      
+      if (overrideStartingPipeIntegrity != 0) myPipe.currentIntegrity = overrideStartingPipeIntegrity;
+      if (overrideStartingPipeHeat != 0) myPipe.currentHeat = overrideStartingPipeHeat;
+      
       AttachPipe(myPipe);
     }
 

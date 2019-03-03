@@ -2453,6 +2453,7 @@ MonoBehaviour:
   air: {fileID: 1107990717}
   fridge: {fileID: 493979280}
   monitor: {fileID: 405797209}
+  SuffocationColor: {r: 1, g: 0.4292453, b: 0.4292453, a: 0.6862745}
 --- !u!114 &1762821196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2465,8 +2466,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27b12d2042253164197f8c5a990f309d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PipesHeld: 0
-  BatteriesHeld: 0
 --- !u!4 &1762821197
 Transform:
   m_ObjectHideFlags: 0
@@ -2504,6 +2503,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Monitor
+      objectReference: {fileID: 0}
+    - target: {fileID: 899024981992375823, guid: a0f90c0eaebfd4349a7798ea6c3a5dbc,
+        type: 3}
+      propertyPath: pipesRequired
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4807051410617688631, guid: a0f90c0eaebfd4349a7798ea6c3a5dbc,
         type: 3}
@@ -2579,11 +2583,6 @@ PrefabInstance:
         type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 899024981992375823, guid: a0f90c0eaebfd4349a7798ea6c3a5dbc,
-        type: 3}
-      propertyPath: pipesRequired
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0f90c0eaebfd4349a7798ea6c3a5dbc, type: 3}
@@ -2918,10 +2917,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1117431427, guid: 85ebfd8109a8dbc4b90d9ea658eab437, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 3060edf4f9a5292469b27110c078708b, type: 2}
     - target: {fileID: 5765941889432227462, guid: 85ebfd8109a8dbc4b90d9ea658eab437,
         type: 3}
       propertyPath: heatOutputPerSecond
@@ -2962,6 +2957,10 @@ PrefabInstance:
       propertyPath: cradles.Array.data[5]
       value: 
       objectReference: {fileID: 794160434}
+    - target: {fileID: 1117431427, guid: 85ebfd8109a8dbc4b90d9ea658eab437, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3060edf4f9a5292469b27110c078708b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85ebfd8109a8dbc4b90d9ea658eab437, type: 3}
 --- !u!1001 &2040688030

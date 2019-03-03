@@ -37,6 +37,8 @@ public class SpaceshipSettings : MonoBehaviour
 
   public DeviceBase monitor;
 
+  public Color SuffocationColor;
+  
   #endregion
 
   // Start is called before the first frame update
@@ -47,6 +49,8 @@ public class SpaceshipSettings : MonoBehaviour
     Pipe.MaxHeat = maxPipeHeat;
     Pipe.HeatLossPerSecond = HeatLossPerSecond;
 
+    if(SuffocationColor == null) SuffocationColor = Color.red;
+    
     var playerState = SceneChanger.playerState; 
   }
 }

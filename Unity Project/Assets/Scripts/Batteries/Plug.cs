@@ -18,6 +18,16 @@ public class Plug : MonoBehaviour
       var prefab = Resources.Load("RuntimeBattery");
       var obj = (GameObject)Instantiate(prefab);
       var myBattery = obj.GetComponent<Battery>();
+      
+      if (myDevice && myDevice.overrideStartingBatteryChargeInSeconds != 0)
+        myBattery.currentChargeInSeconds = myDevice.overrideStartingBatteryChargeInSeconds;
+      
+      if (myDevice && myDevice.overrideStartingBatteryMaxChargeInSeconds != 0)
+        myBattery.maxChargeInSeconds = myDevice.overrideStartingBatteryMaxChargeInSeconds;
+      
+      if (myDevice && myDevice.overrideStartingBatteryLifeTimeInSeconds != 0)
+        myBattery.lifetimeInSeconds= myDevice.overrideStartingBatteryLifeTimeInSeconds;
+      
       AttachBattery(myBattery);
     }
     
