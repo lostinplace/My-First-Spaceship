@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Food : MonoBehaviour
 {
     public PlayerState playerState => SceneChanger.playerState;
+
+    public UnityEvent foodEatAudio;
 
     private void OnTriggerEnter( Collider collider )
     {
@@ -21,6 +24,7 @@ public class Food : MonoBehaviour
                 transform.parent = null;
                 playerState.ReceiveFood();
                 Destroy(gameObject);
+                foodEatAudio.Invoke();
             }
 
         }
