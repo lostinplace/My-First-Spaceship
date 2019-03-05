@@ -114,7 +114,7 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
       var filter = this.GetComponent<MeshFilter>();
       filter.mesh = rupturedMesh;
 
-      if (!hasPlayedBurstAudio)
+      if (!SceneChanger.isSceneTitle && !hasPlayedBurstAudio)
       {
         pipeBurstAudio.Invoke();
         hasPlayedBurstAudio = true;

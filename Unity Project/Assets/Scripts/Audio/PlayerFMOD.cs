@@ -25,24 +25,50 @@ public class PlayerFMOD : MonoBehaviour
     public string FailstateEvent;
     FMOD.Studio.EventInstance Failstate;
 
-    public bool IsTitleScene, IsGameEnvironment, IsGameOver;
     private bool IsPlayingTitleMusic, IsPlayingAmbience;
+
+    private bool HasTriggeredAmbienceStart;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (this.IsGameEnvironment)
+        this.TitleMusic = FMODUnity.RuntimeManager.CreateInstance(TitleMusicEvent);
+        this.Ambience = FMODUnity.RuntimeManager.CreateInstance(AmbienceEvent);
+
+        if (SceneChanger.isSceneGameEnv)
         {
             this.PlayShipAmbience();
         }
-        else if (this.IsTitleScene)
+        else if (SceneChanger.isSceneTitle)
         {
             this.PlayTitleMusic();
         }
     }
 
     // Update is called once per frame
-    void Update() {}
+    void Update()
+    {
+        Ambience.getPlaybackState(out AmbiencePlaybackState);
+        this.IsPlayingAmbience = this.AmbiencePlaybackState != FMOD.Studio.PLAYBACK_STATE.STOPPED;
+
+        TitleMusic.getPlaybackState(out TitleMusicPlaybackState);
+        this.IsPlayingTitleMusic = this.TitleMusicPlaybackState != FMOD.Studio.PLAYBACK_STATE.STOPPED;
+
+        if (SceneChanger.isFadingTitleMusic && this.IsPlayingTitleMusic)
+        {
+            this.StopTitleMusic();
+        }
+
+        if (SceneChanger.isSceneGameEnv && !this.IsPlayingAmbience && !this.HasTriggeredAmbienceStart)
+        {
+            this.PlayShipAmbience();
+            this.HasTriggeredAmbienceStart = true;
+        }
+        else if (SceneChanger.isSceneTitle && !this.IsPlayingTitleMusic && !SceneChanger.isFadingTitleMusic)
+        {
+            this.PlayTitleMusic();
+        }
+    }
 
     public void setFailstate(string failType)
     {
@@ -70,25 +96,21 @@ public class PlayerFMOD : MonoBehaviour
 
     public void PlayTitleMusic()
     {
-        this.TitleMusic = FMODUnity.RuntimeManager.CreateInstance(TitleMusicEvent);
         this.TitleMusic.start();
     }
 
     public void StopTitleMusic()
     {
         this.TitleMusic.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        this.TitleMusic.release();
     }
 
     public void PlayShipAmbience()
     {
-        this.Ambience = FMODUnity.RuntimeManager.CreateInstance(AmbienceEvent);
         this.Ambience.start();
     }
 
     public void StopShipAmbience()
     {
         this.Ambience.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        this.Ambience.release();
     }
 }

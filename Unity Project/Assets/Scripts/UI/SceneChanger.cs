@@ -13,6 +13,27 @@ public static class SceneChanger
 
   public static List<GameObject> CleanupList = new List<GameObject>();
 
+  private static bool _isFadingTitleMusic = false;
+  public static bool isFadingTitleMusic
+  {
+    get => _isFadingTitleMusic;
+  }
+
+  public static bool isSceneTitle
+  {
+    get => SceneManager.GetActiveScene().name == "main_menu";
+  }
+
+  public static bool isSceneGameEnv
+  {
+    get => SceneManager.GetActiveScene().name == "new_layout";
+  }
+
+  public static bool isSceneGameOver
+  {
+    get => SceneManager.GetActiveScene().name == "GameOver";
+  }
+
   public static PlayerState playerState
   {
     get
@@ -43,6 +64,7 @@ public static class SceneChanger
 
   public static void LoadGame() {
     
+    _isFadingTitleMusic = true;
     Valve.VR.SteamVR_LoadLevel.Begin("new_layout");
   }
 
