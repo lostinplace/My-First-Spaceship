@@ -49,16 +49,15 @@ public partial class Battery : Lockable, Handleable.HandleableItem
     }
   }
 
-  private bool charging = false;
+  private bool charging
+  {
+    get => currentPlug && currentPlug.myDevice && currentPlug.myDevice.powerConsumptionPerSecond < 0 && currentPlug.myDevice.isActive;
+  }
+
+  private bool StartedCharging { get; set; }
 
   protected bool AdjustCharge(float adjustment)
   {
-    if (adjustment > 0 && !charging)
-    {
-      batteryChargeAudio.Invoke();
-    }
-
-    charging = (adjustment > 0);
     float attemptedCharge = this.currentChargeInSeconds + adjustment;
     float boundedByMin = Math.Max(attemptedCharge, 0);
 

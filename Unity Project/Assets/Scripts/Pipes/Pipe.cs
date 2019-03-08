@@ -96,12 +96,13 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
 
   void Update()
   {
-    if (UnityEngine.Random.value > updateThreshold)
+    var rnd = UnityEngine.Random.value;
+    if (rnd > updateThreshold)
     {
       cumulativeDelta += Time.deltaTime;
       return;
-    } 
-
+    }
+    ApplyDamage(cumulativeDelta);
     ProcessHeat(cumulativeDelta);
     SetAppearance();
     cumulativeDelta = 0;

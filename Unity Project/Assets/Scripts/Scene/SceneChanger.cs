@@ -43,7 +43,7 @@ public static class SceneChanger
 
   public static void LoadGame() {
     
-    Valve.VR.SteamVR_LoadLevel.Begin("new_layout");
+    Valve.VR.SteamVR_LoadLevel.Begin("main_scene");
   }
 
   public static void GameOver( string message )
@@ -57,7 +57,7 @@ public static class SceneChanger
     }
     CleanupList.Clear();
 
-    Valve.VR.SteamVR_LoadLevel.Begin("GameOver");
+    Valve.VR.SteamVR_LoadLevel.Begin("game_over");
     
     GameObject.Destroy(playerState);
     SceneChanger.playerState = null;

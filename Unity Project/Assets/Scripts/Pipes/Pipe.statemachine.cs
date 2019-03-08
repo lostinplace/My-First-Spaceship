@@ -36,9 +36,9 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
     {
       switch (currentIntegrity)
       {
-        case var _ when IntegrityRatio > 0.66 :
+        case var _ when IntegrityRatio > 0.65:
           return PipeIntegrityState.GOOD;
-        case var _ when IntegrityRatio > 0.33:
+        case var _ when IntegrityRatio > 0.35:
           return PipeIntegrityState.MEDIUM;
         case var _ when currentIntegrity > 0:
           return PipeIntegrityState.BAD;
@@ -73,10 +73,6 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
   public bool ApplyHeat(float heatValue)
   {
     this.currentHeat += heatValue;
-    if (heatValue > 0)
-    {
-      this.ApplyDamage(Time.deltaTime);
-    }
     return this.currentIntegrity > 0;
   }
 
@@ -88,7 +84,9 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
 
   public void ApplyDamage(float timeDelta)
   {
-    double damage = GetDamageForHeat(this.currentHeat) * timeDelta;
+    if (!(this.currentCradle && this.currentCradle.network && this.currentCradle.device && this.currentCradle.device.isActive)) return;
+    var damageCofactor = GetDamageForHeat(this.currentHeat);
+    var damage = damageCofactor  * this.currentHeat * timeDelta * damageScalingBase;
     this.currentIntegrity -= (float)damage;
     
   }

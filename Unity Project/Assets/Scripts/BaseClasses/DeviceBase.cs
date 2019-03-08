@@ -67,6 +67,7 @@ public class DeviceBase : MonoBehaviour
   {
     plug.myDevice = this;
     if(!cradleNetwork) cradleNetwork = new CradleNetwork();
+    cradleNetwork.device = this;
     batteryNotRequired = !BatteriesRequired || powerConsumptionPerSecond < 0;
   }
 

@@ -8,6 +8,8 @@ public class CradleNetwork : MonoBehaviour
 {
   public List<Cradle> cradles;
 
+  public DeviceBase device { get; set; }
+
   public bool isConnected()
   {
     return cradles.TrueForAll(x => x.isConnected());
@@ -21,10 +23,7 @@ public class CradleNetwork : MonoBehaviour
   void Start()
   {
     if (cradles == null) cradles = new List<Cradle>();
-  }
 
-  // Update is called once per frame
-  void Update()
-  {
+    cradles.ForEach(x => x.network = this);
   }
 }
