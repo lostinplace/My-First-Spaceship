@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using System;
 
 public partial class Battery : Lockable, Handleable.HandleableItem
@@ -12,6 +13,8 @@ public partial class Battery : Lockable, Handleable.HandleableItem
     BAD,
     DEAD
   }
+
+  public UnityEvent batteryChargeAudio;
 
   public float currentChargeInSeconds;
   public float maxChargeInSeconds;
@@ -46,11 +49,15 @@ public partial class Battery : Lockable, Handleable.HandleableItem
     }
   }
 
-  private bool charging = false;
+  private bool charging
+  {
+    get => currentPlug && currentPlug.myDevice && currentPlug.myDevice.powerConsumptionPerSecond < 0 && currentPlug.myDevice.isActive;
+  }
+
+  private bool StartedCharging { get; set; }
 
   protected bool AdjustCharge(float adjustment)
   {
-    charging = (adjustment > 0);
     float attemptedCharge = this.currentChargeInSeconds + adjustment;
     float boundedByMin = Math.Max(attemptedCharge, 0);
 

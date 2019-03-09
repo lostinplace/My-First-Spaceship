@@ -18,6 +18,9 @@ public partial class Cradle : MonoBehaviour
   public float overrideStartingPipeIntegrity = 0;
   public float overrideStartingPipeHeat = 0;
   
+  public CradleNetwork network { get; set; }
+
+  public DeviceBase device => network.device;
 
   private MeshRenderer placeholderRenderer;
 

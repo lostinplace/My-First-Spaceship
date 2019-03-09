@@ -62,10 +62,10 @@ public static class SceneChanger
     private set => SceneChanger._settings = value;
   }
 
-  public static void LoadGame() {
-    
+  public static void LoadGame()
+  {  
     _isFadingTitleMusic = true;
-    Valve.VR.SteamVR_LoadLevel.Begin("new_layout");
+    Valve.VR.SteamVR_LoadLevel.Begin("main_scene");
   }
 
   public static void GameOver( string message )
@@ -79,7 +79,7 @@ public static class SceneChanger
     }
     CleanupList.Clear();
 
-    Valve.VR.SteamVR_LoadLevel.Begin("GameOver");
+    Valve.VR.SteamVR_LoadLevel.Begin("game_over");
     
     GameObject.Destroy(playerState);
     SceneChanger.playerState = null;

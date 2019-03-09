@@ -16,7 +16,7 @@ public partial class Battery : Lockable, Handleable.HandleableItem
     Unlock();
     isBeingHeld = true;
     if (currentPlug) currentPlug.DetachBattery();
-    if(playerState) playerState.BatteriesHeld++;   
+    if(playerState) playerState.BatteriesHeld++;
   }
 
   Color getEmissiveColor()
@@ -43,6 +43,7 @@ public partial class Battery : Lockable, Handleable.HandleableItem
   void Start()
   {
     Handleable.InitializeHandleableItem(this);
+    StartedCharging = false;
     BatteryMaterials = new Dictionary<EnergyState, Material>()
     {
       {EnergyState.GOOD, Resources.Load<Material>("battery_good")},
@@ -65,11 +66,10 @@ public partial class Battery : Lockable, Handleable.HandleableItem
 
   public static float chargingFlashTime = 0.25f;
 
+  private bool playedChargingSoundForThisPlug { get; set; }
+
   private void Update()
   {
-    //var myMaterial = BatteryMaterials[energyLevel];
-    //myRenderer.material = myMaterial;
-    
     if (this.isDead)
     {
       myRenderer.material.DisableKeyword("_EMISSION");
@@ -78,14 +78,25 @@ public partial class Battery : Lockable, Handleable.HandleableItem
 
     var color = getEmissiveColor();
 
-    if (charging && chargeRatio != 1) {
-      var iteration = Mathf.Floor(Time.fixedTime / chargingFlashTime);
-      var nowColor = iteration % 2 == 0 ? new Color() : color;
-      myRenderer.material.SetColor("_EmissionColor", nowColor);
+    if (charging) {
+      if (!playedChargingSoundForThisPlug)
+      {
+        batteryChargeAudio.Invoke();
+        playedChargingSoundForThisPlug = true;
+      }
+
+      if(chargeRatio != 1)
+      {
+        var iteration = Mathf.Floor(Time.fixedTime / chargingFlashTime);
+        var nowColor = iteration % 2 == 0 ? new Color() : color;
+        myRenderer.material.SetColor("_EmissionColor", nowColor);
+      }
       return;
+    } else
+    {
+      playedChargingSoundForThisPlug = false;
     }
 
     myRenderer.material.SetColor("_EmissionColor", color);
-   
   }
 }
