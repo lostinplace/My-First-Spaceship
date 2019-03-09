@@ -2,13 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum FailstateIndices
-{
-    ENGINE,
-    AIR,
-    FOOD
-}
-
 public class PlayerFMOD : MonoBehaviour
 {
     [FMODUnity.EventRef]
@@ -22,12 +15,14 @@ public class PlayerFMOD : MonoBehaviour
     FMOD.Studio.PLAYBACK_STATE TitleMusicPlaybackState;
 
     [FMODUnity.EventRef]
-    public string FailstateEvent;
-    FMOD.Studio.EventInstance Failstate;
+    public string DangerAirEvent;
+    private bool HasTriggeredSuffocation;
 
     private bool IsPlayingTitleMusic, IsPlayingAmbience;
 
     private bool HasTriggeredAmbienceStart;
+
+    private PlayerState playerState => SceneChanger.playerState;
 
     // Start is called before the first frame update
     void Start()
@@ -68,30 +63,16 @@ public class PlayerFMOD : MonoBehaviour
         {
             this.PlayTitleMusic();
         }
-    }
 
-    public void setFailstate(string failType)
-    {
-        this.Failstate = FMODUnity.RuntimeManager.CreateInstance(FailstateEvent);
-
-        switch (failType)
+        if (playerState && playerState.IsSuffocating && !HasTriggeredSuffocation)
         {
-            case "engine":
-                this.Failstate.setParameterValue("failstate", (int)FailstateIndices.ENGINE);
-                break;
-            case "air":
-                this.Failstate.setParameterValue("failstate", (int)FailstateIndices.AIR);
-                break;
-            case "food":
-                this.Failstate.setParameterValue("failstate", (int)FailstateIndices.FOOD);
-                break;
-            default:
-                this.Failstate.setParameterValue("failstate", 0);
-                break;
+          FMODUnity.RuntimeManager.PlayOneShot(DangerAirEvent);
+          HasTriggeredSuffocation = true;
         }
-
-        this.Failstate.start();
-        this.Ambience.release();
+        else if (playerState && !playerState.IsSuffocating)
+        {
+          HasTriggeredSuffocation = false;
+        }
     }
 
     public void PlayTitleMusic()

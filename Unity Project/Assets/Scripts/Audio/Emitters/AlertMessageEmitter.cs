@@ -32,5 +32,10 @@ public class AlertMessageEmitter : MonoBehaviour
   void Update()
   {
     this.SetAlarmStates();
+
+    if (playerState && playerState._exited)
+    {
+      this.Alerts.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+    }
   }
 }
