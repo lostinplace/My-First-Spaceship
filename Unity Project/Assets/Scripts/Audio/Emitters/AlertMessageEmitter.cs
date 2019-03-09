@@ -13,8 +13,6 @@ public class AlertMessageEmitter : MonoBehaviour
 
   private PlayerState playerState => SceneChanger.playerState;
 
-  private bool HasOfflineComponent => playerState && !(playerState.EngineIsActive && playerState.FridgeIsActive && playerState.AirIsActive);
-
     private void SetAlarmStates()
     {
         Alerts.setParameterValue("is_engine_offline", playerState && playerState.EngineIsActive ? 0 : 1);
@@ -27,16 +25,12 @@ public class AlertMessageEmitter : MonoBehaviour
     {
         Alerts = FMODUnity.RuntimeManager.CreateInstance(AlertsEvent);
         Alerts.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
-        this.SetAlarmStates();
-        this.Alerts.start();
-        //IsPlayingAlert = false;
+        Alerts.start();
     }
 
   // Update is called once per frame
   void Update()
   {
-   // if (!playerState) this.Alerts.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-    //Alerts.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
     this.SetAlarmStates();
   }
 }
