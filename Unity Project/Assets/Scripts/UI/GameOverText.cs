@@ -14,51 +14,59 @@ public class GameOverText : MonoBehaviour
     public static readonly float DEFAULT_COLOR_TOLERENCE_RO = .003f;
     protected string[] autoMessages = new string[] {
         "Your computer automatically called called space highway - side assistance.",
-        "Your going to have to call someone to pick you up from Mars.",
+        "You're going to have to call someone to pick you up from Mars.",
         "Probably your parents...", "Who told you not to buy this ship.",
         "Game over."
     };
+
+    private string currentMessage = SceneChanger.gameOverMessage;
+    
     void Start()
     {
         gameOverText = GetComponent<UnityEngine.UI.Text>();
-        gameOverText.text = SceneChanger.gameOverMessage;
+        gameOverText.text = currentMessage;
         if( colorTolerence == 0f )
             colorTolerence = DEFAULT_COLOR_TOLERENCE_RO;
         originalColor = gameOverText.color;
-        gameOverText.color = Color.clear;
+        //gameOverText.color = Color.clear;
         if (messageDisplayTime == 0f)
-            messageDisplayTime = 2f;
+            messageDisplayTime = 1f;
         currentTime = messageDisplayTime;
     }
 
 
-    public static bool ColorsAreClose( Color first, Color second, float tolerence )
+    public static bool ColorsAreClose( Color first, Color second, float tolerance )
     {
         return Mathf.Sqrt(Mathf.Pow((first.b - second.b), 2f) +
             Mathf.Pow((first.g - second.g), 2f) +
-            Mathf.Pow((first.r - second.r), 2f)) < tolerence;
+            Mathf.Pow((first.r - second.r), 2f)) < tolerance;
     }
 
     void Update()
     {
         if (currentTime <= 0f)
         {
-            if (ColorsAreClose(gameOverText.color, Color.clear, colorTolerence) != true)
-                gameOverText.color = Color.Lerp(gameOverText.color, Color.clear, fadeSpeed * Time.deltaTime);
-            else if (currentAutoMessage < autoMessages.Length)
+            /*if (ColorsAreClose(gameOverText.color, Color.clear, colorTolerence) != true)
             {
-                gameOverText.text = autoMessages[currentAutoMessage];
+                gameOverText.color = Color.Lerp(gameOverText.color, Color.clear, fadeSpeed * Time.deltaTime);
+            }
+            else*/ if (currentAutoMessage < autoMessages.Length)
+            {
+                currentMessage += autoMessages[currentAutoMessage] + "\n";
+                gameOverText.text = currentMessage;//autoMessages[currentAutoMessage];
                 currentTime = messageDisplayTime;
                 ++currentAutoMessage;
             }
-            else
+            /*else
+            {
                 SceneChanger.GoToMainMenu();
+            }*/
         }
         else
         {
-            if (ColorsAreClose( gameOverText.color, originalColor, colorTolerence ) != true)
+            /*if (ColorsAreClose( gameOverText.color, originalColor, colorTolerence ) != true)
                 gameOverText.color = Color.Lerp(gameOverText.color, originalColor, fadeSpeed * Time.deltaTime);
-            else
+            else*/
                 currentTime -= Time.deltaTime;
         }
     }
