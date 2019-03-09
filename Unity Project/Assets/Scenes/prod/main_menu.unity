@@ -360,7 +360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destinations:
   - {x: 100, y: 100, z: 100}
-  - {x: -30, y: -30, z: -30}
+  - {x: -30, y: -30, z: 0}
   - {x: -100, y: -100, z: -100}
   - {x: 100, y: -100, z: 100}
   - {x: -100, y: 100, z: -100}
