@@ -22,6 +22,7 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
 
   public UnityEvent pipeBurstAudio;
   private bool hasPlayedBurstAudio = false;
+  private bool isMenuPipe = false;
 
   public void OnPickup()
   {
@@ -79,6 +80,11 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
     smoke.gameObject.SetActive(false);
     smoke.transform.position = smokeSpawnPoint.transform.position;
     smoke.transform.rotation = smokeSpawnPoint.transform.rotation;
+
+    if(SceneChanger.isSceneTitle)
+      {
+        isMenuPipe = true;
+      }
   }
 
   private void InitializeWithSettings(SpaceshipSettings settings) {
@@ -115,7 +121,7 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
       var filter = this.GetComponent<MeshFilter>();
       filter.mesh = rupturedMesh;
 
-      if (!SceneChanger.isSceneTitle && !hasPlayedBurstAudio)
+      if (!isMenuPipe && !hasPlayedBurstAudio)
       {
         pipeBurstAudio.Invoke();
         hasPlayedBurstAudio = true;
