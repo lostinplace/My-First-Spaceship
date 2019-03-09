@@ -27,7 +27,8 @@ public class Plug : MonoBehaviour
       
       if (myDevice && myDevice.overrideStartingBatteryLifeTimeInSeconds != 0)
         myBattery.lifetimeInSeconds= myDevice.overrideStartingBatteryLifeTimeInSeconds;
-      
+
+      myBattery.setStartedCharging();
       AttachBattery(myBattery);
     }
     

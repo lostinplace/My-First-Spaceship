@@ -68,6 +68,11 @@ public partial class Battery : Lockable, Handleable.HandleableItem
 
   private bool playedChargingSoundForThisPlug { get; set; }
 
+  public void setStartedCharging()
+  {
+    playedChargingSoundForThisPlug = true;
+  }
+
   private void Update()
   {
     if (this.isDead)
