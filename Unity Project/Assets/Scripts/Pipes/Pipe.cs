@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public partial class Pipe : Lockable, Handleable.HandleableItem
 {
@@ -15,13 +16,16 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
   private static PlayerState playerState => SceneChanger.playerState;
 
   public bool IsBeingHeld { get => isBeingHeld; }
+  public bool IsUIPipe { get => isUIPipe; set => isUIPipe = value; }
 
-  public static float MaxHeat = 300;
+    public static float MaxHeat = 300;
 
   public static float HeatLossPerSecond = 3f;
 
   public UnityEvent pipeBurstAudio;
   private bool hasPlayedBurstAudio = false;
+  protected bool isUIPipe = false;
+  protected string startingSceneName = SceneManager.GetActiveScene().name;
 
   public void OnPickup()
   {
@@ -106,6 +110,10 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
     ProcessHeat(cumulativeDelta);
     SetAppearance();
     cumulativeDelta = 0;
+    if (IsUIPipe == true) {
+        if (SceneManager.GetActiveScene().name.CompareTo(startingSceneName) != 0)
+            Destroy(gameObject);
+    }
   }
 
   void SetAppearance()
