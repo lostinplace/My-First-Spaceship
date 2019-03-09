@@ -26,29 +26,17 @@ public class AlertMessageEmitter : MonoBehaviour
     void Start()
     {
         Alerts = FMODUnity.RuntimeManager.CreateInstance(AlertsEvent);
-        IsPlayingAlert = false;
+        Alerts.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+        this.SetAlarmStates();
+        this.Alerts.start();
+        //IsPlayingAlert = false;
     }
 
   // Update is called once per frame
   void Update()
   {
-    if (!playerState) this.Alerts.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-    Alerts.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
-
+   // if (!playerState) this.Alerts.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+    //Alerts.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
     this.SetAlarmStates();
-
-    Alerts.getPlaybackState(out PlaybackState);
-    this.IsPlayingAlert = this.PlaybackState != FMOD.Studio.PLAYBACK_STATE.STOPPED;
-
-    if (this.HasOfflineComponent && !this.IsPlayingAlert)
-    {
-      this.PlayMessages();
-      this.IsPlayingAlert = true;
-    }
   }
-
-    void PlayMessages()
-    {
-        this.Alerts.start();
-    }
 }
