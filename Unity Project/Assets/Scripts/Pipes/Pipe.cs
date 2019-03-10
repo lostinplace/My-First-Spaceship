@@ -25,7 +25,7 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
   public UnityEvent pipeBurstAudio;
   private bool hasPlayedBurstAudio = false;
   protected bool isUIPipe = false;
-  protected string startingSceneName = SceneManager.GetActiveScene().name;
+  protected string startingSceneName;
 
   public void OnPickup()
   {
@@ -62,6 +62,7 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
   void Start()
   {
     Handleable.InitializeHandleableItem(this);
+    startingSceneName = SceneManager.GetActiveScene().name;
     materialDict = new Dictionary<PipeIntegrityState, Material>()
     {
       { PipeIntegrityState.BAD, Resources.Load<Material>("pipe_bad") },
@@ -110,9 +111,12 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
     ProcessHeat(cumulativeDelta);
     SetAppearance();
     cumulativeDelta = 0;
-    if (IsUIPipe == true) {
-        if (SceneManager.GetActiveScene().name.CompareTo(startingSceneName) != 0)
-            Destroy(gameObject);
+    if (IsUIPipe == true)
+    {
+      if (SceneManager.GetActiveScene().name.CompareTo(startingSceneName) != 0) {
+        transform.parent = null;
+        Destroy(gameObject);
+      }
     }
   }
 
