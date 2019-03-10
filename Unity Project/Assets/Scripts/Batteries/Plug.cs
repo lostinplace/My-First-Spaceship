@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Plug : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class Plug : MonoBehaviour
   public bool StartsWithBattery = true;
   private static PlayerState playerState => SceneChanger.playerState;
   private MeshRenderer placeholderRenderer;
+
+  public UnityEvent batteryPlugInAudio;
+  private bool HasPlayedPlugInAudio = false;
 
   private void Start()
   {
@@ -29,7 +33,12 @@ public class Plug : MonoBehaviour
         myBattery.lifetimeInSeconds= myDevice.overrideStartingBatteryLifeTimeInSeconds;
 
       myBattery.setStartedCharging();
+
+      HasPlayedPlugInAudio = true;
+      
       AttachBattery(myBattery);
+      
+      HasPlayedPlugInAudio = false;
     }
     
     placeholderRenderer = transform.Find("Placeholder").GetComponent<MeshRenderer>();
@@ -51,6 +60,12 @@ public class Plug : MonoBehaviour
     var myTransform = this.gameObject.transform;
     aBattery.transform.SetPositionAndRotation(myTransform.position, myTransform.rotation);
     myDevice.AttachBattery(aBattery);
+
+    if (!HasPlayedPlugInAudio)
+    {
+      batteryPlugInAudio.Invoke();
+    }
+
     return true;
   }
 
