@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 604821951}
   - component: {fileID: 604821952}
   - component: {fileID: 604821954}
+  - component: {fileID: 493497468890408130}
   m_Layer: 0
   m_Name: fridge_door
   m_TagString: Untagged
@@ -264,7 +265,18 @@ MonoBehaviour:
   restoreOriginalParent: 0
   onPickUp:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 493497468890408130}
+        m_MethodName: PlayGrab
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   onDetachFromHand:
@@ -351,6 +363,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b032f0784defe0547abb8fa410dfebab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &493497468890408130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604821944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36f68e5750c2656449d7589a9b3331cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GrabEvent: event:/food/door_grab
 --- !u!1 &1033487696
 GameObject:
   m_ObjectHideFlags: 0
