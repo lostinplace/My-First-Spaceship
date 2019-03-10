@@ -9,15 +9,26 @@ public class AlertMessageEmitter : MonoBehaviour
     FMOD.Studio.EventInstance Alerts;
     FMOD.Studio.PLAYBACK_STATE PlaybackState;
 
-    bool IsPlayingAlert;
-
-  private PlayerState playerState => SceneChanger.playerState;
+    private PlayerState playerState => SceneChanger.playerState;
 
     private void SetAlarmStates()
     {
         Alerts.setParameterValue("is_engine_offline", playerState && playerState.EngineIsActive ? 0 : 1);
         Alerts.setParameterValue("is_air_offline", playerState && playerState.AirIsActive ? 0 : 1);
         Alerts.setParameterValue("is_food_offline", playerState && playerState.FridgeIsActive ? 0 : 1);
+
+        if (playerState)
+        {
+            //TODO: make better boolean logic...
+            if ((!playerState.EngineIsActive && !playerState.AirIsActive) || (!playerState.EngineIsActive && !playerState.FridgeIsActive) || (!playerState.AirIsActive && !playerState.FridgeIsActive))
+            {
+                Alerts.setParameterValue("is_plural", 1);
+            }
+            else
+            {
+                Alerts.setParameterValue("is_plural", 0);
+            }
+        }
     }
 
     // Start is called before the first frame update
