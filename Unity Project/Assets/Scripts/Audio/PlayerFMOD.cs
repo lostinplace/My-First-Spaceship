@@ -18,6 +18,10 @@ public class PlayerFMOD : MonoBehaviour
     public string DangerAirEvent;
     private bool HasTriggeredSuffocation;
 
+    [FMODUnity.EventRef]
+    public string GameOverSnapshotEvent;
+    private bool HasTriggeredGameOver;
+
     private bool IsPlayingTitleMusic, IsPlayingAmbience;
 
     private bool HasTriggeredAmbienceStart;
@@ -49,6 +53,13 @@ public class PlayerFMOD : MonoBehaviour
         TitleMusic.getPlaybackState(out TitleMusicPlaybackState);
         this.IsPlayingTitleMusic = this.TitleMusicPlaybackState != FMOD.Studio.PLAYBACK_STATE.STOPPED;
 
+        // Reset trigger states
+        if (SceneChanger.isSceneTitle)
+        {
+            HasTriggeredGameOver = false;
+            HasTriggeredAmbienceStart = false;
+        }
+
         if (SceneChanger.isFadingTitleMusic && this.IsPlayingTitleMusic)
         {
             this.StopTitleMusic();
@@ -72,6 +83,13 @@ public class PlayerFMOD : MonoBehaviour
         else if (playerState && !playerState.IsSuffocating)
         {
           HasTriggeredSuffocation = false;
+        }
+
+        if (playerState && playerState.IsGameOver && !HasTriggeredGameOver)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot(GameOverSnapshotEvent);
+            StopShipAmbience();
+            HasTriggeredGameOver = true;
         }
     }
 

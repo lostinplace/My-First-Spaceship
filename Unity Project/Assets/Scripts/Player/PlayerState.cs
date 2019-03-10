@@ -83,6 +83,11 @@ public class PlayerState : MonoBehaviour
   {
     get => exited;
   }
+
+  public bool IsGameOver
+  {
+    get => gameOver;
+  }
   
   private float curAirlessTime;
 
