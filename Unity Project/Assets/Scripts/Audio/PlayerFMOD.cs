@@ -22,9 +22,13 @@ public class PlayerFMOD : MonoBehaviour
     public string GameOverSnapshotEvent;
     private bool HasTriggeredGameOver;
 
-    private bool IsPlayingTitleMusic, IsPlayingAmbience;
+    [FMODUnity.EventRef]
+    public string GameOverMusicEvent;
+    FMOD.Studio.EventInstance GameOverMusic;
 
-    private bool HasTriggeredAmbienceStart;
+    private bool IsPlayingTitleMusic, IsPlayingAmbience, IsPlayingGameOverMusic;
+
+    private bool HasTriggeredAmbienceStart, HasTriggeredGameOverMusic;
 
     private PlayerState playerState => SceneChanger.playerState;
 
@@ -58,6 +62,7 @@ public class PlayerFMOD : MonoBehaviour
         {
             HasTriggeredGameOver = false;
             HasTriggeredAmbienceStart = false;
+            HasTriggeredGameOverMusic = false;
         }
 
         if (SceneChanger.isFadingTitleMusic && this.IsPlayingTitleMusic)
@@ -91,6 +96,12 @@ public class PlayerFMOD : MonoBehaviour
             StopShipAmbience();
             HasTriggeredGameOver = true;
         }
+
+        if (SceneChanger.isSceneGameOver && !HasTriggeredGameOverMusic)
+        {
+            PlayGameOverMusic();
+            this.HasTriggeredGameOverMusic = true;
+        }
     }
 
     public void PlayTitleMusic()
@@ -111,5 +122,12 @@ public class PlayerFMOD : MonoBehaviour
     public void StopShipAmbience()
     {
         this.Ambience.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+    }
+
+    public void PlayGameOverMusic()
+    {
+        this.GameOverMusic = FMODUnity.RuntimeManager.CreateInstance(GameOverMusicEvent);
+        this.GameOverMusic.start();
+        this.GameOverMusic.release();
     }
 }

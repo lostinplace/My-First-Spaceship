@@ -1499,6 +1499,7 @@ MonoBehaviour:
   TitleMusicEvent: event:/music/title
   DangerAirEvent: event:/danger_cues/danger_air
   GameOverSnapshotEvent: event:/game_over
+  GameOverMusicEvent: event:/music/game_over_bgm
 --- !u!1 &3587781049261440280
 GameObject:
   m_ObjectHideFlags: 0
