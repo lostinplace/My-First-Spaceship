@@ -106,6 +106,11 @@ public class PlayerState : MonoBehaviour
     get => Engine && Engine.isActive;
   }
 
+  public bool MonitorIsActive
+  {
+    get => Monitor && Monitor.isActive;
+  }
+
   public bool IsSuffocating
   {
     get => suffocating;
