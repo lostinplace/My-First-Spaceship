@@ -37,6 +37,7 @@ MonoBehaviour:
   - {fileID: 114834791302342666}
   - {fileID: 114849202434790050}
   - {fileID: 114588227027131168}
+  - {fileID: 114806217930056312}
   MasterBanks:
   - {fileID: 114993489729902988}
   - {fileID: 114177029283486140}
@@ -48,8 +49,24 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 114300911768125934}
   - {fileID: 114157568481057174}
-  stringsBankWriteTime: 636879241779576414
+  stringsBankWriteTime: 636879269041800746
   cacheVersion: 3
+--- !u!114 &114010347855978488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_offline
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114012059991190916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -233,6 +250,54 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114058142988014128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_offline
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114058823475009978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_hungry
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114059392266607370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_offline
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114060254640507462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,6 +347,22 @@ MonoBehaviour:
   Max: 1
   Default: 0
 --- !u!114 &114065020867882074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_offline
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114065110481020790
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -409,6 +490,22 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114097241209791104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_plural
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114097378537543700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,6 +519,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: is_monitor_offline
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114101273917282968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_air_offline
   Min: 0
   Max: 1
   Default: 0
@@ -486,11 +599,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\Audio\FMOD\Desktop\Master Bank.strings.bank
-  lastModified: 636879241779576414
+  lastModified: 636879269041800746
   LoadResult: 0
   FileSizes:
   - Name: 
-    Value: 1880
+    Value: 1918
   Exists: 1
 --- !u!114 &114157960106528806
 MonoBehaviour:
@@ -640,6 +753,22 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114183029703443170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_food_offline
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114185209712634294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -701,6 +830,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: is_engine_offline
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114203696952798616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_plural
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114205467142170918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_offline
   Min: 0
   Max: 1
   Default: 0
@@ -832,6 +993,22 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114250170093277212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_offline
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114251629328290298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -845,6 +1022,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: is_hud_offline
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114253267963053508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_hungry
   Min: 0
   Max: 1
   Default: 0
@@ -967,6 +1160,38 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &114283779997629916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_offline
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114287047833084396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_offline
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114287377200749094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -999,7 +1224,39 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114289062786980268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_offline
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114291662978549890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_offline
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114296218279738076
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1028,6 +1285,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: is_hud_offline
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114298513434959308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_offline
   Min: 0
   Max: 1
   Default: 0
@@ -1129,7 +1402,7 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114717793445697132}
+  - {fileID: 114950363239199208}
   MinDistance: 1
   MaxDistance: 20
   Length: 51000
@@ -1181,6 +1454,22 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114339027484549970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_offline
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114339361743480386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1210,6 +1499,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: is_offline
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114345429878834806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_engine_offline
   Min: 0
   Max: 1
   Default: 0
@@ -1399,6 +1704,22 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114384656418648390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_plural
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114385291008050392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1493,6 +1814,22 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114393049465397894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_hungry
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114397118295585678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1529,11 +1866,11 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114914389145155152}
-  - {fileID: 114085224532707188}
-  - {fileID: 114715179751758218}
-  - {fileID: 114701376008712424}
-  - {fileID: 114239313126877360}
+  - {fileID: 114393049465397894}
+  - {fileID: 114907444009842134}
+  - {fileID: 114852278381891544}
+  - {fileID: 114701743276317776}
+  - {fileID: 114455971368895514}
   MinDistance: 1
   MaxDistance: 20
   Length: 22000
@@ -1560,6 +1897,22 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 2232
+--- !u!114 &114403066614003366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_air_offline
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114404392811949998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1576,6 +1929,22 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114406619794241078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_hungry
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114411437222404560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1589,6 +1958,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: is_hud_offline
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114413032343091660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_air_offline
   Min: 0
   Max: 1
   Default: 0
@@ -1779,6 +2164,22 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114439912074546380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_offline
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114446083916222622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1808,6 +2209,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: is_offline
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114455971368895514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_air_offline
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114464538588111510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_food_offline
   Min: 0
   Max: 1
   Default: 0
@@ -1859,6 +2292,22 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114482011631499800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_engine_offline
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114487368379278240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1902,7 +2351,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114013186686274138}
+  - {fileID: 114527505842381280}
   MinDistance: 0
   MaxDistance: 0
   Length: 87195
@@ -1974,10 +2423,26 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114251629328290298}
+  - {fileID: 114339027484549970}
   MinDistance: 0
   MaxDistance: 0
   Length: 18315
+--- !u!114 &114513563689493906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_offline
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114522042122944352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1991,6 +2456,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: is_offline
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114524964023737948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_offline
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114527505842381280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_offline
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114527670606180012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_food_offline
   Min: 0
   Max: 1
   Default: 0
@@ -2164,6 +2677,22 @@ MonoBehaviour:
   - Name: 
     Value: 2520704
   Exists: 0
+--- !u!114 &114567511346846784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_offline
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114567716639089102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2209,6 +2738,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: is_engine_offline
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114576528922276046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_food_offline
   Min: 0
   Max: 1
   Default: 0
@@ -2620,7 +3165,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114386297257029014}
+  - {fileID: 114059392266607370}
   MinDistance: 0
   MaxDistance: 0
   Length: 31815
@@ -2653,6 +3198,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: is_hud_offline
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114683160214634268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_offline
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114686222592001064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_offline
   Min: 0
   Max: 1
   Default: 0
@@ -2724,6 +3301,22 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114701743276317776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_engine_offline
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114702416271685888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2753,6 +3346,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: is_engine_offline
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114707322224783004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_offline
   Min: 0
   Max: 1
   Default: 0
@@ -2932,6 +3541,22 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114742253999528148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_hungry
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114743095545905186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2945,6 +3570,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: is_air_offline
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114744356742173980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_plural
   Min: 0
   Max: 1
   Default: 0
@@ -3042,11 +3683,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: D:\game_projects\new_mfs\My-First-Spaceship\Unity Project\Assets\Audio\FMOD\Desktop\Master
     Bank.bank
-  lastModified: 636879241779546412
+  lastModified: 636879269041710744
   LoadResult: 0
   FileSizes:
   - Name: 
-    Value: 3662528
+    Value: 3664384
   Exists: 1
 --- !u!114 &114768872982479442
 MonoBehaviour:
@@ -3231,6 +3872,30 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114806217930056312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/food/fridge
+  guid: 7e1b55dd68c798489fffa4065d3a3183
+  Banks:
+  - {fileID: 114767320213873278}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 114524964023737948}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 87195
 --- !u!114 &114813266448751698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3347,6 +4012,22 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114832483283366260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_air_offline
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114834791302342666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3370,6 +4051,22 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 508
+--- !u!114 &114836878129987630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_offline
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114840816450413456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3438,6 +4135,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: is_offline
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114852278381891544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_food_offline
   Min: 0
   Max: 1
   Default: 0
@@ -3512,6 +4225,22 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114875959860694362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_offline
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114882731487848662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3535,6 +4264,22 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 141011
+--- !u!114 &114890274305130322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_engine_offline
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114900498038926500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3548,6 +4293,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: is_offline
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114907444009842134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_plural
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114910197056224080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_engine_offline
   Min: 0
   Max: 1
   Default: 0
@@ -3596,6 +4373,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: is_hud_offline
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114931448117490040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_offline
   Min: 0
   Max: 1
   Default: 0
@@ -3696,6 +4489,22 @@ MonoBehaviour:
   Max: 1
   Default: 0
 --- !u!114 &114947176861904772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_offline
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114950363239199208
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
