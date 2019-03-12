@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public partial class Pipe : Lockable, Handleable.HandleableItem
 {
@@ -15,14 +16,17 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
   private static PlayerState playerState => SceneChanger.playerState;
 
   public bool IsBeingHeld { get => isBeingHeld; }
+  public bool IsUIPipe { get => isUIPipe; set => isUIPipe = value; }
 
-  public static float MaxHeat = 300;
+    public static float MaxHeat = 300;
 
   public static float HeatLossPerSecond = 3f;
 
   public UnityEvent pipeBurstAudio;
   private bool hasPlayedBurstAudio = false;
-  private bool isMenuPipe = false;
+
+  protected bool isUIPipe = false;
+  protected string startingSceneName;
 
   public void OnPickup()
   {
@@ -59,6 +63,7 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
   void Start()
   {
     Handleable.InitializeHandleableItem(this);
+    startingSceneName = SceneManager.GetActiveScene().name;
     materialDict = new Dictionary<PipeIntegrityState, Material>()
     {
       { PipeIntegrityState.BAD, Resources.Load<Material>("pipe_bad") },
@@ -80,11 +85,6 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
     smoke.gameObject.SetActive(false);
     smoke.transform.position = smokeSpawnPoint.transform.position;
     smoke.transform.rotation = smokeSpawnPoint.transform.rotation;
-
-    if(SceneChanger.isSceneTitle)
-      {
-        isMenuPipe = true;
-      }
   }
 
   private void InitializeWithSettings(SpaceshipSettings settings) {
@@ -112,6 +112,13 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
     ProcessHeat(cumulativeDelta);
     SetAppearance();
     cumulativeDelta = 0;
+    if (IsUIPipe == true)
+    {
+      if (SceneManager.GetActiveScene().name.CompareTo(startingSceneName) != 0) {
+        transform.parent = null;
+        Destroy(gameObject);
+      }
+    }
   }
 
   void SetAppearance()
@@ -121,7 +128,7 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
       var filter = this.GetComponent<MeshFilter>();
       filter.mesh = rupturedMesh;
 
-      if (!isMenuPipe && !hasPlayedBurstAudio)
+      if (!IsUIPipe && !hasPlayedBurstAudio)
       {
         pipeBurstAudio.Invoke();
         hasPlayedBurstAudio = true;

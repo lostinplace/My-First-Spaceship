@@ -30,6 +30,8 @@ public partial class Cradle : MonoBehaviour
 
   bool isLoading = true;
 
+  public bool isUICradle = false;
+
   void Start()
   {
 
@@ -37,6 +39,7 @@ public partial class Cradle : MonoBehaviour
     {
       var prefab = Resources.Load("RuntimePipe");
       var obj = (GameObject)Instantiate(prefab);
+      ((GameObject) obj).GetComponent<Pipe>().IsUIPipe = isUICradle;
       var myPipe = obj.GetComponent<Pipe>();
       
       if (overrideStartingPipeIntegrity != 0) myPipe.currentIntegrity = overrideStartingPipeIntegrity;
@@ -96,8 +99,7 @@ public partial class Cradle : MonoBehaviour
     tmpPipe.potentialCradle = null;
   }
 
-  void Update()
-  {
+  void Update() {
     placeholderRenderer.enabled = ( playerState ? playerState.PipesHeld > 0 : false ) && !this.connectedPipe ;
   }
 
