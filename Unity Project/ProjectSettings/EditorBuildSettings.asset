@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/prod/main_menu.unity
     guid: 2f4b29ed22517fd4497da3756ee13082
   - enabled: 1
-    path: Assets/Scenes/prod/new_layout.unity
-    guid: ea10bf1f9f4ea7c47a21935382d6fd44
-  - enabled: 1
     path: Assets/Scenes/prod/game_over.unity
     guid: 3d778e4935a9f5447a02129f869a6b4b
   - enabled: 1
