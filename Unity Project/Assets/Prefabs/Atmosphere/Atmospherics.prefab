@@ -1,5 +1,74 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6501354751145524156
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4359744323291317054}
+  - component: {fileID: 1540340914063326328}
+  - component: {fileID: 2912446144293046335}
+  m_Layer: 0
+  m_Name: Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4359744323291317054
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6501354751145524156}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6753436740515241960}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1540340914063326328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6501354751145524156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/air_machine/air_machine
+  PlayEvent: 1
+  StopEvent: 2
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: is_offline
+    Value: 0
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
+--- !u!114 &2912446144293046335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6501354751145524156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbcdb5824c438a24592e3fa79a45170f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6889310224478815804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18,9 +87,12 @@ MonoBehaviour:
   productionTime: 0
   productionTimeRequired: 5
   hasItem: 0
+  overrideStartingBatteryLifeTimeInSeconds: 0
+  overrideStartingBatteryChargeInSeconds: 0
+  overrideStartingBatteryMaxChargeInSeconds: 0
   plug: {fileID: 3591903334624887799}
   cradleNetwork: {fileID: 8187727585620115493}
-  pipesNotRequired: 0
+  pipesRequired: 1
   BatteriesRequired: 1
 --- !u!114 &8187727585620115493
 MonoBehaviour:
@@ -122,6 +194,11 @@ PrefabInstance:
       propertyPath: myDevice
       value: 
       objectReference: {fileID: 6889310224478815804}
+    - target: {fileID: 3356099581762430034, guid: 69f9ef04e1f77e64c82ba148627c485c,
+        type: 3}
+      propertyPath: batteryPlugInAudio.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7180321891324602583}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69f9ef04e1f77e64c82ba148627c485c, type: 3}
 --- !u!114 &3591903334624887799 stripped
@@ -134,6 +211,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 69a89b02098c6f04488577df04b73e8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7180321891324602583 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9002664263320326002, guid: 69f9ef04e1f77e64c82ba148627c485c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2254689075197044645}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb0a66957227584408d5d76cf73ed3bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &3326348665984207975
@@ -232,6 +321,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3506970901607990868, guid: bf7c56938adab9b408fdd5ed9df34412,
+        type: 3}
+      propertyPath: m_Name
+      value: Atmospherics
+      objectReference: {fileID: 0}
     - target: {fileID: 3506970901608290932, guid: bf7c56938adab9b408fdd5ed9df34412,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -286,11 +380,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3506970901607990868, guid: bf7c56938adab9b408fdd5ed9df34412,
-        type: 3}
-      propertyPath: m_Name
-      value: Atmospherics
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf7c56938adab9b408fdd5ed9df34412, type: 3}

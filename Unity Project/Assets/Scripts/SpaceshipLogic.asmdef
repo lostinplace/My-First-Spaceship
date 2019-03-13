@@ -4,7 +4,8 @@
         "SteamVR",
         "SteamVR_Editor",
         "SteamVR_Input_Editor",
-        "FMOD"
+        "FMOD",
+        "OculusSpatializerFMOD"
     ],
     "optionalUnityReferences": [],
     "includePlatforms": [],

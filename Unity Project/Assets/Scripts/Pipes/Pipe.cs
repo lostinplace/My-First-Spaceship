@@ -24,6 +24,7 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
 
   public UnityEvent pipeBurstAudio;
   private bool hasPlayedBurstAudio = false;
+
   protected bool isUIPipe = false;
   protected string startingSceneName;
 
@@ -127,7 +128,7 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
       var filter = this.GetComponent<MeshFilter>();
       filter.mesh = rupturedMesh;
 
-      if (!hasPlayedBurstAudio)
+      if (!IsUIPipe && !hasPlayedBurstAudio)
       {
         pipeBurstAudio.Invoke();
         hasPlayedBurstAudio = true;

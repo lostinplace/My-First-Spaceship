@@ -9,46 +9,44 @@ public class AlertMessageEmitter : MonoBehaviour
     FMOD.Studio.EventInstance Alerts;
     FMOD.Studio.PLAYBACK_STATE PlaybackState;
 
-    bool IsPlayingAlert;
-
-  private PlayerState playerState => SceneChanger.playerState;
-
-  private bool HasOfflineComponent => playerState && !(playerState.EngineIsActive && playerState.FridgeIsActive && playerState.AirIsActive);
+    private PlayerState playerState => SceneChanger.playerState;
 
     private void SetAlarmStates()
     {
         Alerts.setParameterValue("is_engine_offline", playerState && playerState.EngineIsActive ? 0 : 1);
         Alerts.setParameterValue("is_air_offline", playerState && playerState.AirIsActive ? 0 : 1);
         Alerts.setParameterValue("is_food_offline", playerState && playerState.FridgeIsActive ? 0 : 1);
+
+        if (playerState)
+        {
+            //TODO: make better boolean logic...
+            if ((!playerState.EngineIsActive && !playerState.AirIsActive) || (!playerState.EngineIsActive && !playerState.FridgeIsActive) || (!playerState.AirIsActive && !playerState.FridgeIsActive))
+            {
+                Alerts.setParameterValue("is_plural", 1);
+            }
+            else
+            {
+                Alerts.setParameterValue("is_plural", 0);
+            }
+        }
     }
 
     // Start is called before the first frame update
     void Start()
     {
         Alerts = FMODUnity.RuntimeManager.CreateInstance(AlertsEvent);
-        IsPlayingAlert = false;
+        Alerts.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+        Alerts.start();
     }
 
   // Update is called once per frame
   void Update()
   {
-    if (!playerState) this.Alerts.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-    Alerts.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
-
     this.SetAlarmStates();
 
-    Alerts.getPlaybackState(out PlaybackState);
-    this.IsPlayingAlert = this.PlaybackState != FMOD.Studio.PLAYBACK_STATE.STOPPED;
-
-    if (this.HasOfflineComponent && !this.IsPlayingAlert)
+    if (playerState && playerState._exited)
     {
-      this.PlayMessages();
-      this.IsPlayingAlert = true;
+      this.Alerts.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
   }
-
-    void PlayMessages()
-    {
-        this.Alerts.start();
-    }
 }

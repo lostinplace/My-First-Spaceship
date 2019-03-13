@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -195,6 +195,26 @@ PrefabInstance:
         type: 3}
       propertyPath: monitor
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801592797309023990, guid: 316195810a9e2c84aa2432d71ffd8d61,
+        type: 3}
+      propertyPath: TitleMusicEvent
+      value: event:/music/title
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801592797309023990, guid: 316195810a9e2c84aa2432d71ffd8d61,
+        type: 3}
+      propertyPath: DangerAirEvent
+      value: event:/danger_cues/danger_air
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801592797309023990, guid: 316195810a9e2c84aa2432d71ffd8d61,
+        type: 3}
+      propertyPath: GameOverSnapshotEvent
+      value: event:/game_over
+      objectReference: {fileID: 0}
+    - target: {fileID: 4801592797309023990, guid: 316195810a9e2c84aa2432d71ffd8d61,
+        type: 3}
+      propertyPath: GameOverMusicEvent
+      value: event:/music/game_over_bgm
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 316195810a9e2c84aa2432d71ffd8d61, type: 3}

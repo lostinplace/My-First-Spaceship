@@ -78,6 +78,16 @@ public class PlayerState : MonoBehaviour
     get;
     set;
   }
+
+  public bool _exited
+  {
+    get => exited;
+  }
+
+  public bool IsGameOver
+  {
+    get => gameOver;
+  }
   
   private float curAirlessTime;
 
@@ -94,6 +104,16 @@ public class PlayerState : MonoBehaviour
   public bool EngineIsActive
   {
     get => Engine && Engine.isActive;
+  }
+
+  public bool MonitorIsActive
+  {
+    get => Monitor && Monitor.isActive;
+  }
+
+  public bool IsSuffocating
+  {
+    get => suffocating;
   }
 
   // todo: subscribe to some player controller event

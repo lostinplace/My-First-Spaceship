@@ -109,6 +109,7 @@ GameObject:
   - component: {fileID: 604821951}
   - component: {fileID: 604821952}
   - component: {fileID: 604821954}
+  - component: {fileID: 493497468890408130}
   m_Layer: 0
   m_Name: fridge_door
   m_TagString: Untagged
@@ -264,7 +265,18 @@ MonoBehaviour:
   restoreOriginalParent: 0
   onPickUp:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 493497468890408130}
+        m_MethodName: PlayGrab
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   onDetachFromHand:
@@ -351,6 +363,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b032f0784defe0547abb8fa410dfebab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &493497468890408130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604821944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36f68e5750c2656449d7589a9b3331cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GrabEvent: event:/food/door_grab
 --- !u!1 &1033487696
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,6 +506,7 @@ Transform:
   - {fileID: 5692254739221054939}
   - {fileID: 1815748513712771453}
   - {fileID: 6640377877474299001}
+  - {fileID: 6418264137918379153}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -564,6 +590,75 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.047202498, y: 0.25677395, z: 0.035312414}
   m_Center: {x: -0.08184059, y: 1.1252944, z: -0.64898586}
+--- !u!1 &2293763204386518249
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6418264137918379153}
+  - component: {fileID: 7297656208592596379}
+  - component: {fileID: 3638043963654230321}
+  m_Layer: 0
+  m_Name: Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6418264137918379153
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2293763204386518249}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.264, y: 1.171, z: -0.768}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1895153007}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7297656208592596379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2293763204386518249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: event:/food/fridge
+  PlayEvent: 1
+  StopEvent: 2
+  CollisionTag: 
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: is_offline
+    Value: 0
+  OverrideAttenuation: 0
+  OverrideMinDistance: 0
+  OverrideMaxDistance: 0
+--- !u!114 &3638043963654230321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2293763204386518249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e963c5538cda7543a5a23a3c295d659, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &717002466
 PrefabInstance:
   m_ObjectHideFlags: 0

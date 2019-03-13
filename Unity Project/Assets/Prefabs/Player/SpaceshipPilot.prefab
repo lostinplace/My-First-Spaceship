@@ -1428,7 +1428,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3587781049223957291}
   - component: {fileID: 3587781049223957290}
-  - component: {fileID: 5761199855286978722}
   - component: {fileID: 4801592797309023990}
   m_Layer: 0
   m_Name: SpaceshipPilot
@@ -1484,19 +1483,6 @@ MonoBehaviour:
     actionPath: /actions//in/HeadsetOnHead
     needsReinit: 1
   allowToggleTo2D: 1
---- !u!114 &5761199855286978722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3587781049223957293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f91ad7973d026f4ba0c45b697b1a5ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AlertsEvent: event:/alert_messages/alerts
 --- !u!114 &4801592797309023990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1510,7 +1496,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AmbienceEvent: event:/ambience
-  FailstateEvent: event:/failstates/failstate_air
+  TitleMusicEvent: event:/music/title
+  DangerAirEvent: event:/danger_cues/danger_air
+  GameOverSnapshotEvent: event:/game_over
+  GameOverMusicEvent: event:/music/game_over_bgm
 --- !u!1 &3587781049261440280
 GameObject:
   m_ObjectHideFlags: 0
