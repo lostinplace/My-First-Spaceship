@@ -10,7 +10,9 @@ public class Plug : MonoBehaviour
   public DeviceBase myDevice;
   public bool StartsWithBattery = true;
   private static PlayerState playerState => SceneChanger.playerState;
+
   private MeshRenderer placeholderRenderer;
+  public GameObject BatteryPlaceholder;
 
   public UnityEvent batteryPlugInAudio;
   private bool HasPlayedPlugInAudio = false;
@@ -41,7 +43,7 @@ public class Plug : MonoBehaviour
       HasPlayedPlugInAudio = false;
     }
     
-    placeholderRenderer = transform.Find("Placeholder").GetComponent<MeshRenderer>();
+    placeholderRenderer = BatteryPlaceholder.GetComponent<MeshRenderer>();
   }
 
   private void OnTriggerEnter(Collider other) {

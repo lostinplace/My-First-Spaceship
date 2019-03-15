@@ -23,6 +23,8 @@ public class CradleNetwork : MonoBehaviour
   void Start()
   {
     if (cradles == null) cradles = new List<Cradle>();
+    var tmpCradles = cradles.Where(x => x != null);
+    cradles = tmpCradles.ToList();
 
     cradles.ForEach(x => x.network = this);
   }

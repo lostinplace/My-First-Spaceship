@@ -140,6 +140,7 @@ MonoBehaviour:
   currentBattery: {fileID: 0}
   myDevice: {fileID: 0}
   StartsWithBattery: 1
+  BatteryPlaceholder: {fileID: 510243174493654935}
   batteryPlugInAudio:
     m_PersistentCalls:
       m_Calls:
