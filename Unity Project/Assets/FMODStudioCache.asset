@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 114157568481057174}
-  - {fileID: 114186609289178828}
+  - {fileID: 114550786735875294}
   EditorEvents:
   - {fileID: 114490149772941602}
   - {fileID: 114390556781888286}
@@ -49,7 +49,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 114300911768125934}
   - {fileID: 114157568481057174}
-  stringsBankWriteTime: 636881893286189428
+  stringsBankWriteTime: 636880204687536515
   cacheVersion: 3
 --- !u!114 &114005210789906834
 MonoBehaviour:
@@ -258,7 +258,7 @@ MonoBehaviour:
   Path: event:/pipe/pipe_out
   guid: 99ce3adb9b6fdd4cbae989631541f125
   Banks:
-  - {fileID: 114186609289178828}
+  - {fileID: 114550786735875294}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -775,12 +775,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\Audio\FMOD\Desktop\Master Bank.strings.bank
-  lastModified: 636881893286189428
+  lastModified: 636880204687536515
   LoadResult: 0
   FileSizes:
   - Name: 
     Value: 1918
   Exists: 1
+--- !u!114 &114157872733985502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_engine_offline
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114157960106528806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -958,6 +974,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: is_plural
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114180218771995516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_hungry
   Min: 0
   Max: 1
   Default: 0
@@ -1560,7 +1592,7 @@ MonoBehaviour:
   Path: snapshot:/game_over
   guid: 72efbb2c8875df48af2222921e45780f
   Banks:
-  - {fileID: 114186609289178828}
+  - {fileID: 114550786735875294}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -1744,6 +1776,22 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114299129736484358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_offline
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114300911768125934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1778,7 +1826,7 @@ MonoBehaviour:
   Path: event:/game_over
   guid: eaf0e9a248314346980ab0f87f725726
   Banks:
-  - {fileID: 114186609289178828}
+  - {fileID: 114550786735875294}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1853,12 +1901,12 @@ MonoBehaviour:
   Path: event:/engine/engine_running
   guid: 79fc15f2613f3d4f8273597f33ec9727
   Banks:
-  - {fileID: 114186609289178828}
+  - {fileID: 114550786735875294}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114960126609577176}
+  - {fileID: 114596645667174690}
   MinDistance: 1
   MaxDistance: 20
   Length: 51000
@@ -2438,7 +2486,7 @@ MonoBehaviour:
   Path: event:/battery/battery_charge
   guid: 1d54e390dc8a2c40ad54bd82965a2727
   Banks:
-  - {fileID: 114186609289178828}
+  - {fileID: 114550786735875294}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -2525,16 +2573,16 @@ MonoBehaviour:
   Path: event:/alert_messages/alerts
   guid: ae3c58ecb2e4234eadfbe22a86c3c628
   Banks:
-  - {fileID: 114186609289178828}
+  - {fileID: 114550786735875294}
   IsStream: 0
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114773768459326720}
-  - {fileID: 114262364114462470}
-  - {fileID: 114416447316115766}
-  - {fileID: 114245173097265648}
-  - {fileID: 114071725698775674}
+  - {fileID: 114180218771995516}
+  - {fileID: 114510432143340858}
+  - {fileID: 114433654285860172}
+  - {fileID: 114157872733985502}
+  - {fileID: 114938371610847462}
   MinDistance: 1
   MaxDistance: 20
   Length: 22000
@@ -2553,7 +2601,7 @@ MonoBehaviour:
   Path: event:/food/eating
   guid: 4b8ab2a2a76ca04c94302189439eecf3
   Banks:
-  - {fileID: 114186609289178828}
+  - {fileID: 114550786735875294}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2756,7 +2804,7 @@ MonoBehaviour:
   Path: event:/danger_cues/danger_engine
   guid: 977c4098d0c1ca459dc8e75d946a7f86
   Banks:
-  - {fileID: 114186609289178828}
+  - {fileID: 114550786735875294}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -2841,6 +2889,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: is_air_offline
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114433654285860172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_food_offline
   Min: 0
   Max: 1
   Default: 0
@@ -3147,7 +3211,7 @@ MonoBehaviour:
   Path: event:/battery/battery_grab
   guid: cdaeb65bc4569c409ccdb6ccb59337f6
   Banks:
-  - {fileID: 114186609289178828}
+  - {fileID: 114550786735875294}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -3202,12 +3266,12 @@ MonoBehaviour:
   Path: event:/ambience
   guid: 0a14b4b1aef7e14e891586253832e6cd
   Banks:
-  - {fileID: 114186609289178828}
+  - {fileID: 114550786735875294}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114837597681730946}
+  - {fileID: 114781613756886692}
   MinDistance: 0
   MaxDistance: 0
   Length: 87195
@@ -3307,6 +3371,38 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114510432143340858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_plural
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114511454372725454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_offline
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114512738594254348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3322,12 +3418,12 @@ MonoBehaviour:
   Path: event:/hud/hud_ambience
   guid: a89cf1c2218f7d4fb55e502d5eca5a04
   Banks:
-  - {fileID: 114186609289178828}
+  - {fileID: 114550786735875294}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114298451241359746}
+  - {fileID: 114511454372725454}
   MinDistance: 0
   MaxDistance: 45
   Length: 18315
@@ -3558,6 +3654,25 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114550786735875294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: D:\My-First-Spaceship\Unity Project\Assets\Audio\FMOD\Desktop\Master Bank.bank
+  lastModified: 636880204687506614
+  LoadResult: 0
+  FileSizes:
+  - Name: 
+    Value: 3664672
+  Exists: 1
 --- !u!114 &114551190063035146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3823,7 +3938,7 @@ MonoBehaviour:
   Path: event:/music/game_over_bgm
   guid: db3c0188e6712a4ca71f8081eab929ba
   Banks:
-  - {fileID: 114186609289178828}
+  - {fileID: 114550786735875294}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -3914,7 +4029,7 @@ MonoBehaviour:
   Path: event:/danger_cues/danger_air
   guid: 7cf80d7f815f8f4189c8e96bc7679d7c
   Banks:
-  - {fileID: 114186609289178828}
+  - {fileID: 114550786735875294}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -3974,6 +4089,22 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114596645667174690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_offline
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114602399298968352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4021,7 +4152,7 @@ MonoBehaviour:
   Path: event:/pipe/pipe_burst
   guid: fa941d26607ae941a829818aad5b6fa5
   Banks:
-  - {fileID: 114186609289178828}
+  - {fileID: 114550786735875294}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -4275,12 +4406,12 @@ MonoBehaviour:
   Path: event:/air_machine/air_machine
   guid: 7e5d5e227febb041a431681e6d459b67
   Banks:
-  - {fileID: 114186609289178828}
+  - {fileID: 114550786735875294}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114930883502045934}
+  - {fileID: 114946569911223644}
   MinDistance: 0
   MaxDistance: 45
   Length: 31815
@@ -5028,6 +5159,22 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114781613756886692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_offline
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114781695035477910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5242,12 +5389,12 @@ MonoBehaviour:
   Path: event:/food/fridge
   guid: 7e1b55dd68c798489fffa4065d3a3183
   Banks:
-  - {fileID: 114186609289178828}
+  - {fileID: 114550786735875294}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
   Parameters:
-  - {fileID: 114388535709740570}
+  - {fileID: 114299129736484358}
   MinDistance: 0
   MaxDistance: 45
   Length: 87195
@@ -5430,7 +5577,7 @@ MonoBehaviour:
   Path: event:/battery/battery_plug_in
   guid: b29d596350f89f4e97a4616e0ddac96f
   Banks:
-  - {fileID: 114186609289178828}
+  - {fileID: 114550786735875294}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -5533,7 +5680,7 @@ MonoBehaviour:
   Path: event:/food/door_grab
   guid: 687737e827d88244a124e31b53769749
   Banks:
-  - {fileID: 114186609289178828}
+  - {fileID: 114550786735875294}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -5620,7 +5767,7 @@ MonoBehaviour:
   Path: event:/danger_cues/danger_food
   guid: 1263835e55d45244b0b5145e1c720132
   Banks:
-  - {fileID: 114186609289178828}
+  - {fileID: 114550786735875294}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -5707,7 +5854,7 @@ MonoBehaviour:
   Path: event:/music/title
   guid: 9940e93946f87e42b6f384361860b6ee
   Banks:
-  - {fileID: 114186609289178828}
+  - {fileID: 114550786735875294}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
@@ -5987,6 +6134,22 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114938371610847462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_air_offline
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114939418009894868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6048,6 +6211,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: is_plural
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114946569911223644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: is_offline
   Min: 0
   Max: 1
   Default: 0
@@ -6338,7 +6517,7 @@ MonoBehaviour:
   Path: event:/pipe/pipe_in
   guid: eb6780b11e5df04386fc4ebe5fbd52d9
   Banks:
-  - {fileID: 114186609289178828}
+  - {fileID: 114550786735875294}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -6425,7 +6604,7 @@ MonoBehaviour:
   Path: event:/pipe/pipe_grab
   guid: 2a07915a0758744f8f6f1b67fd63e7ab
   Banks:
-  - {fileID: 114186609289178828}
+  - {fileID: 114550786735875294}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
