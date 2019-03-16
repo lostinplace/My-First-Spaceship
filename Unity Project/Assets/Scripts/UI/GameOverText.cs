@@ -46,21 +46,14 @@ public class GameOverText : MonoBehaviour
     {
         if (currentTime <= 0f)
         {
-            /*if (ColorsAreClose(gameOverText.color, Color.clear, colorTolerence) != true)
+            if (currentAutoMessage < autoMessages.Length)
             {
-                gameOverText.color = Color.Lerp(gameOverText.color, Color.clear, fadeSpeed * Time.deltaTime);
-            }
-            else*/ if (currentAutoMessage < autoMessages.Length)
-            {
-                currentMessage += autoMessages[currentAutoMessage] + "\n";
+                currentMessage += "\n" + autoMessages[currentAutoMessage];
                 gameOverText.text = currentMessage;//autoMessages[currentAutoMessage];
                 currentTime = messageDisplayTime;
                 ++currentAutoMessage;
             }
-            /*else
-            {
-                SceneChanger.GoToMainMenu();
-            }*/
+            
         }
         else
         {
