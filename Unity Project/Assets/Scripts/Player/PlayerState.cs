@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using Valve.VR;
 
 public enum HoldingTypes
@@ -116,6 +117,11 @@ public class PlayerState : MonoBehaviour
     get => suffocating;
   }
 
+  public bool IsHungry
+  {
+    get => hungry;
+  }
+
   // todo: subscribe to some player controller event
   public void ReceiveFood()
   {
@@ -123,6 +129,7 @@ public class PlayerState : MonoBehaviour
   }
 
   private bool suffocating = false;
+  private bool hungry = false;
 
   // Start is called before the first frame update
   void Start()
@@ -166,6 +173,8 @@ public class PlayerState : MonoBehaviour
     }
 
     foodSupplyInSeconds -= delta;
+
+    hungry = foodSupplyInSeconds < (SceneChanger.settings.startingFoodSupplyInSeconds / 3);
 
     if(foodSupplyInSeconds <= 0)
       TriggerEndgame("You passed out from hunger");
