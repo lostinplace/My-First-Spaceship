@@ -384,7 +384,7 @@ PrefabInstance:
     - target: {fileID: 3090198341173880124, guid: be62860ef6f32204791ffdd3688e0a60,
         type: 3}
       propertyPath: m_Name
-      value: fan
+      value: pCylinder12
       objectReference: {fileID: 0}
     - target: {fileID: 3090198341171624952, guid: be62860ef6f32204791ffdd3688e0a60,
         type: 3}
@@ -466,6 +466,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[3]
       value: 
       objectReference: {fileID: 2100000, guid: 47874ce1e1e8c6149aa4680662cb56f2, type: 2}
+    - target: {fileID: 3090198341183264504, guid: be62860ef6f32204791ffdd3688e0a60,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 230ec7f930cd16644b891a12f4a0ed27, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be62860ef6f32204791ffdd3688e0a60, type: 3}
 --- !u!4 &400002 stripped
