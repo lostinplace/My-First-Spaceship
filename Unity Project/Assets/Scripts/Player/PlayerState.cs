@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Valve.VR;
 
 public enum HoldingTypes
@@ -40,22 +41,22 @@ public class PlayerState : MonoBehaviour
 
   public DeviceBase Air
   {
-    get => SceneChanger.settings.air;
+    get => SceneChanger.settings ? SceneChanger.settings.air : null;
   }
 
   public  DeviceBase Engine
   {
-    get => SceneChanger.settings.engine;
+    get => SceneChanger.settings ? SceneChanger.settings.engine : null;
   }
 
   public  DeviceBase Fridge
   {
-    get => SceneChanger.settings.fridge;
+    get => SceneChanger.settings ? SceneChanger.settings.fridge : null;
   }
 
   public  DeviceBase Monitor
   {
-    get => SceneChanger.settings.monitor;
+    get => SceneChanger.settings ? SceneChanger.settings.monitor : null;
   }
 
   private short _pipesHeld;
@@ -119,6 +120,7 @@ public class PlayerState : MonoBehaviour
   // todo: subscribe to some player controller event
   public void ReceiveFood()
   {
+    if (!SceneChanger.settings) return;
     foodSupplyInSeconds = SceneChanger.settings.startingFoodSupplyInSeconds;
   }
 
@@ -127,6 +129,7 @@ public class PlayerState : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
+    if (!SceneChanger.settings) return;
     exited = false;
 
     ReceiveFood();
@@ -137,7 +140,7 @@ public class PlayerState : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    if (gameOver) {
+    if (gameOver || !SceneChanger.settings) {
       return;
     }
 
