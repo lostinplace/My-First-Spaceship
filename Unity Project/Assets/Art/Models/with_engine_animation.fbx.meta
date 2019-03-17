@@ -1,0 +1,220 @@
+fileFormatVersion: 2
+guid: f2e9b90924b38d848805ed1c46c3ef60
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: engine3_polySurface293
+    100002: engine3_polySurface297
+    100004: engine3_polySurface298
+    100006: engine3_polySurface301
+    100008: engine3_polySurface303
+    100010: engine3_polySurface305
+    100012: engine3_polySurface307
+    100014: engine3_polySurface309
+    100016: engine3_polySurface311
+    100018: engine3_polySurface314
+    100020: engine3_polySurface316
+    100022: engine3_polySurface318
+    100024: engine3_polySurface319
+    100026: engine3_polySurface322
+    100028: engine3_polySurface323
+    100030: engine3_polySurface326
+    100032: polySurface295
+    100034: polySurface312
+    100036: //RootNode
+    400000: engine3_polySurface293
+    400002: engine3_polySurface297
+    400004: engine3_polySurface298
+    400006: engine3_polySurface301
+    400008: engine3_polySurface303
+    400010: engine3_polySurface305
+    400012: engine3_polySurface307
+    400014: engine3_polySurface309
+    400016: engine3_polySurface311
+    400018: engine3_polySurface314
+    400020: engine3_polySurface316
+    400022: engine3_polySurface318
+    400024: engine3_polySurface319
+    400026: engine3_polySurface322
+    400028: engine3_polySurface323
+    400030: engine3_polySurface326
+    400032: polySurface295
+    400034: polySurface312
+    400036: //RootNode
+    2100000: blinn14
+    2100002: blinn15
+    2100004: lambert1
+    2100006: blinn11
+    2300000: engine3_polySurface293
+    2300002: engine3_polySurface297
+    2300004: engine3_polySurface298
+    2300006: engine3_polySurface301
+    2300008: engine3_polySurface303
+    2300010: engine3_polySurface305
+    2300012: engine3_polySurface307
+    2300014: engine3_polySurface309
+    2300016: engine3_polySurface311
+    2300018: engine3_polySurface314
+    2300020: engine3_polySurface316
+    2300022: engine3_polySurface318
+    2300024: engine3_polySurface319
+    2300026: engine3_polySurface322
+    2300028: engine3_polySurface323
+    2300030: engine3_polySurface326
+    2300032: polySurface295
+    2300034: polySurface312
+    2300036: //RootNode
+    3300000: engine3_polySurface293
+    3300002: engine3_polySurface297
+    3300004: engine3_polySurface298
+    3300006: engine3_polySurface301
+    3300008: engine3_polySurface303
+    3300010: engine3_polySurface305
+    3300012: engine3_polySurface307
+    3300014: engine3_polySurface309
+    3300016: engine3_polySurface311
+    3300018: engine3_polySurface314
+    3300020: engine3_polySurface316
+    3300022: engine3_polySurface318
+    3300024: engine3_polySurface319
+    3300026: engine3_polySurface322
+    3300028: engine3_polySurface323
+    3300030: engine3_polySurface326
+    3300032: polySurface295
+    3300034: polySurface312
+    3300036: //RootNode
+    4300000: engine3
+    4300002: polySurface295
+    4300004: polySurface312
+    4300006: engine3_polySurface297
+    4300008: engine3_polySurface298
+    4300010: engine3_polySurface305
+    4300012: engine3_polySurface307
+    4300014: engine3_polySurface309
+    4300016: engine3_polySurface311
+    4300018: engine3_polySurface318
+    4300020: engine3_polySurface293
+    4300022: engine3_polySurface301
+    4300024: engine3_polySurface303
+    4300026: engine3_polySurface319
+    4300028: engine3_polySurface322
+    4300030: engine3_polySurface323
+    4300032: engine3_polySurface326
+    4300034: engine3_polySurface314
+    4300036: engine3_polySurface316
+    7400000: engine_move
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: engine_move
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 150
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
