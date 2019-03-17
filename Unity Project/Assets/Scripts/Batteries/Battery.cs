@@ -93,7 +93,7 @@ public partial class Battery : Lockable, Handleable.HandleableItem
       if(chargeRatio != 1)
       {
         var iteration = Mathf.Floor(Time.fixedTime / chargingFlashTime);
-        var nowColor = iteration % 2 == 0 ? new Color() : color;
+        var nowColor = iteration % 2 == 0 ? new Color(0,0,0) : color;
         myRenderer.material.SetColor("_EmissionColor", nowColor);
       }
       return;
