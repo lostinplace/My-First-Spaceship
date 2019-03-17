@@ -3300,7 +3300,7 @@ MonoBehaviour:
   maxPipeHeat: 30
   HeatLossPerSecond: 1
   timeLimitInSeconds: 180
-  destinationDistanceInSeconds: 80
+  destinationDistanceInSeconds: 60
   startingFoodSupplyInSeconds: 90
   airSupplyInSeconds: 30
   lungCapacityInSeconds: 10
