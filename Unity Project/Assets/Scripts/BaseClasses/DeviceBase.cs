@@ -23,6 +23,8 @@ public class DeviceBase : MonoBehaviour
   public float overrideStartingBatteryChargeInSeconds = 0;
   public float overrideStartingBatteryMaxChargeInSeconds = 0;
   
+  private Animator animator { get; set; }
+  
   public Plug plug;
 
   public Battery currentBattery
@@ -69,6 +71,7 @@ public class DeviceBase : MonoBehaviour
     if(!cradleNetwork) cradleNetwork = new CradleNetwork();
     cradleNetwork.device = this;
     batteryNotRequired = !BatteriesRequired || powerConsumptionPerSecond < 0;
+    animator = this.GetComponentInChildren<Animator>();
   }
 
   public bool DoCycle(float delta)
@@ -89,7 +92,7 @@ public class DeviceBase : MonoBehaviour
     if (!BatteriesRequired) powered = true;
 
     var piped = !pipesRequired || (cradleNetwork && cradleNetwork.isConnected() && cradleNetwork.ApplyHeat(heatOutputPerSecond * delta));
-
+      
     return powered && piped;
   }
 
@@ -140,6 +143,11 @@ public class DeviceBase : MonoBehaviour
     }
 
     var delta = cumulativeDelta;
+
+    var canCycle = this.CanCycle();
+    
+    if(animator && animator.runtimeAnimatorController)
+      animator.SetBool("Running", canCycle);
 
     if (this.CanCycle())
     {
