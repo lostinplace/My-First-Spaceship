@@ -372,11 +372,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5539596175555725506}
     m_Modifications:
-    - target: {fileID: 3356099581762430034, guid: 69f9ef04e1f77e64c82ba148627c485c,
-        type: 3}
-      propertyPath: myDevice
-      value: 
-      objectReference: {fileID: 9110580511978487175}
     - target: {fileID: 6442398117022907304, guid: 69f9ef04e1f77e64c82ba148627c485c,
         type: 3}
       propertyPath: m_Name
@@ -452,6 +447,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.0087586
       objectReference: {fileID: 0}
+    - target: {fileID: 3356099581762430034, guid: 69f9ef04e1f77e64c82ba148627c485c,
+        type: 3}
+      propertyPath: myDevice
+      value: 
+      objectReference: {fileID: 9110580511978487175}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69f9ef04e1f77e64c82ba148627c485c, type: 3}
 --- !u!114 &891431935560612925 stripped
@@ -673,6 +673,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5539596175555725506}
     m_Modifications:
+    - target: {fileID: 1593426500424445997, guid: e6bead2a726c0574fb30a4e36b252bd0,
+        type: 3}
+      propertyPath: m_Name
+      value: working_alarm
+      objectReference: {fileID: 0}
     - target: {fileID: 1593426500424150029, guid: e6bead2a726c0574fb30a4e36b252bd0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -742,11 +747,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.001494
-      objectReference: {fileID: 0}
-    - target: {fileID: 1593426500424445997, guid: e6bead2a726c0574fb30a4e36b252bd0,
-        type: 3}
-      propertyPath: m_Name
-      value: working_alarm
       objectReference: {fileID: 0}
     - target: {fileID: 7374363167451586253, guid: e6bead2a726c0574fb30a4e36b252bd0,
         type: 3}
@@ -1111,6 +1111,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: bcbde29f2a86df842ac2d3ddb0918a9d, type: 2}
+    - target: {fileID: 9500000, guid: f2e9b90924b38d848805ed1c46c3ef60, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a9cce693e9dc60c41abf34fc301bf8cb, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2e9b90924b38d848805ed1c46c3ef60, type: 3}
 --- !u!4 &7684355254109794031 stripped
