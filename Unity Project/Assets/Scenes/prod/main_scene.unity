@@ -635,7 +635,7 @@ PrefabInstance:
     - target: {fileID: 2659986214096367521, guid: 56995cd28cc2d6c459850e9095cd7cba,
         type: 3}
       propertyPath: overrideStartingPipeHeat
-      value: 20
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 5429829733450392194, guid: 56995cd28cc2d6c459850e9095cd7cba,
         type: 3}
