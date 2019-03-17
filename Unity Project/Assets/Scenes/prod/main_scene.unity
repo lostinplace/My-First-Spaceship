@@ -629,7 +629,7 @@ PrefabInstance:
     - target: {fileID: 2659986214096367521, guid: 56995cd28cc2d6c459850e9095cd7cba,
         type: 3}
       propertyPath: overrideStartingPipeIntegrity
-      value: 90
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 2659986214096367521, guid: 56995cd28cc2d6c459850e9095cd7cba,
         type: 3}
@@ -665,6 +665,11 @@ PrefabInstance:
         type: 3}
       propertyPath: powerConsumptionPerSecond
       value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2374419646065556637, guid: 56995cd28cc2d6c459850e9095cd7cba,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56995cd28cc2d6c459850e9095cd7cba, type: 3}
