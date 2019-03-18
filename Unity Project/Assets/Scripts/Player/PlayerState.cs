@@ -176,7 +176,7 @@ public class PlayerState : MonoBehaviour
 
     foodSupplyInSeconds -= delta;
 
-    hungry = foodSupplyInSeconds < (SceneChanger.settings.startingFoodSupplyInSeconds / 3);
+    hungry = foodSupplyInSeconds < (SceneChanger.settings.startingFoodSupplyInSeconds / 4);
 
     if(foodSupplyInSeconds <= 0)
       TriggerEndgame("You passed out from hunger");

@@ -1495,11 +1495,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 602bfedbc7822eb43ac2564e2dd0f0b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AmbienceEvent: event:/ambience
-  TitleMusicEvent: event:/music/title
   DangerAirEvent: event:/danger_cues/danger_air
+  DangerHungerEvent: event:/danger_cues/danger_food
   GameOverSnapshotEvent: event:/game_over
-  GameOverMusicEvent: event:/music/game_over_bgm
 --- !u!1 &3587781049261440280
 GameObject:
   m_ObjectHideFlags: 0
