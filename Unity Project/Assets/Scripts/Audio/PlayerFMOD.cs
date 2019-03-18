@@ -9,6 +9,10 @@ public class PlayerFMOD : MonoBehaviour
     private bool HasTriggeredSuffocation;
 
     [FMODUnity.EventRef]
+    public string DangerHungerEvent;
+    private bool HasTriggeredHunger;
+
+    [FMODUnity.EventRef]
     public string GameOverSnapshotEvent;
     private bool HasTriggeredGameOver;
 
@@ -34,6 +38,16 @@ public class PlayerFMOD : MonoBehaviour
         else if (playerState && !playerState.IsSuffocating)
         {
           HasTriggeredSuffocation = false;
+        }
+
+        if (playerState && playerState.IsHungry && !HasTriggeredHunger)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot(DangerHungerEvent);
+            HasTriggeredHunger = true;
+        }
+        else if (playerState && !playerState.IsHungry)
+        {
+            HasTriggeredHunger = false;
         }
 
         if (playerState && playerState.IsGameOver && !HasTriggeredGameOver)

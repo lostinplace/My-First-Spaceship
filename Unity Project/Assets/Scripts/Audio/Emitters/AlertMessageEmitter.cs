@@ -16,6 +16,7 @@ public class AlertMessageEmitter : MonoBehaviour
         Alerts.setParameterValue("is_engine_offline", playerState && playerState.EngineIsActive ? 0 : 1);
         Alerts.setParameterValue("is_air_offline", playerState && playerState.AirIsActive ? 0 : 1);
         Alerts.setParameterValue("is_food_offline", playerState && playerState.FridgeIsActive ? 0 : 1);
+        Alerts.setParameterValue("is_hungry", playerState && playerState.IsHungry ? 1 : 0);
 
         if (playerState)
         {
