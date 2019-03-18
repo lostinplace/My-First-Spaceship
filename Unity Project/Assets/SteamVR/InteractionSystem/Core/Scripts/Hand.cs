@@ -620,7 +620,15 @@ namespace Valve.VR.InteractionSystem
 
                     if (attachedObjects[index].attachedObject != null)
                     {
-                        attachedObjects[index].attachedObject.transform.parent = parentTransform;
+                        try
+                        {
+                            attachedObjects[index].attachedObject.transform.parent = parentTransform;
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e);
+                        }
+                        
                     }
                 }
 
