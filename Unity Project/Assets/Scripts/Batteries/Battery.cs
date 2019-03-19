@@ -7,7 +7,7 @@ public partial class Battery : Lockable, Handleable.HandleableItem
   public Plug currentPlug = null;
   public Plug potentialPlug = null;
   
-  public bool isBeingHeld = false;
+  public bool isBeingHeld { get; set; }
 
   private PlayerState playerState => SceneChanger.playerState;
   
@@ -17,6 +17,7 @@ public partial class Battery : Lockable, Handleable.HandleableItem
     isBeingHeld = true;
     if (currentPlug) currentPlug.DetachBattery();
     if(playerState) playerState.BatteriesHeld++;
+    currentPlug = null;
   }
 
   Color getEmissiveColor()
@@ -44,6 +45,7 @@ public partial class Battery : Lockable, Handleable.HandleableItem
   {
     Handleable.InitializeHandleableItem(this);
     StartedCharging = false;
+    isBeingHeld = false;
     BatteryMaterials = new Dictionary<EnergyState, Material>()
     {
       {EnergyState.GOOD, Resources.Load<Material>("battery_good")},
@@ -79,6 +81,11 @@ public partial class Battery : Lockable, Handleable.HandleableItem
     {
       myRenderer.material.DisableKeyword("_EMISSION");
       return;
+    }
+
+    if(currentPlug && currentPlug.myDevice && !currentPlug.myDevice.currentBattery)
+    {
+      currentPlug.myDevice.AttachBattery(this);
     }
 
     var color = getEmissiveColor();
