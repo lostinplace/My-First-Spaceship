@@ -34,7 +34,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1019155076}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.817, z: 0.6}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.0012843348, y: 0.0012843348, z: 0.0012843348}
   m_Children:
   - {fileID: 5408998276790263346}
@@ -55,8 +55,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smokePrefab: {fileID: 19800000, guid: 5a97962f7d5ba4df0823334b52c7c02c, type: 3}
   smokeSpawnPoint: {fileID: 1702415433064106170}
-  currentCradle: {fileID: 0}
-  potentialCradle: {fileID: 0}
   pipeBurstAudio:
     m_PersistentCalls:
       m_Calls:
@@ -146,10 +144,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 57.81173
-  m_Height: 272.17767
+  m_Radius: 50.329926
+  m_Height: 291.1007
   m_Direction: 1
-  m_Center: {x: -0.00019836429, y: 63.224724, z: -0.000005722047}
+  m_Center: {x: -1.0690304, y: 56.119526, z: -0.00000580112}
 --- !u!114 &1019155078
 MonoBehaviour:
   m_ObjectHideFlags: 0

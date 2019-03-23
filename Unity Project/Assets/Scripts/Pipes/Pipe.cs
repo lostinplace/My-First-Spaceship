@@ -12,7 +12,7 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
   [SerializeField] public GameObject smokeSpawnPoint;
   protected ParticleSystem smoke;
   protected bool isBeingHeld = false;
-  public Cradle currentCradle, potentialCradle;
+  public Cradle currentCradle { get; set; }
   private static PlayerState playerState => SceneChanger.playerState;
 
   public bool IsBeingHeld { get => isBeingHeld; }
@@ -30,6 +30,7 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
 
   public void OnPickup()
   {
+    SceneChanger.CleanupList.Add(this.gameObject);
     Unlock();
     isBeingHeld = true;
     if (currentCradle)
@@ -43,17 +44,8 @@ public partial class Pipe : Lockable, Handleable.HandleableItem
   public void OnDrop()
   {
     isBeingHeld = false;
-    if (currentCradle)
-    {
-      currentCradle.DetachPipe();
-    }
-    if (potentialCradle != null)
-    {
-      potentialCradle.ProcessCollision(this);
-    }
     if( playerState )
       playerState.PipesHeld--;
-    SceneChanger.CleanupList.Add(this.gameObject);
   }
 
   public GameObject GetGameObject() {

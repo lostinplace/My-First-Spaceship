@@ -7,12 +7,6 @@ using UnityEngine.Events;
 /*Stationary part of the ship that other pipes plug into.*/
 public partial class Cradle : MonoBehaviour
 {
-
-  private void OnTriggerEnter(Collider other) {
-    Pipe tmpPipe = other.gameObject.GetComponent<Pipe>();
-    ProcessCollision(tmpPipe);
-  }
-
   public bool startWithPipe = true;
 
   public float overrideStartingPipeIntegrity = 0;
@@ -54,20 +48,6 @@ public partial class Cradle : MonoBehaviour
     isLoading = false;
   }
 
-  public void ProcessCollision( Pipe tmpPipe )
-  {
-
-    if (!tmpPipe) return;
-    if (!tmpPipe.IsBeingHeld && !connectedPipe)
-    {
-      AttachPipe(tmpPipe);
-    }
-    else
-    {
-      tmpPipe.potentialCradle = this;
-    }
-  }
-
   public void AttachPipe(Pipe aPipe)
   {
     if(!connectPipe(aPipe)) return;
@@ -92,11 +72,11 @@ public partial class Cradle : MonoBehaviour
     pipeOutAudio.Invoke();
   }
 
-  private void OnTriggerExit(Collider other)
+  private void OnTriggerStay(Collider other)
   {
     Pipe tmpPipe = other.gameObject.GetComponent<Pipe>();
-    if (!tmpPipe) return;
-    tmpPipe.potentialCradle = null;
+    if (!tmpPipe || connectedPipe || tmpPipe.currentCradle || tmpPipe.IsBeingHeld) return;
+    this.AttachPipe(tmpPipe);
   }
 
   void Update() {

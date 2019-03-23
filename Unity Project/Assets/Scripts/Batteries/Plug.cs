@@ -114,6 +114,6 @@ public class Plug : MonoBehaviour
 
   void Update()
   {
-    placeholderRenderer.enabled = playerState.BatteriesHeld > 0 && !currentBattery;
+    placeholderRenderer.enabled = playerState && playerState.BatteriesHeld > 0 && !currentBattery;
   }
 }

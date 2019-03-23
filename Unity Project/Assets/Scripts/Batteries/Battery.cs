@@ -13,6 +13,7 @@ public partial class Battery : Lockable, Handleable.HandleableItem
   
   public void OnPickup()
   {
+    SceneChanger.CleanupList.Add(this.gameObject);
     Unlock();
     isBeingHeld = true;
     if (currentPlug) currentPlug.DetachBattery();
@@ -32,7 +33,6 @@ public partial class Battery : Lockable, Handleable.HandleableItem
     isBeingHeld = false;
     if (potentialPlug) potentialPlug.ProcessCollision(this);
     if(playerState) playerState.BatteriesHeld--;
-    SceneChanger.CleanupList.Add(this.gameObject);
   }
   
   public GameObject GetGameObject() {

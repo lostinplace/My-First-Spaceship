@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using Valve.VR;
+using UnityEngine.SceneManagement;
 
 public class GameOverScene : MonoBehaviour
 {
@@ -12,7 +14,8 @@ public class GameOverScene : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
-      SteamVR_Fade.Start(Color.clear, 0f);
+    SteamVR_Fade.Start(Color.clear, 0f);
+    
   }
 
   // Update is called once per frame

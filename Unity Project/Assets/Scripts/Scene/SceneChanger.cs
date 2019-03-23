@@ -2,6 +2,7 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Valve.VR;
 
 public static class SceneChanger
@@ -16,7 +17,7 @@ public static class SceneChanger
   private static PlayerState _playerState;
   private static bool blockPlayerState = false;
 
-  public static List<GameObject> CleanupList = new List<GameObject>();
+  public static HashSet<GameObject> CleanupList { get; set; } = new HashSet<GameObject>();
 
   private static bool _isFadingTitleMusic = false;
   public static bool isFadingTitleMusic
@@ -78,11 +79,6 @@ public static class SceneChanger
     gameOverMessage = message;
     blockPlayerState = true;
     var leftovers = SceneManager.GetActiveScene().GetRootGameObjects();
-    foreach (var item in CleanupList)
-    {
-      GameObject.DestroyImmediate(item);
-    }
-    CleanupList.Clear();
 
     Valve.VR.SteamVR_LoadLevel.Begin(GAME_OVER);
     
@@ -90,6 +86,7 @@ public static class SceneChanger
     SceneChanger.playerState = null;
     
     blockPlayerState = false;
+    CleanupList.ToList().ForEach(GameObject.DestroyImmediate);
   }
 
   public static void GoToMainMenu() {
