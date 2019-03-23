@@ -759,7 +759,7 @@ PrefabInstance:
     - target: {fileID: 2659986214096367521, guid: 56995cd28cc2d6c459850e9095cd7cba,
         type: 3}
       propertyPath: overrideStartingPipeIntegrity
-      value: 300
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 2659986214096367521, guid: 56995cd28cc2d6c459850e9095cd7cba,
         type: 3}
@@ -2691,15 +2691,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 675964276, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.29
+      value: -0.048
       objectReference: {fileID: 0}
     - target: {fileID: 675964276, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.033
+      value: 1.034
       objectReference: {fileID: 0}
     - target: {fileID: 675964276, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.227
+      value: -2.345
       objectReference: {fileID: 0}
     - target: {fileID: 675964276, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
       propertyPath: m_LocalRotation.x
