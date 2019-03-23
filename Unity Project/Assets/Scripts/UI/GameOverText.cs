@@ -13,9 +13,8 @@ public class GameOverText : MonoBehaviour
     public float colorTolerence = 0f;
     public static readonly float DEFAULT_COLOR_TOLERENCE_RO = .003f;
     protected string[] autoMessages = new string[] {
-        "Your computer automatically called called space highway - side assistance.",
-        "You're going to have to call someone to pick you up from Mars.",
-        "Probably your parents...", "Who told you not to buy this ship.",
+        "Someone will have to pick you up from Mars.",
+        "Probably your parents, who told you not to buy this ship.",
         "Game over."
     };
 

@@ -103,7 +103,6 @@ public partial class Battery : Lockable, Handleable.HandleableItem
         var nowColor = iteration % 2 == 0 ? new Color(0,0,0) : color;
         myRenderer.material.SetColor("_EmissionColor", nowColor);
       }
-      return;
     } else
     {
       playedChargingSoundForThisPlug = false;
