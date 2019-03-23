@@ -16,6 +16,10 @@ public class PlayerFMOD : MonoBehaviour
     public string GameOverSnapshotEvent;
     private bool HasTriggeredGameOver;
 
+    [FMODUnity.EventRef]
+    public string GameWonEvent;
+    private bool HasTriggeredGameWon;
+
     private PlayerState playerState => SceneChanger.playerState;
 
     // Start is called before the first frame update
@@ -28,6 +32,7 @@ public class PlayerFMOD : MonoBehaviour
         if (SceneChanger.isSceneTitle)
         {
             HasTriggeredGameOver = false;
+            HasTriggeredGameWon = false;
         }
 
         if (playerState && playerState.IsSuffocating && !HasTriggeredSuffocation)
@@ -54,6 +59,11 @@ public class PlayerFMOD : MonoBehaviour
         {
             FMODUnity.RuntimeManager.PlayOneShot(GameOverSnapshotEvent);
             HasTriggeredGameOver = true;
+        }
+        else if (playerState && playerState.HasWon && !HasTriggeredGameWon)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot(GameWonEvent);
+            HasTriggeredGameWon = true;
         }
     }
 }

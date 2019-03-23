@@ -11,6 +11,7 @@ public enum HoldingTypes
 public class PlayerState : MonoBehaviour
 {  
   private bool gameOver = false;
+  private bool hasWon = false;
   private string gameOverMessage;
  
   public float currentTripTime
@@ -89,6 +90,11 @@ public class PlayerState : MonoBehaviour
   {
     get => gameOver;
   }
+
+  public bool HasWon
+  {
+    get => hasWon;
+  }
   
   private float curAirlessTime;
 
@@ -164,7 +170,7 @@ public class PlayerState : MonoBehaviour
       airSupplyInSeconds -= delta;
       if(airSupplyInSeconds <= 0 - SceneChanger.settings.lungCapacityInSeconds)
       {
-        TriggerEndgame("You passed out from lack of oxygen");
+        TriggerEndgame("You passed out from lack of oxygen", true);
       }
 
       if (airSupplyInSeconds < 0)
@@ -179,25 +185,28 @@ public class PlayerState : MonoBehaviour
     hungry = foodSupplyInSeconds < (SceneChanger.settings.startingFoodSupplyInSeconds / 4);
 
     if(foodSupplyInSeconds <= 0)
-      TriggerEndgame("You passed out from hunger");
+      TriggerEndgame("You passed out from hunger", true);
 
     if (EngineIsActive)
     {
       distanceTraveledInSeconds += delta;
       if(distanceTraveledInSeconds >= SceneChanger.settings.destinationDistanceInSeconds)
-        TriggerEndgame("You successfully kept your \"new\" spaceship together long enough to get home!");
+      {
+        TriggerEndgame("You successfully kept your \"new\" spaceship together long enough to get home!", false);
+      }
     }
 
     currentTripTime += delta;
     if(currentTripTime >= SceneChanger.settings.timeLimitInSeconds)
-      TriggerEndgame("Your engine gave out");
+      TriggerEndgame("Your engine gave out", true);
   }
 
-  void TriggerEndgame(string message)
+  void TriggerEndgame(string message, bool hasLost = true)
   {
     if (exited) return;
     exited = true;
-    gameOver = true;
+    gameOver = hasLost;
+    hasWon = !hasLost;
     gameOverMessage = message;
     SteamVR_Fade.Start(Color.black, 2.0f);
     SceneChanger.GameOver(gameOverMessage);
