@@ -1498,6 +1498,7 @@ MonoBehaviour:
   DangerAirEvent: event:/danger_cues/danger_air
   DangerHungerEvent: event:/danger_cues/danger_food
   GameOverSnapshotEvent: event:/game_over
+  GameWonEvent: event:/destination_reached_chime
 --- !u!1 &3587781049261440280
 GameObject:
   m_ObjectHideFlags: 0
