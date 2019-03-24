@@ -17,6 +17,11 @@ public static class SceneChanger
   private static PlayerState _playerState;
   private static bool blockPlayerState = false;
 
+  public static bool hasWon
+  {
+    get => _playerState.HasWon;
+  }
+
   public static HashSet<GameObject> CleanupList { get; set; } = new HashSet<GameObject>();
 
   private static bool _isFadingTitleMusic = false;

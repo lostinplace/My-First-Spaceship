@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class GameOverFMOD : MonoBehaviour
 {
-    private PlayerState playerState => SceneChanger.playerState;
-
-    private FMODUnity.StudioEventEmitter GameoverMusicEmitter;
+    private FMODUnity.StudioEventEmitter GameLostEmitter, GameWonEmitter;
 
     [FMODUnity.EventRef]
     public string GameWonChimeEvent;
@@ -14,22 +12,22 @@ public class GameOverFMOD : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameoverMusicEmitter = gameObject.GetComponent<FMODUnity.StudioEventEmitter>();
-        //TODO: Set FMOD parameter for has_won
+        GameLostEmitter = gameObject.transform.Find("GameLost").GetComponent<FMODUnity.StudioEventEmitter>();
+        GameWonEmitter = gameObject.transform.Find("GameWon").GetComponent<FMODUnity.StudioEventEmitter>();
 
-        if (playerState && playerState.HasWon)
+        if (SceneChanger.hasWon)
         {
+            GameWonEmitter.Play();
             PlayGameWonEvent();
+        }
+        else
+        {
+            GameLostEmitter.Play();
         }
     }
 
     private void PlayGameWonEvent()
     {
         FMODUnity.RuntimeManager.PlayOneShot(GameWonChimeEvent);
-    }
-
-    public void FadeOutGameOverMusic()
-    {
-        GameoverMusicEmitter.Stop();
     }
 }
