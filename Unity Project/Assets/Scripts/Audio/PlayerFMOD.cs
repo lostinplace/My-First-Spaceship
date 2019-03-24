@@ -62,7 +62,15 @@ public class PlayerFMOD : MonoBehaviour
         }
         else if (playerState && playerState.HasWon && !HasTriggeredGameWon)
         {
-            FMODUnity.RuntimeManager.PlayOneShot(GameWonEvent);
+            if (playerState.MonitorIsActive)
+            {
+                FMODUnity.RuntimeManager.PlayOneShot(GameWonEvent);
+            }
+            else
+            {
+                FMODUnity.RuntimeManager.PlayOneShot(GameOverSnapshotEvent);
+            }
+
             HasTriggeredGameWon = true;
         }
     }
