@@ -26,7 +26,7 @@ public partial class Battery : Lockable, Handleable.HandleableItem
     return new Color(2.0f * (1 - chargeRatio), 2.0f * chargeRatio, 0);
   }
 
-  public static Dictionary<EnergyState, Material> BatteryMaterials;
+  public static Dictionary<EnergyState, Material> BatteryMaterials { get; set; }
 
   public void OnDrop()
   {
@@ -77,8 +77,9 @@ public partial class Battery : Lockable, Handleable.HandleableItem
 
   private void Update()
   {
-    if (this.isDead)
+    if (isDead)
     {
+      myRenderer.material = BatteryMaterials[EnergyState.DEAD];
       myRenderer.material.DisableKeyword("_EMISSION");
       return;
     }
@@ -103,7 +104,6 @@ public partial class Battery : Lockable, Handleable.HandleableItem
         var nowColor = iteration % 2 == 0 ? new Color(0,0,0) : color;
         myRenderer.material.SetColor("_EmissionColor", nowColor);
       }
-      return;
     } else
     {
       playedChargingSoundForThisPlug = false;
