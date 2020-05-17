@@ -14,7 +14,7 @@ Experience the wonder of your NEW (slightly used) spaceship in VR. All component
 # Team
 Project Manager: Shereen Bellamy
 
-Programmers: Chris Wheeley, Chris Greeley, Tom Dowey, Caroline Pasyanos
+Programmers: Chris Wheeler, Chris Greeley, Tom Dowey, Caroline Pasyanos
 
 Artists & Level Designers: Sam De Lara, Anthony Iovino
 
