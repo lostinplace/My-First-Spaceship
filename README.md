@@ -10,3 +10,17 @@ Experience the wonder of your NEW (slightly used) spaceship in VR. All component
 ![alt text](https://i.postimg.cc/2yDtVcwb/gameover.png)
 ![alt text](https://i.postimg.cc/GhbNRft6/My-First-Spaceship.png)
 ![alt text](https://i.postimg.cc/HLM3X0jQ/credits.png)
+
+# Team
+Project Manager: Shereen Bellamy
+
+Programmers: Chris Wheeley, Chris Greeley, Tom Dowey, Caroline Pasyanos
+
+Artists & Level Designers: Sam De Lara, Anthony Iovino
+
+Sound Designers: Shaun Cayabyab, Anthony Iovino
+
+# Meta
+Original Global Game Jam Page: https://globalgamejam.org/2019/games?title=My+First+Spaceship&country=US&city=&tools=All&diversifier=All&platforms=All
+
+Article about the team! https://its.northeastern.edu/2019/02/07/gaming-at-northeastern-is-booming-with-its-support/
