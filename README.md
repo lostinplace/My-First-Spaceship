@@ -21,6 +21,5 @@ Artists & Level Designers: Sam De Lara, Anthony Iovino
 Sound Designers: Shaun Cayabyab, Anthony Iovino
 
 # Meta
-Original Global Game Jam Page: https://globalgamejam.org/2019/games?title=My+First+Spaceship&country=US&city=&tools=All&diversifier=All&platforms=All
-
+Original Global Game Jam Page: https://globalgamejam.org/2019/games/my-first-spaceship
 Article about the team! https://its.northeastern.edu/2019/02/07/gaming-at-northeastern-is-booming-with-its-support/
