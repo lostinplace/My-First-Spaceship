@@ -16,9 +16,9 @@ Project Manager: Shereen Bellamy
 
 Programmers: Chris Wheeler, Chris Greeley, Tom Dowey, Caroline Pasyanos
 
-Artists & Level Designers: Sam De Lara, Anthony Iovino
+Artists & Level Designers: Sam De Lara, Pal Iovino
 
-Sound Designers: Shaun Cayabyab, Anthony Iovino
+Sound Designers: Shaun Cayabyab, Pal Iovino
 
 # Meta
 Original Global Game Jam Page: https://globalgamejam.org/2019/games/my-first-spaceship
