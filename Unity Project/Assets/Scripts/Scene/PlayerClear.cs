@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 using Valve.VR;
 
@@ -16,6 +17,7 @@ public class PlayerClear : MonoBehaviour
     var playerList = GameObject.FindGameObjectsWithTag("Player");
     while (playerList.Length > 1)
     {
+            UnityEngine.Debug.Log("Deleted Excess Player");
       GameObject.DestroyImmediate(playerList[1]);
       playerList = GameObject.FindGameObjectsWithTag("Player");
     }

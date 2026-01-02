@@ -53,6 +53,7 @@ namespace Valve.VR.InteractionSystem
         
         public SteamVR_Action_Boolean uiInteractAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("InteractUI");
 
+        public float scroll = 0.0f;
         public bool useHoverSphere = true;
         public Transform hoverSphereTransform;
         public float hoverSphereRadius = 0.05f;
@@ -974,10 +975,11 @@ namespace Valve.VR.InteractionSystem
                 {
                     // Holding down the mouse:
                     // move around a fixed distance from the camera
-                    transform.position = ray.origin + noSteamVRFallbackInteractorDistance * ray.direction;
+                    transform.position = ray.origin + (noSteamVRFallbackInteractorDistance + scroll) * ray.direction;
                 }
                 else
                 {
+                    scroll = 0.0f;
                     // Not holding down the mouse:
                     // cast out a ray to see what we should mouse over
 

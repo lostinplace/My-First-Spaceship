@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Specialized;
+using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 using Valve.VR;
 
@@ -12,7 +15,11 @@ public class PlayerState : MonoBehaviour
 {  
   private bool gameOver = false;
   private string gameOverMessage;
- 
+  private Vector3 startPosition;
+
+  public bool constrainMovement = false;
+  public float constrainRadius = .3f;
+
   public float currentTripTime
   {
     get;
@@ -138,6 +145,8 @@ public class PlayerState : MonoBehaviour
     if (!SceneChanger.settings) return;
     exited = false;
 
+    GameObject head = GameObject.Find("FallbackObjects");
+    startPosition = head.transform.position;
     ReceiveFood();
     airSupplyInSeconds = SceneChanger.settings.airSupplyInSeconds;
     currentTripTime = 0f;
@@ -148,6 +157,18 @@ public class PlayerState : MonoBehaviour
   {
     if (gameOver || !SceneChanger.settings) {
       return;
+    }
+    if (constrainMovement == true)
+    {
+      GameObject head = GameObject.Find("FallbackObjects");
+      float handMoveDistance = Input.GetAxisRaw("Mouse ScrollWheel");
+      GameObject hand = GameObject.Find("FallbackHand");
+      float distanceMoved = (float) (Math.Abs((head.transform.position - startPosition).magnitude));
+      hand.GetComponent<Valve.VR.InteractionSystem.Hand>().scroll += handMoveDistance;
+      if(distanceMoved > constrainRadius)
+      {
+        head.transform.position += (startPosition - head.transform.position).normalized;
+      }
     }
 
     var delta = Time.deltaTime;

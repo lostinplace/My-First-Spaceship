@@ -4,22 +4,48 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Valve.VR;
+using System.Diagnostics;
 
 public static class SceneChanger
 {
   // scene filenames
-  private static string MAIN_MENU = "main_menu";
-  private static string MAIN_SCENE = "main_scene";
-  private static string GAME_OVER = "game_over";
+
+  private static readonly string MAIN_MENU_VR = "main_menu";
+  private static readonly string MAIN_SCENE_VR = "main_scene";
+  private static readonly string GAME_OVER_VR = "game_over";
+
+  private static readonly string MAIN_MENU_NO_VR = "no_vr_main_menu";
+  private static readonly string MAIN_SCENE_NO_VR = "no_vr_main_scene";
+  private static readonly string GAME_OVER_NO_VR = "no_vr_game_over";
+    
+  private static string MAIN_MENU = MAIN_MENU_VR;
+  private static string MAIN_SCENE = MAIN_SCENE_VR;
+  private static string GAME_OVER = GAME_OVER_VR;
 
   public static string gameOverMessage;
 
   private static PlayerState _playerState;
   private static bool blockPlayerState = false;
+  private static bool _isNoVR = false;
 
   public static HashSet<GameObject> CleanupList { get; set; } = new HashSet<GameObject>();
-
   private static bool _isFadingTitleMusic = false;
+
+  public static bool isNoVR
+  {
+     get => _isNoVR;
+     set
+     {
+       _isNoVR = value;
+       if(_isNoVR == true)
+       {
+          MAIN_MENU = MAIN_MENU_NO_VR;
+          MAIN_SCENE = MAIN_SCENE_NO_VR;
+          GAME_OVER = GAME_OVER_NO_VR;
+       }
+     }
+  }
+
   public static bool isFadingTitleMusic
   {
     get => _isFadingTitleMusic;
@@ -71,7 +97,10 @@ public static class SceneChanger
   public static void LoadGame()
   {  
     _isFadingTitleMusic = true;
-    Valve.VR.SteamVR_LoadLevel.Begin(MAIN_SCENE);
+    if (isNoVR == false)
+      Valve.VR.SteamVR_LoadLevel.Begin(MAIN_SCENE);
+    else
+      SceneManager.LoadScene(MAIN_SCENE);
   }
 
   public static void GameOver( string message )
@@ -80,7 +109,10 @@ public static class SceneChanger
     blockPlayerState = true;
     var leftovers = SceneManager.GetActiveScene().GetRootGameObjects();
 
-    Valve.VR.SteamVR_LoadLevel.Begin(GAME_OVER);
+    if (isNoVR == false)
+      Valve.VR.SteamVR_LoadLevel.Begin(GAME_OVER);
+    else
+      SceneManager.LoadScene(GAME_OVER);
     
     GameObject.Destroy(playerState);
     SceneChanger.playerState = null;
@@ -91,6 +123,12 @@ public static class SceneChanger
 
   public static void GoToMainMenu() {
 
-    Valve.VR.SteamVR_LoadLevel.Begin(MAIN_MENU);
+        if (isNoVR == false)
+            Valve.VR.SteamVR_LoadLevel.Begin(MAIN_MENU);
+        else
+        {
+            UnityEngine.Debug.Log("Going to main menu via LoadScene");
+            SceneManager.LoadScene(MAIN_MENU);
+        }
   }
 }

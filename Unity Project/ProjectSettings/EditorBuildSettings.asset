@@ -17,4 +17,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/prod/game_over.unity
     guid: 3d778e4935a9f5447a02129f869a6b4b
+  - enabled: 0
+    path: Assets/Scenes/no_vr/no_vr_initial.unity
+    guid: 8e2a2dd7ca44fb14f9dc4cd359d32003
+  - enabled: 0
+    path: Assets/Scenes/no_vr/no_vr_main_menu.unity
+    guid: 9cf9525f459601045817965b5dd99c7f
+  - enabled: 0
+    path: Assets/Scenes/no_vr/no_vr_main_scene.unity
+    guid: cb786ffe1d0485d4980b58014b2df03a
+  - enabled: 0
+    path: Assets/Scenes/no_vr/no_vr_game_over.unity
+    guid: 984cee7df2295884c822a58bc96f578a
   m_configObjects: {}
