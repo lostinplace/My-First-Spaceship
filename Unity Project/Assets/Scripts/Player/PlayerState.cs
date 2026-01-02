@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Specialized;
 using System.IO;
+using System.Reflection;
 using UnityEngine;
 using Valve.VR;
 using UnityEngine.SceneManagement;
@@ -19,6 +20,7 @@ public class PlayerState : MonoBehaviour
 
   public bool constrainMovement = false;
   public float constrainRadius = .3f;
+
 
   public float currentTripTime
   {
@@ -129,6 +131,10 @@ public class PlayerState : MonoBehaviour
     get => hungry;
   }
 
+  private FieldInfo interactorDistanceField = typeof (Valve.VR.InteractionSystem.Hand).GetField(
+      "noSteamVRFallbackInteractorDistance", 
+      BindingFlags.NonPublic | BindingFlags.GetField | BindingFlags.Instance
+    );
   // todo: subscribe to some player controller event
   public void ReceiveFood()
   {
@@ -151,6 +157,19 @@ public class PlayerState : MonoBehaviour
     airSupplyInSeconds = SceneChanger.settings.airSupplyInSeconds;
     currentTripTime = 0f;
   }
+    void ScrollInteractorDistance(float delta) /* This whole thing is a bit of a hack
+        I was able to modify the source code of Hand.cs in the SteamVR kit to achive 
+        this by adding another field that was public, but that seems to be a no-go 
+        when actually making a release build. So we resort to this, reflection is 
+        slow but it helps to avoid a bit-level hack. */
+    {
+        Debug.Log("HERE");
+      GameObject hand = GameObject.Find("FallbackHand");
+      float interactorDistance = (float) interactorDistanceField.GetValue(hand);
+        Debug.Log("InteractorDistance " + interactorDistance.ToString());
+      interactorDistance += delta;
+      interactorDistanceField.SetValue(hand, interactorDistance);
+    }
   
   // Update is called once per frame
   void Update()
@@ -182,6 +201,7 @@ public class PlayerState : MonoBehaviour
       GameObject hand = GameObject.Find("FallbackHand");
       float distanceMoved = (float) (Math.Abs((head.transform.position - startPosition).magnitude));
       hand.GetComponent<Valve.VR.InteractionSystem.Hand>().scroll += handMoveDistance;
+      //ScrollInteractorDistance(handMoveDistance);
       if(distanceMoved > constrainRadius)
       {
         head.transform.position += (startPosition - head.transform.position).normalized;

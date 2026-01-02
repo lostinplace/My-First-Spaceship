@@ -3934,7 +3934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27b12d2042253164197f8c5a990f309d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  constrainMovement: 0
+  constrainMovement: 1
   constrainRadius: 0.3
 --- !u!1001 &1446793482
 PrefabInstance:
