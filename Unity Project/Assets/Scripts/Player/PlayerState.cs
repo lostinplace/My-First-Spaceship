@@ -220,10 +220,8 @@ public class PlayerState : MonoBehaviour
     gameOver = true;
     gameOverMessage = message;
     SteamVR_Fade.Start(Color.black, 2.0f);
-        //AlertMessageEmitter.Alerts.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     foreach(var audio in GameObject.FindObjectsOfType<AlertMessageEmitter>())
         audio.StopSounds();
-    //FMOD.Studio.Bus.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     SceneChanger.GameOver(gameOverMessage);
   }
 

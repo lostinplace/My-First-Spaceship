@@ -65,5 +65,6 @@ MonoBehaviour:
   - Master Bank
   - Master Bank
   - Master Bank
-  Banks:
   - Master Bank
+  - Master Bank
+  Banks: []

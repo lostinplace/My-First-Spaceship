@@ -89,7 +89,8 @@ namespace Valve.VR.InteractionSystem
 				GUI.Label( new Rect( 10.0f, 10.0f, 600.0f, 400.0f ),
 					"WASD/Arrow Keys to translate the camera\n" +
 					"Right mouse click to rotate the camera\n" +
-					"Left mouse click for standard interactions.\n" );
+					"Left mouse click for standard interactions\n" +
+					"Scroll mouse wheel to move objects closer/further.\n");
 			}
 		}
 	}
