@@ -40,14 +40,18 @@ public class AlertMessageEmitter : MonoBehaviour
         Alerts.start();
     }
 
-  // Update is called once per frame
-  void Update()
-  {
-    this.SetAlarmStates();
-
-    if (playerState && playerState._exited)
-    {
+    public void StopSounds() {
       this.Alerts.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
-  }
+
+    // Update is called once per frame
+    void Update()
+    {
+        this.SetAlarmStates();
+
+        if (playerState && playerState._exited)
+        {
+            this.Alerts.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        }
+    }
 }
