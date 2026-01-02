@@ -7,10 +7,9 @@ Experience the wonder of your NEW (slightly used) spaceship in VR. All component
 ![alt text](Screenshots/Interior5.png)
 ![alt text](Screenshots/Interior2.png)
 ![alt text](Screenshots/Interior0.png)
-![alt text](Unity20%Project/Assets/Art/Icon.png)
 ![alt text](Screenshots/MyFirstSpaceshipModelPic.png)
+![alt text](https://github.com/lostinplace/My-First-Spaceship/raw/refs/heads/master/Unity%20Project/Assets/Art/Icon.png)
 ![alt text](Screenshots/GameOver.png)
-
 ![alt text](Screenshots/Credits.png)
 
 # Team
