@@ -3,6 +3,7 @@ using System.Collections.Specialized;
 using System.IO;
 using UnityEngine;
 using Valve.VR;
+using UnityEngine.SceneManagement;
 
 public enum HoldingTypes
 {
@@ -154,6 +155,23 @@ public class PlayerState : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
+    if(Input.GetKey("escape") || Input.GetKeyDown(KeyCode.Escape))
+    {
+      string sceneName = SceneManager.GetActiveScene().name;
+      Debug.Log("Escape triggerd on scene " + sceneName);
+      if (sceneName.Contains("game_over")) {
+        Debug.Log("Going to main menu");
+        SceneChanger.GoToMainMenu();
+      }
+      else if (sceneName.Contains("main_scene")) {
+        Debug.Log("Going to game over screen");
+        TriggerEndgame("You quit");
+      }
+      else {
+        Debug.Log("Quitting Application");
+        Application.Quit();
+      }
+    }
     if (gameOver || !SceneChanger.settings) {
       return;
     }

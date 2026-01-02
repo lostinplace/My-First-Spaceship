@@ -2852,6 +2852,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: spare battery 2
       objectReference: {fileID: 0}
+    - target: {fileID: 675964273, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
+      propertyPath: currentChargeInSeconds
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 675964273, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
+      propertyPath: maxChargeInSeconds
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 675964273, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
+      propertyPath: lifetimeInSeconds
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 675964276, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.967
@@ -2895,18 +2907,6 @@ PrefabInstance:
     - target: {fileID: 675964276, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -103.353004
-      objectReference: {fileID: 0}
-    - target: {fileID: 675964273, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
-      propertyPath: currentChargeInSeconds
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 675964273, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
-      propertyPath: maxChargeInSeconds
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 675964273, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
-      propertyPath: lifetimeInSeconds
-      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
@@ -3655,6 +3655,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: spare battery 2 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 675964273, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
+      propertyPath: currentChargeInSeconds
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 675964273, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
+      propertyPath: maxChargeInSeconds
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 675964273, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
+      propertyPath: lifetimeInSeconds
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 675964276, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.048
@@ -3698,18 +3710,6 @@ PrefabInstance:
     - target: {fileID: 675964276, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 675964273, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
-      propertyPath: currentChargeInSeconds
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 675964273, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
-      propertyPath: maxChargeInSeconds
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 675964273, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
-      propertyPath: lifetimeInSeconds
-      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
@@ -3934,8 +3934,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27b12d2042253164197f8c5a990f309d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  constrainMovement: 1
-  constrainRadius: 1
+  constrainMovement: 0
+  constrainRadius: 0.3
 --- !u!1001 &1446793482
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4992,6 +4992,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: spare battery 2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 675964273, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
+      propertyPath: currentChargeInSeconds
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 675964273, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
+      propertyPath: maxChargeInSeconds
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 675964273, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
+      propertyPath: lifetimeInSeconds
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 675964276, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.584
@@ -5035,18 +5047,6 @@ PrefabInstance:
     - target: {fileID: 675964276, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 675964273, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
-      propertyPath: currentChargeInSeconds
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 675964273, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
-      propertyPath: maxChargeInSeconds
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 675964273, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
-      propertyPath: lifetimeInSeconds
-      value: 45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 318c01c7da1f3ef439a754d36b2c1ebe, type: 3}
