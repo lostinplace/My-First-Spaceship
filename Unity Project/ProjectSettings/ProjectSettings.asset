@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: Spaceship Games
+  companyName: "My First Spaceship Team \u2665\uFE0F"
   productName: My First Spaceship
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
