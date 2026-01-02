@@ -4,13 +4,14 @@ Experience the wonder of your NEW (slightly used) spaceship in VR. All component
 
 # Screenshots
 ![alt text](Screenshots/Menu.png)
-![alt text](Screebshots/Interior5.png)
-![alt text](Screebshots/Interior2.png)
-![alt text](Screebshots/Interior0.png)
-![alt text](Screebshots/MyFirstSpaceshipModelPic)
-![alt text](Screebshots/GameOver.png)
-![alt text](Unity\ Project/Assets/Art/Icon.png)
-![alt text](Screebshots/Credits.png)
+![alt text](Screenshots/Interior5.png)
+![alt text](Screenshots/Interior2.png)
+![alt text](Screenshots/Interior0.png)
+![alt text](Screenshots/MyFirstSpaceshipModelPic)
+![alt text](Screenshots/GameOver.png)
+![alt text]("Unity Project/Assets/Art/Icon.png")
+
+![alt text](Screenshots/Credits.png)
 
 # Team
 Project Manager: Shereen Bellamy
